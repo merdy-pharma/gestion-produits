@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingBag, Mail, Lock, AlertCircle } from 'lucide-react';
+import { ShoppingBag, Mail, Lock, AlertCircle, Pill } from 'lucide-react';
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from '../lib/supabase';
 
@@ -64,7 +64,7 @@ const Login: React.FC = () => {
           <div className="px-6 py-8 sm:p-10">
             <div className="flex justify-center mb-6">
               <div className="bg-primary-50 p-3 rounded-full">
-                <ShoppingBag size={32} className="text-primary-500" />
+                <Pill size={32} className="text-primary-500" />
               </div>
             </div>
 
