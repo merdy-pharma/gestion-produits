@@ -191,7 +191,7 @@ const Products: React.FC = () => {
                   .insert({
                     product_id: newProduct.id,
                     type: "IN",
-                    reason: "AJUSTEMENT",
+                    reason: "RE-INITIAL.",
                     quantity: newProduct.stock,
                     comment: "Stock initial lors de la création du produit",
                   });
