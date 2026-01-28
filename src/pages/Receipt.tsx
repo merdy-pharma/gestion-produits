@@ -135,16 +135,16 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           {/* Header */}
           <div className="pos-header" style={{ textAlign: 'center', marginBottom: '4px' }}>
             <div style={{ fontWeight: 'bold', fontSize: '13px', margin: '0 0 2px 0' }}>
-              REHOBOTH BUSINESS GROUP
+              MERDY PHARMA
             </div>
             <div style={{ fontSize: '11px', margin: '1px 0' }}>
-              RCCM 18-A-01715
+              RCCM 20-A-00047
             </div>
             <div style={{ fontSize: '11px', margin: '1px 0' }}>
               ID.NAT 01-93-N40495R
             </div>
             <div style={{ fontSize: '11px', margin: '1px 0' }}>
-              45 BLVD LUMUMBA, MASINA
+              AV. BOLENGE C. MASINA
             </div>
             <div style={{ fontSize: '10px', margin: '1px 0' }}>
               Date/Heure : {formattedDate}
