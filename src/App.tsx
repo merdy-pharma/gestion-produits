@@ -20,7 +20,7 @@ import ProfilesPage from './pages/ProfilesPage';
 import Expenses from './pages/Expenses';
 import Cashledger from './pages/Cashledger';
 import AddCashEntry from './pages/addCashEntry';
-//import StockMovement from './pages/StockMovement';
+import StockMovement from './pages/StockMovement';
 import StockMovementHistory from './pages/StockMovementHistory';
 
 const InactivityWarning = () => {
