@@ -6,6 +6,7 @@ import {
   Package, 
   Users, 
   ShoppingCart, 
+  Cross,
   BarChartBig, 
   PieChart,
   ShoppingBag,
