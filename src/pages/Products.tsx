@@ -139,7 +139,7 @@ const Products: React.FC = () => {
             const movement = {
               product_id: editingProduct.id,
               type: diff > 0 ? "IN" : "OUT",
-              reason: "AJUSTEMENT",
+              reason: "REINITIALISATION",
               quantity: Math.abs(diff),
               comment: "Modification manuelle depuis fiche produit",
              // created_at: new Date().toISOString(),
