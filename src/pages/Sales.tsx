@@ -223,43 +223,7 @@ const Sales: React.FC = () => {
     return product.stock - (cartItem?.quantity || 0);
   };
 
-  // Look up client par téléphone
- /*
-  const handleCustomerLookup = async () => {
-    if (!customerPhone) return;
-    setSaleCompleted(false);
-    setShowReceiptModal(false);
-    setIsCustomerConfirmed(true);
-
-    try {
-      const { data: customer, error } = await supabase
-        .from('customers')
-        .select('id, full_name')
-        .eq('phone', customerPhone)
-        .single();
-
-      if (error && (error as any).code !== 'PGRST116') {
-        setError((error as any).message || 'Erreur recherche client');
-        return;
-      }
-
-      if (customer) {
-        setSelectedCustomerId(customer.id);
-        setCustomerName(customer.full_name ?? null);
-        toast.success(`Client trouvé : ${customer.full_name ?? customerPhone}`);
-      } else {
-        // Aucun client trouvé → client standard
-        setSelectedCustomerId('0');
-        setCustomerName('Standard');
-        setCustomerNotFound(false);
-        toast('Aucun client trouvé. Utilisation du client standard', { icon: '⚠️' });
-      }
-    } catch (err) {
-      console.error('handleCustomerLookup error', err);
-      setError('Erreur recherche client');
-    }
-  };
-      */
+ 
   
 // Finalise la vente : insère sale + sale_items, met à jour stock, prépare reçu
   
@@ -305,7 +269,7 @@ const Sales: React.FC = () => {
 
   setIsSubmitting(true);
   toast.loading("Validation de la vente…", { id: "sale-progress" });
-  setCustomerName=customerPhone;
+  setCustomerName(customerPhone);
 
   try {
     // 🔄 Taux de change (fallback safe)
