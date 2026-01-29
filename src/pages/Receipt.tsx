@@ -47,7 +47,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
 
             .pos-receipt {
               width: 220px !important;
-              max-width: 80mm !important;
+              max-width: none !important;
               margin: 0 !important;
               padding: 4px !important;
               font-size: 10px !important;
