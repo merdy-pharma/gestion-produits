@@ -305,6 +305,7 @@ const Sales: React.FC = () => {
 
   setIsSubmitting(true);
   toast.loading("Validation de la vente…", { id: "sale-progress" });
+  setCustomerName=customerPhone;
 
   try {
     // 🔄 Taux de change (fallback safe)
