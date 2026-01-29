@@ -224,6 +224,7 @@ const Sales: React.FC = () => {
   };
 
   // Look up client par téléphone
+ /*
   const handleCustomerLookup = async () => {
     if (!customerPhone) return;
     setSaleCompleted(false);
@@ -258,7 +259,8 @@ const Sales: React.FC = () => {
       setError('Erreur recherche client');
     }
   };
-
+      */
+  
 // Finalise la vente : insère sale + sale_items, met à jour stock, prépare reçu
   
   const handleCompleteSale = async () => {
@@ -607,7 +609,7 @@ const Sales: React.FC = () => {
     <div className="flex flex-col sm:flex-row items-stretch gap-2">
 
       <input
-        type="tel"
+        type="text"
         placeholder="Entrer le nom du client"
         className="flex-1 px-3 py-2 border rounded-md h-11"
         value={customerPhone}
