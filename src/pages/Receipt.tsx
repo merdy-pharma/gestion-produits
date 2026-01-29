@@ -50,7 +50,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
               max-width: none !important;
               margin: 0 !important;
               padding: 4px !important;
-              font-size: 10px !important;
+              font-size: 11px !important;
               line-height: 1.1 !important;
               color: black !important;
               background: white !important;
