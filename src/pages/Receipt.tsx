@@ -137,13 +137,13 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <div style={{ fontWeight: 'bold', fontSize: '16px', margin: '0 0 2px 0' }}>
               MERDY PHARMA
             </div>
-            <div style={{ fontSize: '11px', margin: '1px 0' }}>
+            <div style={{ fontSize: '10px', margin: '1px 0' }}>
               RCCM 20-A-00047
             </div>
-            <div style={{ fontSize: '11px', margin: '1px 0' }}>
+            <div style={{ fontSize: '10px', margin: '1px 0' }}>
               ID.NAT 01-93-N40495R
             </div>
-            <div style={{ fontSize: '11px', margin: '1px 0' }}>
+            <div style={{ fontSize: '10px', margin: '1px 0' }}>
               AV. BOLENGE C. MASINA
             </div>
             <div style={{ fontSize: '10px', margin: '1px 0' }}>
