@@ -146,10 +146,10 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <div style={{ fontSize: '13px', margin: '1px 0' }}>
               AV. BOLENGE C. MASINA
             </div>
-            <div style={{ fontSize: '11px', margin: '1px 0' }}>
+            <div style={{ fontSize: '10px', margin: '1px 0' }}>
               Date/Heure : {formattedDate}
             </div>
-            <div style={{ fontSize: '11px', fontWeight: 'bold', margin: '1px 0' }}>
+            <div style={{ fontSize: '10px', fontWeight: 'bold', margin: '1px 0' }}>
               N° Fac : {invoiceNumber}
             </div>
           </div>
