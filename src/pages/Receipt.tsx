@@ -213,7 +213,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                     breakInside: 'avoid',
                   }}
                 >
-                  <div className="pos-item-col" style={{ width: '10%', fontSize: '11px', textAlign: 'center' }}>
+                  <div className="pos-item-col" style={{ width: '10%', fontSize: '12px', textAlign: 'center' }}>
                     {item.quantity}
                   </div>
                   <div
