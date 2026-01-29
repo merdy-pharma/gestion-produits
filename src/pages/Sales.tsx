@@ -619,7 +619,7 @@ const Sales: React.FC = () => {
         }}
         required
       />
-
+{/*
       <button
         onClick={handleCustomerLookup}
         className={`px-4 h-11 rounded-md text-white flex items-center justify-center
@@ -644,6 +644,7 @@ const Sales: React.FC = () => {
       <p className="text-sm text-red-600">❌ Aucun client trouvé avec ce numéro.</p>
     )}
   </div>
+  */}
 
   {/* PAIEMENT */}
   <div className="mt-4 space-y-2">
