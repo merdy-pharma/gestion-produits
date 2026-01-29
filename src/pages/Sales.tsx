@@ -51,7 +51,6 @@ const Sales: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedPayment, setSelectedPayment] = useState<string>('');
-  const [customerPhone, setCustomerPhone] = useState('0');
   const [customerName, setCustomerName] = useState<string | null>(null);
   const receiptRef = useRef<HTMLDivElement | null>(null);
   const handlePrint = useReactToPrint({
@@ -66,8 +65,6 @@ const Sales: React.FC = () => {
   const [showReceiptModal, setShowReceiptModal] = useState(false);
   const [selectedSaleId, setSelectedSaleId] = useState<number | null>(null);
   const { user } = useAuth();
-  const [isCustomerConfirmed, setIsCustomerConfirmed] = useState(false);
-  const [customerNotFound, setCustomerNotFound] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const formatNumber = (value: number) => {
