@@ -631,7 +631,7 @@ const Sales: React.FC = () => {
       >
         Retrouver
       </button>
-
+*/}
     </div>
 
     {isCustomerConfirmed && (
