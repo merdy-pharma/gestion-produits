@@ -584,7 +584,9 @@ const Sales: React.FC = () => {
         }}
         required
       />
-        {/* CLIENT */}
+    </div>
+  </div>
+   {/* CLIENT */}
       <div className="mt-4 space-y-2">
         <h3 className="font-medium mb-2">Nom du client</h3>
       
@@ -603,34 +605,6 @@ const Sales: React.FC = () => {
           </p>
         )}
       </div>
-
-{/*
-      <button
-        onClick={handleCustomerLookup}
-        className={`px-4 h-11 rounded-md text-white flex items-center justify-center
-          ${customerPhone.trim() === ""
-            ? "bg-gray-300 cursor-not-allowed"
-            : "bg-primary-500 hover:bg-primary-600"}
-        `}
-        disabled={customerPhone.trim() === ""}
-      >
-        Retrouver
-      </button>
-*/}
-    </div>
-{/*
-    {isCustomerConfirmed && (
-      <p className="text-sm text-green-600">
-        Client trouvé ✅ {customerName && `: ${customerName}`}
-      </p>
-    )}
-
-    {customerNotFound && (
-      <p className="text-sm text-red-600">❌ Aucun client trouvé avec ce numéro.</p>
-    )}
-
-*/}
-  </div>
   
 
   {/* PAIEMENT */}
