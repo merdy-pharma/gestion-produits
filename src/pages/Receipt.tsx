@@ -251,7 +251,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <div style={{ margin: '1px 0', textAlign: 'right' }}>
               TVA (0%): {taxAmount.toFixed(2)} Fc
             </div>
-            <div style={{ fontWeight: 'bold', fontSize: '12px', margin: '2px 0', textAlign: 'right' }}>
+            <div style={{ fontWeight: 'bold', fontSize: '13px', margin: '2px 0', textAlign: 'right' }}>
               Total TTC: {total.toLocaleString('fr-FR')} Fc
             </div>
           </div>
