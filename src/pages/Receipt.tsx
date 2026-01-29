@@ -168,14 +168,14 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               <strong>Mode:</strong> {paymentMethod}
             </div>
-            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              <strong>Caissier:</strong> {userName}
-            </div>
             {exchangeRate && (
               <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 <strong>Taux:</strong> {exchangeRate.toLocaleString('fr-FR')} Fc
               </div>
             )}
+            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <strong>Caissier:</strong> {userName}
+            </div>
           </div>
 
          {/* Ligne 
