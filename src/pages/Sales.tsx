@@ -696,7 +696,7 @@ const Sales: React.FC = () => {
       transition-colors duration-200 h-11
       disabled:opacity-50 disabled:cursor-not-allowed
       ${isSubmitting ? "opacity-60 cursor-wait" : ""}`}
-    disabled={isSubmitting || cart.length === 0 || !selectedPayment || !isCustomerConfirmed}
+    disabled={isSubmitting || cart.length === 0 || !selectedPayment}
     data-tip={
       isSubmitting
         ? "Validation en cours..."
