@@ -612,7 +612,7 @@ const Sales: React.FC = () => {
         type="text"
         placeholder="Entrer le nom du client"
         className="flex-1 px-3 py-2 border rounded-md h-11"
-        value={customerPhone}
+        value={customerName}
         onChange={(e) => {
           //setCustomerPhone(e.target.value);
           setIsCustomerConfirmed(false);
