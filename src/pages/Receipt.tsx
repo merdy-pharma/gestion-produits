@@ -79,7 +79,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
 
             .pos-item-col {
               display: table-cell !important;
-              padding: 1px 0 !important;
+              padding: 1px 2px !important;
               page-break-inside: avoid !important;
             }
 
