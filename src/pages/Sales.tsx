@@ -302,12 +302,11 @@ const Sales: React.FC = () => {
     const { data: saleId, error } = await supabase.rpc(
       "create_sale_transaction_ph",
       {
-        p_customer_name: selectedCustomerId,
+        p_customer_name: customerName.trim(),
         p_payment_method: selectedPayment,
         p_exchange_rate: rate,
         p_user_id: user?.id,
         p_items: itemsPayload,
-        p_customer_name: customerName
       }
     );
 
