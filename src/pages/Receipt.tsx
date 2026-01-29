@@ -55,6 +55,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
               color: black !important;
               background: white !important;
               page-break-after: auto !important;
+              box-sizing: border-box !important;
             }
 
             .pos-receipt * {
