@@ -334,13 +334,14 @@ const Sales: React.FC = () => {
 
     // 🔐 Appel RPC transactionnelle
     const { data: saleId, error } = await supabase.rpc(
-      "create_sale_transaction_ok",
+      "create_sale_transaction_ph",
       {
-        p_customer_name: customerName,
+        p_customer_name: selectedCustomerId,
         p_payment_method: selectedPayment,
         p_exchange_rate: rate,
         p_user_id: user?.id,
         p_items: itemsPayload,
+        p_customer_name: customerName
       }
     );
 
