@@ -332,7 +332,7 @@ const Sales: React.FC = () => {
 
     // 🔐 Appel RPC transactionnelle
     const { data: saleId, error } = await supabase.rpc(
-      "public.create_sale_transaction",
+      "create_sale_transaction",
       {
         p_customer_id: selectedCustomerId,
         p_payment_method: selectedPayment,
