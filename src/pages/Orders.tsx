@@ -85,7 +85,7 @@ export default function OrdersPage() {
           sale_date,
           total_amount,
           payment_method,
-          customers(full_name),
+          customer_name,
           sale_items(id),
           exchange_rate,
           profiles:user_id(name)
