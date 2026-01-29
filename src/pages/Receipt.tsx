@@ -33,7 +33,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
         <style>{`
           @media print {
             @page {
-              size: 58mm auto;
+              size: 384px;
               margin: 0;
               padding: 0;
             }
