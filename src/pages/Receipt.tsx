@@ -244,7 +244,10 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             </div>
           </div>
 
-         {/* Footer  <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} /> */}
+         {/* Ligne  
+         <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} /> 
+         */}
+          
 
           {/* Footer */}
           <div style={{ textAlign: 'center', fontSize: '11px', margin: '2px 0' }}>
