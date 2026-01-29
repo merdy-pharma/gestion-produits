@@ -245,6 +245,11 @@ const Sales: React.FC = () => {
     return;
   }
 
+    // 🚫 Nom client obligatoire
+    if (!customerName.trim()) {
+      toast.error("Veuillez saisir le nom du client.");
+      return;
+    }
   // ⚠️ Alerte prix trop bas
   const lowPriceItems = cart.filter(item => item.price <= 100);
   if (lowPriceItems.length > 0) {
