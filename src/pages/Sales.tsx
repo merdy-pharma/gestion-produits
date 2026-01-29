@@ -567,25 +567,7 @@ const Sales: React.FC = () => {
     </div>
   </div>
 
-  {/* CLIENT */}
-  <div className="mt-4 space-y-2">
-    <h3 className="font-medium mb-2">Noms du Client</h3>
-
-    <div className="flex flex-col sm:flex-row items-stretch gap-2">
-
-      <input
-        type="text"
-        placeholder="Entrer le nom du client"
-        className="flex-1 px-3 py-2 border rounded-md h-11"
-        value={customerName}
-        onChange={(e) => {
-          //setCustomerPhone(e.target.value);
-          setIsCustomerConfirmed(false);
-        }}
-        required
-      />
-    </div>
-  </div>
+  
    {/* CLIENT */}
       <div className="mt-4 space-y-2">
         <h3 className="font-medium mb-2">Nom du client</h3>
