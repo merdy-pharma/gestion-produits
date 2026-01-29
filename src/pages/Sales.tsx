@@ -52,7 +52,6 @@ const Sales: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedPayment, setSelectedPayment] = useState<string>('');
   const [customerPhone, setCustomerPhone] = useState('0');
-  const [selectedCustomerId, setSelectedCustomerId] = useState<string | null>(null);
   const [customerName, setCustomerName] = useState<string | null>(null);
   const receiptRef = useRef<HTMLDivElement | null>(null);
   const handlePrint = useReactToPrint({
