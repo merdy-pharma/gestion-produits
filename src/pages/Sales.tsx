@@ -614,7 +614,7 @@ const Sales: React.FC = () => {
         className="flex-1 px-3 py-2 border rounded-md h-11"
         value={customerPhone}
         onChange={(e) => {
-          setCustomerPhone(e.target.value);
+          //setCustomerPhone(e.target.value);
           setIsCustomerConfirmed(false);
         }}
         required
