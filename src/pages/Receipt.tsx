@@ -220,7 +220,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                     className="pos-item-col"
                     style={{
                       width: '50%',
-                      fontSize: '11px',
+                      fontSize: '12px',
                       wordWrap: 'break-word',
                       wordBreak: 'break-word',
                       overflowWrap: 'break-word',
