@@ -602,13 +602,13 @@ const Sales: React.FC = () => {
 
   {/* CLIENT */}
   <div className="mt-4 space-y-2">
-    <h3 className="font-medium mb-2">Phone Client (0 pour Client Standard)</h3>
+    <h3 className="font-medium mb-2">Noms du Client</h3>
 
     <div className="flex flex-col sm:flex-row items-stretch gap-2">
 
       <input
         type="tel"
-        placeholder="Entrer le téléphone client"
+        placeholder="Entrer le nom du client"
         className="flex-1 px-3 py-2 border rounded-md h-11"
         value={customerPhone}
         onChange={(e) => {
