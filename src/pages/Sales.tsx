@@ -633,7 +633,7 @@ const Sales: React.FC = () => {
       </button>
 */}
     </div>
-
+{/*
     {isCustomerConfirmed && (
       <p className="text-sm text-green-600">
         Client trouvé ✅ {customerName && `: ${customerName}`}
@@ -643,8 +643,10 @@ const Sales: React.FC = () => {
     {customerNotFound && (
       <p className="text-sm text-red-600">❌ Aucun client trouvé avec ce numéro.</p>
     )}
+
+*/}
   </div>
-  */}
+  
 
   {/* PAIEMENT */}
   <div className="mt-4 space-y-2">
