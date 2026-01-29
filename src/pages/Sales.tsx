@@ -642,7 +642,7 @@ const Sales: React.FC = () => {
     data-tip={
       isSubmitting
         ? "Validation en cours..."
-        : cart.length === 0 || !selectedPayment
+        : cart.length === 0 || !selectedPayment || !customerName.trim()
         ? "Veuillez ajouter un article, saisir le nom du client et/ou sélectionner un mode de paiement"
         : ""
     }
