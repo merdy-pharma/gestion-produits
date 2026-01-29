@@ -9,5 +9,5 @@ Version 5 :
 * Modification de la structure de la table "Sales", ajout de la colonne "customer_name"
 * Modification de la RPC : Fonction "create_sale_transaction_ph"
 
-Version 6 :
-* Correction facture
+Version 6 et 7 :
+* Correction facture pour impression adaptée sur Z91
