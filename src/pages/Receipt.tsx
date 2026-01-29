@@ -33,7 +33,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
         <style>{`
           @media print {
             @page {
-              size: 384px;
+              size: 380px;
               margin: 0;
               padding: 0;
             }
@@ -51,13 +51,13 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             }
 
             .pos-receipt {
-              width: 384px !important;
+              width: 380px !important;
               max-width: none !important;
               margin: 0 !important;
               padding: 4px !important;
-              font-size: 11px !important;
+              font-size: 14px !important;
               font-family: Arial, sans-serif !important;
-              line-height: 1.1 !important;
+              line-height: 1.2 !important;
               color: black !important;
               background: white !important;
               page-break-after: auto !important;
