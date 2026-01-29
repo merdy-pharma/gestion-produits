@@ -178,7 +178,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
          {/* Ligne 
          <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
          */}
-           <br/>
+           
 
           {/* Items */}
           <div className="pos-items" style={{ marginBottom: '4px' }}>
