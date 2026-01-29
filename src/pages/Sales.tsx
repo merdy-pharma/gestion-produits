@@ -584,6 +584,26 @@ const Sales: React.FC = () => {
         }}
         required
       />
+        {/* CLIENT */}
+      <div className="mt-4 space-y-2">
+        <h3 className="font-medium mb-2">Nom du client</h3>
+      
+        <input
+          type="text"
+          placeholder="Entrer le nom du client"
+          className="w-full px-3 py-2 border rounded-md h-11"
+          value={customerName}
+          onChange={(e) => setCustomerName(e.target.value)}
+          required
+        />
+      
+        {!customerName.trim() && (
+          <p className="text-sm text-red-600">
+            ⚠️ Le nom du client est obligatoire
+          </p>
+        )}
+      </div>
+
 {/*
       <button
         onClick={handleCustomerLookup}
