@@ -330,9 +330,8 @@ const Sales: React.FC = () => {
     // 🔄 Reset UI
     setCart([]);
     setSelectedPayment("");
-    setCustomerPhone("");
-    setSelectedCustomerId(null);
-    setCustomerName(null);
+    setCustomerName("");
+
 
     await fetchProducts();
 
