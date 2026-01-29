@@ -155,6 +155,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           </div>
 
           <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
+           <br/>
 
           {/* Client Info */}
           <div style={{ fontSize: '10px', marginBottom: '4px' }}>
