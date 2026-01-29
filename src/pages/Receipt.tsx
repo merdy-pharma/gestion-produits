@@ -259,7 +259,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           
           <br/>
           {/* Footer */}
-          <div style={{ textAlign: 'center', fontSize: '14px', margin: '2px 0' }}>
+          <div style={{ textAlign: 'center', fontSize: '12px', margin: '2px 0' }}>
             Merci pour votre achat !
           </div>
         </div>
