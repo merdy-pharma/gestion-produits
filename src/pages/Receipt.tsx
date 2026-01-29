@@ -213,14 +213,14 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                     breakInside: 'avoid',
                   }}
                 >
-                  <div className="pos-item-col" style={{ width: '10%', fontSize: '12px', textAlign: 'center' }}>
+                  <div className="pos-item-col" style={{ width: '10%', fontSize: '16px', textAlign: 'center' }}>
                     {item.quantity}
                   </div>
                   <div
                     className="pos-item-col"
                     style={{
                       width: '50%',
-                      fontSize: '12px',
+                      fontSize: '16px',
                       wordWrap: 'break-word',
                       wordBreak: 'break-word',
                       overflowWrap: 'break-word',
@@ -230,10 +230,10 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                   >
                     {itemName}
                   </div>
-                  <div className="pos-item-col" style={{ width: '18%', fontSize: '12px', textAlign: 'right' }}>
+                  <div className="pos-item-col" style={{ width: '18%', fontSize: '16px', textAlign: 'right' }}>
                     {price.toFixed(0)}
                   </div>
-                  <div className="pos-item-col" style={{ width: '22%', fontSize: '12px', textAlign: 'right' }}>
+                  <div className="pos-item-col" style={{ width: '22%', fontSize: '16px', textAlign: 'right' }}>
                     {lineTotal.toFixed(0)}
                   </div>
                 </div>
@@ -244,14 +244,14 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
 
           {/* Totals */}
-          <div className="pos-footer" style={{ fontSize: '11px', marginBottom: '4px' }}>
+          <div className="pos-footer" style={{ fontSize: '16px', marginBottom: '4px' }}>
             <div style={{ margin: '1px 0', textAlign: 'right' }}>
               Total HT: {totalHT.toFixed(0)} Fc
             </div>
             <div style={{ margin: '1px 0', textAlign: 'right' }}>
               TVA (0%): {taxAmount.toFixed(2)} Fc
             </div>
-            <div style={{ fontWeight: 'bold', fontSize: '13px', margin: '2px 0', textAlign: 'right' }}>
+            <div style={{ fontWeight: 'bold', fontSize: '18px', margin: '2px 0', textAlign: 'right' }}>
               Total TTC: {total.toLocaleString('fr-FR')} Fc
             </div>
           </div>
@@ -259,7 +259,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           
           <br/>
           {/* Footer */}
-          <div style={{ textAlign: 'center', fontSize: '11px', margin: '2px 0' }}>
+          <div style={{ textAlign: 'center', fontSize: '14px', margin: '2px 0' }}>
             Merci pour votre achat !
           </div>
         </div>
