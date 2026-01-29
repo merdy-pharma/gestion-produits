@@ -8,3 +8,6 @@ Version 5 :
 * Adaptation du duplicata
 * Modification de la structure de la table "Sales", ajout de la colonne "customer_name"
 * Modification de la RPC : Fonction "create_sale_transaction_ph"
+
+Version 6 :
+* Correction facture
