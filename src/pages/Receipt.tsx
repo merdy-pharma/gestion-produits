@@ -128,7 +128,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             color: 'black',
             fontSize: '13px',
             fontFamily: 'Arial, Helvetica, sans-serif',
-            lineHeight: '1.1',
+            lineHeight: '1.25',
             border: '1px solid #ddd',
           }}
         >
@@ -157,7 +157,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
 
           {/* Client Info */}
-          <div style={{ fontSize: '11px', marginBottom: '4px' }}>
+          <div style={{ fontSize: '10px', marginBottom: '4px' }}>
             <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               <strong>Client:</strong> {(customerName || 'Anon').substring(0, 20)}
             </div>
