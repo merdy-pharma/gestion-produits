@@ -160,9 +160,9 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
            <br/>
 
-          {/* Client Info */}
-          <div style={{ fontSize: '10px', marginBottom: '8px' }}>
-            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '11px' }}>
+          {/* Détails vente */}
+          <div style={{ fontSize: '11px', marginBottom: '8px' }}>
+            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               <strong>Client: {(customerName || 'Anon').substring(0, 20)} </strong>
             </div>
             <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
