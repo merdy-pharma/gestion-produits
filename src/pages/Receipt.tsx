@@ -142,7 +142,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
         >
           {/* Header */}
           <div className="pos-header" style={{ textAlign: 'center', marginBottom: '4px' }}>
-            <div style={{ fontWeight: 'bold', fontSize: '20px', margin: '0 0 2px 0' }}>
+            <div style={{ fontWeight: 'bold', fontSize: '24px', margin: '0 0 2px 0' }}>
               MERDY PHARMA
             </div>
             <div style={{ fontSize: '10px', margin: '1px 0' }}>
