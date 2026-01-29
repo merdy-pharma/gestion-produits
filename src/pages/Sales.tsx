@@ -642,7 +642,7 @@ const Sales: React.FC = () => {
       isSubmitting
         ? "Validation en cours..."
         : cart.length === 0 || !selectedPayment || !isCustomerConfirmed
-        ? "Veuillez ajouter un article, trouver le client et/ou sélectionner un mode de paiement"
+        ? "Veuillez ajouter un article, saisir le nom du client et/ou sélectionner un mode de paiement"
         : ""
     }
   >
