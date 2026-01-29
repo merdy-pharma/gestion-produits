@@ -250,7 +250,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
          <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} /> 
          */}
           
-
+          <br/>
           {/* Footer */}
           <div style={{ textAlign: 'center', fontSize: '11px', margin: '2px 0' }}>
             Merci pour votre achat !
