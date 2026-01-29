@@ -158,7 +158,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
            <br/>
 
           {/* Client Info */}
-          <div style={{ fontSize: '10px', marginBottom: '10px' }}>
+          <div style={{ fontSize: '10px', marginBottom: '8px' }}>
             <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               <strong>Client:</strong> {(customerName || 'Anon').substring(0, 20)}
             </div>
