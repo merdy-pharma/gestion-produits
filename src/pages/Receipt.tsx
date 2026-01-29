@@ -82,6 +82,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             .pos-item-col {
               display: table-cell !important;
               padding: 1px 0 !important;
+              width: 100% !important;
               page-break-inside: avoid !important;
               vertical-align: top !important;
             }
