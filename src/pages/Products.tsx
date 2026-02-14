@@ -576,7 +576,7 @@ return (
       </div>
 
      {/* TABLE */}
-      <div className="overflow-x-auto bg-white rounded-lg shadow-sm">
+      <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
       <table className="min-w-full text-sm">
         <thead className="bg-gray-100">
           <tr>
