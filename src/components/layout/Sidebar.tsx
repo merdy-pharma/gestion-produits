@@ -114,8 +114,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 </div>
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-200">{user?.name}</p>
-                <p className="text-xs text-gray-500">{user?.role}</p>
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-200">                                {user?.name}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{user?.role}</p>
               </div>
             </div>
 
