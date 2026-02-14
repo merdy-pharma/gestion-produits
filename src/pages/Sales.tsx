@@ -410,7 +410,7 @@ const Sales: React.FC = () => {
             <button
               key={product.id}
               onClick={() => addToCart(product)}
-              className="p-4 border border-gray-200 rounded-lg hover:border-primary-500 transition-colors duration-200 text-left bg-white shadow-sm"
+              className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors duration-200 text-left bg-white shadow-sm"
               disabled={getDisplayedStock(product) <= 0}
             >
               <h6 className="font-medium text-gray-900 text-sm sm:text-base line-clamp-2 min-h-[2.5rem]">
