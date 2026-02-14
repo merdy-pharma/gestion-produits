@@ -662,7 +662,7 @@ return (
           <button
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
           >
             Précédent
           </button>
