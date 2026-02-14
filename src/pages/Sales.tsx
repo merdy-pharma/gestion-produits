@@ -656,7 +656,7 @@ const Sales: React.FC = () => {
       {/* Modal reçu / facture */}
       {showReceiptModal && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-full max-w-md">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
             <div className="max-h-[70vh] overflow-y-auto pr-2">
             <Receipt
               ref={receiptRef}
