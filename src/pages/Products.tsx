@@ -458,9 +458,9 @@ const exportToPDF = async () => {
 return (
     <div className="space-y-6">
 
-      {/* HEADER + EXPORT BUTTONS 
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3"> */}
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3  bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen transition-colors">  
+      {/* HEADER + EXPORT BUTTONS */}
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3"> 
+     {/* <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 gap-6 p-4 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen transition-colors">  */}
 
       <h1 className="text-xl sm:text-2xl font-bold">Tous nos Articles</h1>
     
