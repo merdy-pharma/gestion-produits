@@ -70,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           <div className="flex items-center justify-between h-16 px-4 border-b dark:border-gray-700">
             <div className="flex items-center">
               <Cross className="h-8 w-8 text-primary-500" />
-             <span className="ml-2 text-xl font-semibold text-gray-800 dark:text-gray-200">>MERDY PHARMA</span>
+             <span className="ml-2 text-xl font-semibold text-gray-800 dark:text-gray-200"> MERDY PHARMA </span>
             </div>
             <button 
               onClick={toggleSidebar} 
