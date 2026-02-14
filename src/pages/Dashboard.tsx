@@ -251,8 +251,8 @@ import { useAuth } from "@/hooks/useAuth";
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-lg font-semibold dark:text-gray-500">Vue des ventes par jour</h2>
-                    <p className="text-sm dark:ext-gray-500">Performance 7 derniers jours</p>
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-200">Vue des ventes par jour</h2>
+                    <p className="text-sm dark:ext-gray-500 dark:text-gray-200">Performance 7 derniers jours</p>
                   </div>
                 </div>
                 <div className="h-80">
