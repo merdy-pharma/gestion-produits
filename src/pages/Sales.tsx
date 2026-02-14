@@ -509,7 +509,7 @@ const Sales: React.FC = () => {
                   );
                 }
               }}
-              className="w-24 h-8 text-center border border-gray-300 rounded px-1 text-sm"
+              className="w-24 h-8 text-center border border-gray-300 dark:border-gray-700 rounded px-1 text-sm"
             />
 
             <span>Fc</span>
