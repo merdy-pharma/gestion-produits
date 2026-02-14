@@ -11,3 +11,6 @@ Version 5 :
 
 Version 6 et 7 :
 * Correction facture pour impression adaptée sur Z91
+
+Version 8 - 10
+* Activation choix des thèmes : clair / sombre 
