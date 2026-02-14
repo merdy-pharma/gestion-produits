@@ -451,7 +451,7 @@ const Sales: React.FC = () => {
           <button
             onClick={goToPreviousPage}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
           >
             Précédent
           </button>
@@ -461,7 +461,7 @@ const Sales: React.FC = () => {
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
           >
             Suivant
           </button>
