@@ -530,7 +530,7 @@ const Sales: React.FC = () => {
               const newQ = parseInt(e.target.value, 10);
               if (!isNaN(newQ) && newQ > 0) updateQuantity(item.id, newQ - item.quantity);
             }}
-            className="w-12 h-8 text-center border border-gray-300 rounded px-1 text-sm"
+            className="w-12 h-8 text-center border border-gray-300 dark:border-gray-700 rounded px-1 text-sm"
           />
 
           <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-100">
@@ -599,7 +599,7 @@ const Sales: React.FC = () => {
       <button
         onClick={() => setSelectedPayment("card")}
         className={`p-2 flex flex-col items-center rounded-lg border h-20
-          ${selectedPayment === "card" ? "border-primary-500 bg-primary-50" : "border-gray-200"}
+          ${selectedPayment === "card" ? "border-primary-500 bg-primary-50" : "border-gray-200 dark:border-gray-700"}
         `}
         disabled
       >
