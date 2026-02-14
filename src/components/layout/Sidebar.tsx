@@ -67,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between h-16 px-4 border-b">
+          <div className="flex items-center justify-between h-16 px-4 border-b dark:border-gray-700">
             <div className="flex items-center">
               <Cross className="h-8 w-8 text-primary-500" />
               <span className="ml-2 text-xl font-semibold text-gray-800">MERDY PHARMA</span>
