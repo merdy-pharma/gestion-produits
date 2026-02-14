@@ -23,6 +23,8 @@ import AddCashEntry from './pages/addCashEntry';
 import StockMovement from './pages/StockMovement';
 import StockMovementHistory from './pages/StockMovementHistory';
 
+import { ThemeProvider } from "@/contexts/ThemeContext";
+
 const InactivityWarning = () => {
   const { showWarning } = useAuth();
 
