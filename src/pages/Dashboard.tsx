@@ -279,7 +279,7 @@ import { useAuth } from "@/hooks/useAuth";
               
             </h3>
               {lowStockProducts.length === 0 ? (
-                <p className="text-sm text-gray-500 dark:text-gray-200">Aucun produit en rupture de stock.</p>
+                <p className="text-sm text-gray-500 dark:text-gray-900">Aucun produit en rupture de stock.</p>
               ) : (
                 <ul className="space-y-2">
                   {lowStockProducts.map((product) => (
