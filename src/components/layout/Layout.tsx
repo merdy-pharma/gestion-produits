@@ -18,7 +18,8 @@ const Layout: React.FC = () => {
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header toggleSidebar={toggleSidebar} />
         
-        <main className="flex-1 overflow-y-auto p-4 md:p-6">
+       
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 bg-white dark:bg-gray-800 transition-colors">  
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>
