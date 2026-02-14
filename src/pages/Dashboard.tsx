@@ -264,7 +264,7 @@ import { useAuth } from "@/hooks/useAuth";
             {/* Liste produits en rupture ou faible stock */}
             <div className="lg:col-span-1 bg-white rounded-lg shadow-sm p-6 overflow-y-auto h-80">
             <h3
-              className="text-md font-bold text-red-700 mb-4 px-3 py-1 rounded-md border border-red-300 bg-red-50 transition transform hover:scale-105 hover:shadow-md duration-300 flex items-center gap-2"
+              className="text-md font-bold text-red-700 mb-4 px-3 py-1 rounded-md border border-red-300 bg-red-50 transition transform hover:scale-105 hover:shadow-md duration-300 flex items-center gap-2 dark:text-gray-900"
             >
               {/* Bouton Export Excel */}
               <button
