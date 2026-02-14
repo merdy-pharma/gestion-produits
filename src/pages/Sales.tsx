@@ -624,7 +624,7 @@ const Sales: React.FC = () => {
         `}
         disabled
       >
-        <Smartphone size={20} className={selectedPayment === "mobile" ? "text-primary-500" : "text-gray-500"} />
+        <Smartphone size={20} className={selectedPayment === "mobile" ? "text-primary-500" : "text-gray-400"} />
         <span className="text-sm mt-1">Mobile</span>
       </button>
 
