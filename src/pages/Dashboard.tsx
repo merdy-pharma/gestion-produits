@@ -262,7 +262,8 @@ import { useAuth } from "@/hooks/useAuth";
             </div>
 
             {/* Liste produits en rupture ou faible stock */}
-            <div className="lg:col-span-1 bg-white rounded-lg shadow-sm p-6 overflow-y-auto h-80">
+           
+            <div className="lg:col-span-1 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 overflow-y-auto h-80 transition-colors">
             <h3
               className="text-md font-bold text-red-700 mb-4 px-3 py-1 rounded-md border border-red-300 bg-red-50 transition transform hover:scale-105 hover:shadow-md duration-300 flex items-center gap-2"
             >
