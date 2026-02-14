@@ -530,7 +530,7 @@ const Sales: React.FC = () => {
               const newQ = parseInt(e.target.value, 10);
               if (!isNaN(newQ) && newQ > 0) updateQuantity(item.id, newQ - item.quantity);
             }}
-            className="w-12 h-8 text-center border border-gray-300 dark:border-gray-700 rounded px-1 text-sm"
+            className="w-12 h-8 text-center border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
           />
 
           <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-100">
