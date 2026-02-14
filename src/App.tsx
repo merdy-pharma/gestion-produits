@@ -40,6 +40,7 @@ const InactivityWarning = () => {
 function App() {
   return (
     <AuthProvider>
+    <ThemeProvider>
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -67,6 +68,7 @@ function App() {
         {/* Ici notre composant d'avertissement global */}
         <InactivityWarning />
       </Router>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
