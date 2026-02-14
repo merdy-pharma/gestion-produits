@@ -613,7 +613,7 @@ const Sales: React.FC = () => {
           ${selectedPayment === "cash" ? "border-primary-500 bg-primary-50" : "border-gray-200 dark:bg-gray-700"}
         `}
       >
-        <Banknote size={20} className={selectedPayment === "cash" ? "text-primary-500" : "text-gray-500"} />
+        <Banknote size={20} className={selectedPayment === "cash" ? "text-primary-500" : "text-gray-500 dark:text-gray-700"} />
         <span className="text-sm mt-1">Cash</span>
       </button>
 
