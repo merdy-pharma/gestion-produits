@@ -676,7 +676,7 @@ return (
               setCurrentPage(currentPage < totalPages ? currentPage + 1 : currentPage)
             }
             disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
           >
             Suivant
           </button>
