@@ -106,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </nav>
 
           {/* Footer */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t dark:border-gray-700">
             <div className="flex items-center mb-2">
               <div className="flex-shrink-0">
                 <div className="w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center">
