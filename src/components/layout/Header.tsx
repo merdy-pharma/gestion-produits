@@ -74,7 +74,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
             </button>
             
             {showUserMenu && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 transition-colors">
+              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 transition-colors"
+                text-gray-700 dark:text-gray-200
+                text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700
+                >
                 <div className="px-4 py-2 text-sm text-gray-700 border-b">
                   <p className="font-medium">{user?.name}</p>
                   <p className="text-xs text-gray-500">{user?.email}</p>
