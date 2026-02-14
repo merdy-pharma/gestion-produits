@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
                 {/*  <div className="px-4 py-2 text-sm text-gray-700 border-b">*/}
                  <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 border-b dark:border-gray-700"> 
                   <p className="font-medium">{user?.name}</p>
-                  <p className="text-xs text-gray-500">{user?.email}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
                 </div>
 
                 <Link
