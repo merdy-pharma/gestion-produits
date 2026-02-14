@@ -620,7 +620,7 @@ const Sales: React.FC = () => {
       <button
         onClick={() => setSelectedPayment("mobile")}
         className={`p-2 flex flex-col items-center rounded-lg border h-20
-          ${selectedPayment === "mobile" ? "border-primary-500 bg-primary-50" : "border-gray-200 dark:bg-gray-400 dark:border-gray-700"}
+          ${selectedPayment === "mobile" ? "border-primary-500 bg-primary-50" : "border-gray-200 dark:bg-gray-700 dark:border-gray-700"}
         `}
         disabled
       >
