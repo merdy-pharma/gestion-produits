@@ -194,7 +194,7 @@ import { useAuth } from "@/hooks/useAuth";
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Point de Vente - Dashboard</h1>
+          <h1 className="text-2xl font-bold dark:text-gray-900">Point de Vente - Dashboard</h1>
           <p className="text-sm text-gray-500">Bienvenue {user?.name} !</p>
         </div>
       </div>
