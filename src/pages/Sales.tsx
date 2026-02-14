@@ -518,7 +518,7 @@ const Sales: React.FC = () => {
 
         {/* Quantité + Delete */}
         <div className="flex items-center space-x-2 ml-3">
-          <button onClick={() => updateQuantity(item.id, -1)} className="p-1 rounded hover:bg-gray-100">
+          <button onClick={() => updateQuantity(item.id, -1)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
             <Minus size={16} />
           </button>
 
@@ -533,7 +533,7 @@ const Sales: React.FC = () => {
             className="w-12 h-8 text-center border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
           />
 
-          <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-100">
+          <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
             <Plus size={16} />
           </button>
 
