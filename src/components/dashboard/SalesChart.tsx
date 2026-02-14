@@ -110,7 +110,7 @@ const SalesChart: React.FC<SalesChartProps> = ({ data, type = 'area' }) => {
   };
   
   return (
-    <div className="bg-white rounded-lg shadow-sm p-5 h-full animate-slide-up">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
       
       <div className="h-64 mt-2">
         <ResponsiveContainer width="100%" height="100%">
