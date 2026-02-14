@@ -609,7 +609,7 @@ const Sales: React.FC = () => {
 
       <button
         onClick={() => setSelectedPayment("cash")}
-        className={`p-2 flex flex-col items-center rounded-lg border h-20
+        className={`p-2 flex flex-col items-center dark:bg-gray-500 rounded-lg border h-20
           ${selectedPayment === "cash" ? "border-primary-500 bg-primary-50" : "border-gray-200 dark:bg-gray-700"}
         `}
       >
