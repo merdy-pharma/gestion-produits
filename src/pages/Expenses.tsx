@@ -520,7 +520,7 @@ export default function Expenses() {
               {/* Date */}
               <input
                 type="date"
-                className="border p-2 rounded"
+                className="input border p-2 rounded"
                 value={form.date}
                 onChange={(e) =>
                   setForm({ ...form, date: e.target.value })
