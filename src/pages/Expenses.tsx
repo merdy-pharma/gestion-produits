@@ -372,7 +372,7 @@ export default function Expenses() {
               </tr>
             ) : (
               expenses.map((exp) => (
-                <tr key={exp.id} className="border-b hover:bg-gray-50 dark:hover:bg-gray-300">
+                <tr key={exp.id} className="border-b hover:bg-gray-50 dark:hover:bg-gray-700">
                   <td className="py-3 px-4">{exp.date}</td>
                   <td className="py-3 px-4">{exp.category_name}</td>
                   <td className="py-3 px-4 break-words max-w-xs">
