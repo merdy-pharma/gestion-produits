@@ -887,7 +887,7 @@ return (
           ))}
 
           {categories.length === 0 && (
-            <p className="text-gray-500 text-center py-4">Aucune catégorie</p>
+            <p className="text-gray-500 dark:text-gray-400 text-center py-4">  Aucune catégorie</p>
           )}
         </div>
       </div>
