@@ -434,7 +434,7 @@ export default function Expenses() {
       ============================================ */}
       {showModal && (
         <div className="modal-overlay">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative mt-10">
+          <div className="modal max-w-lg w-full">
 
             {/* CLOSE */}
             <button
