@@ -160,7 +160,7 @@ export default function StockMovement() {
         <div className="space-y-1">
           <label className="text-sm font-medium">Motif</label>
           <select
-            className="border rounded px-2 py-1 w-full"
+            className="input"
             value={reason}
             onChange={e => setReason(e.target.value)}
           >
