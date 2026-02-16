@@ -138,7 +138,7 @@ export default function StockMovement() {
         )}
 
         {selected && (
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-gray-600 dark:hover:text-gray-700 transition-colors">
             Stock actuel : {selected.stock}
           </div>
         )}
