@@ -232,6 +232,7 @@ export default function StockMovementsHistory() {
             Précédent
           </Button>
           <Button
+            className="btn-secondary"
             variant="outline"
             disabled={page >= totalPages}
             onClick={() => setPage(p => p + 1)}
