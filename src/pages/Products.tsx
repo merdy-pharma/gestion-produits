@@ -552,7 +552,8 @@ return (
             setMinStock(v === '' ? '' : Number(v));
             setCurrentPage(1);
           }}
-          className="border rounded-lg px-3 py-2 text-sm w-full"
+         
+          className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 text-sm w-full transition-colors"
         />
       
         <input
@@ -564,7 +565,7 @@ return (
             setMaxStock(v === '' ? '' : Number(v));
             setCurrentPage(1);
           }}
-          className="border rounded-lg px-3 py-2 text-sm w-full"
+          className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 text-sm w-full transition-colors"
         />
       
         <button
