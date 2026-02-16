@@ -531,7 +531,7 @@ export default function Expenses() {
             {/* SAVE */}
             <button
               onClick={handleSaveWithConversion}
-              className="btn-secondary mt-4 w-full bg-blue-600  text-white py-2 rounded hover:bg-blue-700 "
+              className="btn-success mt-4 w-full bg-blue-600  text-white py-2 rounded hover:bg-blue-700 "
             >
               Enregistrer
             </button>
