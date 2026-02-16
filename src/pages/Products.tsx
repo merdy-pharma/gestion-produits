@@ -570,6 +570,7 @@ return (
       
         <button
           onClick={() => {
+            setSearchTerm('');
             setMinStock('');
             setMaxStock('');
             setCurrentPage(1);
