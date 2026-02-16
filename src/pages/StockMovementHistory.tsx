@@ -25,7 +25,6 @@ export default function StockMovementsHistory() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  // filtres
   const [productId, setProductId] = useState<string | null>(null);
   const [type, setType] = useState<string | null>(null);
   const [reason, setReason] = useState<string | null>(null);
@@ -33,7 +32,7 @@ export default function StockMovementsHistory() {
   const [toDate, setToDate] = useState("");
 
   /* ==============================
-     Recherche produit (autocomplete)
+     AUTOCOMPLETE PRODUIT
   =============================== */
   useEffect(() => {
     if (query.length < 3) {
@@ -55,7 +54,7 @@ export default function StockMovementsHistory() {
   }, [query]);
 
   /* ==============================
-     Fetch historique
+     FETCH HISTORIQUE
   =============================== */
   const fetchData = async () => {
     setLoading(true);
@@ -82,7 +81,11 @@ export default function StockMovementsHistory() {
     if (type) queryBuilder = queryBuilder.eq("type", type);
     if (reason) queryBuilder = queryBuilder.eq("reason", reason);
     if (fromDate) queryBuilder = queryBuilder.gte("created_at", fromDate);
-    if (toDate) queryBuilder = queryBuilder.lte("created_at", toDate + " 23:59:59");
+    if (toDate)
+      queryBuilder = queryBuilder.lte(
+        "created_at",
+        toDate + " 23:59:59"
+      );
 
     const { data, count, error } = await queryBuilder.range(from, to);
 
@@ -112,126 +115,161 @@ export default function StockMovementsHistory() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* FILTRES */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-2 relative">
-        
-        {/* Recherche produit */}
-        <div className="relative">
+    <div className="page">
+      
+      {/* ================= FILTRES ================= */}
+      <div className="card card-body">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+
+          {/* Recherche produit */}
+          <div className="relative">
+            <Input
+              className="input"
+              placeholder="Rechercher un produit (min 3 lettres)"
+              value={query}
+              onChange={e => {
+                setQuery(e.target.value);
+                setProductId(null);
+                setPage(1);
+              }}
+            />
+
+            {results.length > 0 && (
+              <div className="card absolute z-10 w-full max-h-40 overflow-auto mt-1">
+                {results.map(p => (
+                  <div
+                    key={p.id}
+                    className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    onClick={() => {
+                      setProductId(p.id);
+                      setQuery(p.name);
+                      setResults([]);
+                      setPage(1);
+                    }}
+                  >
+                    {p.name}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Select
+            value={type ?? ""}
+            onValueChange={v => {
+              setType(v);
+              setPage(1);
+            }}
+          >
+            <SelectTrigger className="input">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="IN">Entrée</SelectItem>
+              <SelectItem value="OUT">Sortie</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select
+            value={reason ?? ""}
+            onValueChange={v => {
+              setReason(v);
+              setPage(1);
+            }}
+          >
+            <SelectTrigger className="input">
+              <SelectValue placeholder="Motif" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="ENDOMMAGE">Endommagé</SelectItem>
+              <SelectItem value="PERIME">Périmé</SelectItem>
+              <SelectItem value="PERTE">Perte</SelectItem>
+              <SelectItem value="RETOUR">Retour</SelectItem>
+              <SelectItem value="AJUSTEMENT">Ajustement</SelectItem>
+            </SelectContent>
+          </Select>
+
           <Input
-            placeholder="Rechercher un produit (min 3 lettres)"
-            value={query}
+            type="date"
+            className="input"
+            value={fromDate}
             onChange={e => {
-              setQuery(e.target.value);
-              setProductId(null);
+              setFromDate(e.target.value);
               setPage(1);
             }}
           />
 
-          {results.length > 0 && (
-            <div className="absolute z-10 w-full border bg-white max-h-40 overflow-auto">
-              {results.map(p => (
-                <div
-                  key={p.id}
-                  className="p-2 cursor-pointer hover:bg-gray-100"
-                  onClick={() => {
-                    setProductId(p.id);
-                    setQuery(p.name);
-                    setResults([]);
-                    setPage(1);
-                  }}
-                >
-                  {p.name}
-                </div>
-              ))}
-            </div>
-          )}
+          <Input
+            type="date"
+            className="input"
+            value={toDate}
+            onChange={e => {
+              setToDate(e.target.value);
+              setPage(1);
+            }}
+          />
         </div>
 
-        <Select value={type ?? ""} onValueChange={v => { setType(v); setPage(1); }}>
-          <SelectTrigger>
-            <SelectValue placeholder="Type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="IN">Entrée</SelectItem>
-            <SelectItem value="OUT">Sortie</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select value={reason ?? ""} onValueChange={v => { setReason(v); setPage(1); }}>
-          <SelectTrigger>
-            <SelectValue placeholder="Motif" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ENDOMMAGE">Endommagé</SelectItem>
-            <SelectItem value="PERIME">Périmé</SelectItem>
-            <SelectItem value="PERTE">Perte</SelectItem>
-            <SelectItem value="RETOUR">Retour</SelectItem>
-            <SelectItem value="AJUSTEMENT">Ajustement</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Input type="date" value={fromDate} onChange={e => { setFromDate(e.target.value); setPage(1); }} />
-        <Input type="date" value={toDate} onChange={e => { setToDate(e.target.value); setPage(1); }} />
+        <div className="flex justify-end mt-4">
+          <Button className="btn-secondary" onClick={resetFilters}>
+            Réinitialiser
+          </Button>
+        </div>
       </div>
 
-      <div className="flex justify-end">
-        <Button variant="outline" onClick={resetFilters}
-          className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-          Réinitialiser
-        </Button>
-      </div>
-
-      {/* TABLE */}
-      <table className="w-full text-sm border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2">Date</th>
-            <th className="p-2">Produit</th>
-            <th className="p-2">Type</th>
-            <th className="p-2">Motif</th>
-            <th className="p-2 text-right">Qté</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(m => (
-            <tr key={m.id} className="border-t">
-              <td className="p-2">
-                {new Date(m.created_at).toLocaleDateString()}
-              </td>
-              <td className="p-2">{m.products?.name}</td>
-              <td className="p-2">{m.type}</td>
-              <td className="p-2">{m.reason}</td>
-              <td className="p-2 text-right">{m.quantity}</td>
-            </tr>
-          ))}
-
-          {!loading && data.length === 0 && (
+      {/* ================= TABLE ================= */}
+      <div className="table-container">
+        <table className="w-full text-sm">
+          <thead className="table-head">
             <tr>
-              <td colSpan={5} className="p-4 text-center text-gray-500">
-                Aucun résultat
-              </td>
+              <th className="p-2 text-left">Date</th>
+              <th className="p-2 text-left">Produit</th>
+              <th className="p-2 text-left">Type</th>
+              <th className="p-2 text-left">Motif</th>
+              <th className="p-2 text-right">Qté</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map(m => (
+              <tr key={m.id} className="table-row">
+                <td className="p-2">
+                  {new Date(m.created_at).toLocaleDateString()}
+                </td>
+                <td className="p-2">{m.products?.name}</td>
+                <td className="p-2">{m.type}</td>
+                <td className="p-2">{m.reason}</td>
+                <td className="p-2 text-right">{m.quantity}</td>
+              </tr>
+            ))}
 
-      {/* PAGINATION */}
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-gray-600">
+            {!loading && data.length === 0 && (
+              <tr>
+                <td colSpan={5} className="p-4 text-center text-muted">
+                  Aucun résultat
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* ================= PAGINATION ================= */}
+      <div className="card card-body flex items-center justify-between">
+        <span className="text-sm text-muted">
           Page {page} / {totalPages || 1}
         </span>
 
         <div className="flex gap-2">
           <Button
-            variant="outline"
+            className="btn-secondary"
             disabled={page === 1}
             onClick={() => setPage(p => p - 1)}
           >
             Précédent
           </Button>
+
           <Button
-            variant="outline"
+            className="btn-secondary"
             disabled={page >= totalPages}
             onClick={() => setPage(p => p + 1)}
           >
