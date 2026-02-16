@@ -70,7 +70,7 @@ export default function ExpenseCategories() {
       </div>
 
       <div className="page overflow-x-auto shadow rounded-lg border border-gray-200">
-        <table className="table-contenair min-w-full bg-white">
+        <table className="table-contenair">
           <thead className="table-head">
             <tr>
               <th className="py-3 px-4 text-left">Désignation</th>
