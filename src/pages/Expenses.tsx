@@ -512,7 +512,7 @@ export default function Expenses() {
               </div>
 
               {/* Exchange Rate */}
-              <p className="text-xs text-gray-500 dark:text-gray-200">
+              <p className="text-xs text-gray-500 dark:text-gray-100">
                 Taux du jour :{" "}
                 <span className="font-bold">{exchangeRate} FC / 1$</span>
               </p>
