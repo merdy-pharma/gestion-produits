@@ -69,7 +69,7 @@ export default function ExpenseCategories() {
         </button>
       </div>
 
-      <div className="overflow-x-auto shadow rounded-lg border border-gray-200">
+      <div className="page overflow-x-auto shadow rounded-lg border border-gray-200">
         <table className="table-contenair min-w-full bg-white">
           <thead className="table-head">
             <tr>
