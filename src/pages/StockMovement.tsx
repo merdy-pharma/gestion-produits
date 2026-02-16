@@ -108,6 +108,7 @@ export default function StockMovement() {
         <div className="space-y-1">
           <label className="text-sm font-medium">Produit</label>
           <Input
+            className="input"
             placeholder="Rechercher un produit (min 3 lettres)"
             value={query}
             onChange={e => {
