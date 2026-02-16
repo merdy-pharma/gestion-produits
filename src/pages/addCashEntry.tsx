@@ -93,7 +93,7 @@ export default function AddCashEntry() {
   };
 
   return (
-    <div className="page ">
+    <div className="page p-6 max-w-md mx-auto relative">
       {/* Bouton fermer */}
       <button
         onClick={() => navigate("/cashledger")}
