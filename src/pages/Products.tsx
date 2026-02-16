@@ -604,7 +604,6 @@ return (
                   {product.image_url ? (
                     <img src={product.image_url} alt={product.name} className="w-10 h-10 rounded object-cover" />
                   ) : (
-                   
                       <div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 justify-center items-center rounded">
                       <Package size={20} className="text-gray-400" />
                     </div>
