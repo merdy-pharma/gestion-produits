@@ -835,7 +835,7 @@ return (
           type="text"
           value={categoryName}
           onChange={(e) => setCategoryName(e.target.value)}
-          className="w-full border px-3 py-2 rounded mt-1"
+          className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded mt-1 transition-colors"
           placeholder="Ex : Boissons"
         />
       </div>
@@ -843,7 +843,7 @@ return (
       <div className="flex justify-end gap-2">
         <button
           onClick={() => setIsCategoryModalOpen(false)}
-          className="px-3 py-2 bg-gray-200 rounded"
+          className="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
         >
           Annuler
         </button>
