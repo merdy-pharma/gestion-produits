@@ -97,7 +97,7 @@ export default function AddCashEntry() {
       {/* Bouton fermer */}
       <button
         onClick={() => navigate("/cashledger")}
-        className="absolute top-4 right-4 text-red-500 hover:text-red-700 font-bold text-xl transition-colors"
+        className="btn-danger"
       >
         X
       </button>
