@@ -500,7 +500,7 @@ export default function Expenses() {
 
                 {/* Currency */}
                 <select
-                  className="border p-2 rounded w-24"
+                  className="input border p-2 rounded w-24"
                   value={form.currency}
                   onChange={(e) =>
                     setForm({ ...form, currency: e.target.value as "USD" | "FC" })
