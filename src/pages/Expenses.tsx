@@ -263,7 +263,7 @@ export default function Expenses() {
   ============================================ */
 
   return (
-    <div className="p-4 md:p-6">
+    <div className="page p-4 md:p-6">
       {/* ===== TITLE + EXPORT ===== */}
       <div className="flex items-center gap-2">
         <h2 className="text-lg md:text-xl font-bold text-gray-700">
