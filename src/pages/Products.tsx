@@ -858,7 +858,7 @@ return (
 
       {/* Liste catégories */}
       <div className="mt-6">
-        <h3 className="font-semibold mb-2">Liste</h3>
+        <h3 className="font-semibold mb-2">Catégories déjà enregistrées</h3>
         
         <div className="max-h-64 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">  
           {categories.map((cat) => (
