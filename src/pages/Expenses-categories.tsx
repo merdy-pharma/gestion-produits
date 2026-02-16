@@ -63,7 +63,7 @@ export default function ExpenseCategories() {
 
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+          className="btn-secondary flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
         >
           <PlusCircle size={18} /> Ajouter
         </button>
