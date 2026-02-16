@@ -184,7 +184,7 @@ export default function StockMovementsHistory() {
 
       {/* TABLE */}
       <table className="table-container">
-        <thead className="bg-gray-100">
+        <thead className="table-head">
           <tr>
             <th className="p-2">Date</th>
             <th className="p-2">Produit</th>
