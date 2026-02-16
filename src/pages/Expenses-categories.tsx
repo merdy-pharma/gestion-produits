@@ -80,7 +80,7 @@ export default function ExpenseCategories() {
 
           <tbody>
             {loading ? (
-              <tr className="table-head"><td colSpan={2} className="py-6 text-center">Chargement...</td></tr>
+              <tr className="table-row"><td colSpan={2} className="py-6 text-center">Chargement...</td></tr>
             ) : categories.length === 0 ? (
               <tr className="table-row"><td colSpan={2} className="py-6 text-center">Aucune catégorie</td></tr>
             ) : (
