@@ -345,7 +345,7 @@ export default function Expenses() {
       {/* ===== TABLE ===== */}
       <div className="overflow-x-auto border rounded-lg shadow">
         <table className="min-w-full text-sm sm:text-base">
-          <thead className="bg-gray-100 text-gray-600 uppercase">
+          <thead className="bg-gray-100 text-gray-600">
             <tr>
               <th className="py-3 px-4 text-left">Date</th>
               <th className="py-3 px-4 text-left">Catégorie</th>
