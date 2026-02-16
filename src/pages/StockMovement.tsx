@@ -147,7 +147,7 @@ export default function StockMovement() {
         <div className="space-y-1">
           <label className="text-sm font-medium">Type de mouvement</label>
           <select
-            className="card px-2 py-1 w-full"
+            className="card px-2 py-1 w-full border rounded"
             value={type}
             onChange={e => setType(e.target.value as "IN" | "OUT")}
           >
