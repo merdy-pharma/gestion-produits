@@ -59,7 +59,7 @@ export default function ExpenseCategories() {
   return (
     <div className="page">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold text-gray-700">Catégories de dépenses</h2>
+        <h2 className="text-xl font-bold text-gray-700 dark:text-gray-400">Catégories de dépenses</h2>
 
         <button
           onClick={openCreate}
