@@ -456,7 +456,8 @@ const exportToPDF = async () => {
   }
 
 return (
-    <div className="space-y-6">
+    
+  <div className="space-y-6 text-gray-800 dark:text-gray-200 transition-colors">
 
       {/* HEADER + EXPORT BUTTONS */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3"> 
