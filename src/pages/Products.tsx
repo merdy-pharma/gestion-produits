@@ -697,7 +697,7 @@ return (
 
             <button
               onClick={() => setIsFormOpen(false)}
-              className="absolute top-2 right-2 text-gray-500"
+              className="absolute top-2 right-2 text-gray-500 dark:text-gray-400"
             >
               <X size={24} />
             </button>
