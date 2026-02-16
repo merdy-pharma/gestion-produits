@@ -131,7 +131,7 @@ export default function AddCashEntry() {
           <label className="block font-medium mb-1">Montant</label>
           <input
             type="number"
-            className="w-full border px-3 py-2 rounded focus:outline-none"
+            className="input w-full border px-3 py-2 rounded focus:outline-none"
             placeholder="0"
             value={amount}
             onChange={(e) =>
