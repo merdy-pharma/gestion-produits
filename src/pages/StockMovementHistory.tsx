@@ -119,6 +119,7 @@ export default function StockMovementsHistory() {
         {/* Recherche produit */}
         <div className="relative">
           <Input
+            className="input"
             placeholder="Rechercher un produit (min 3 lettres)"
             value={query}
             onChange={e => {
