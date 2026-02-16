@@ -787,7 +787,7 @@ return (
                   //disabled
                   className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Pour Modifier le Stock, Aller vers le menu laterral "Mouvements Stock".
                 </p>
               </div>
