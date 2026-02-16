@@ -149,7 +149,7 @@ export default function StockMovementsHistory() {
         </div>
 
         <Select value={type ?? ""} onValueChange={v => { setType(v); setPage(1); }}
-           className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors">
+           >
           <SelectTrigger>
             <SelectValue placeholder="Type" />
           </SelectTrigger>
