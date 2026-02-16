@@ -329,7 +329,7 @@ export default function CashLedger() {
                   </tr>
                 ) : (
                   paginatedEntries.map((item, index) => (
-                    <tr key={index} className="table-row border-b hover:bg-gray-700 dark:hover:bg-gray-700" >
+                    <tr key={index} className="table-row border-b hover:bg-gray-50 dark:hover:bg-gray-700" >
                       <td className="p-3">{item.date}</td>
                       <td className="p-3">{item.description}</td>
                       <td className="p-3 text-right text-green-600">
