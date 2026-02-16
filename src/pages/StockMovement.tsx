@@ -120,7 +120,7 @@ export default function StockMovement() {
 
         {/* Résultats auto-complétion */}
         {results.length > 0 && (
-          <div className= "card absolute z-10 w-full max-h-40 overflow-auto mt-1 border rounded">
+          <div className= "border rounded absolute z-10 w-full max-h-40 overflow-auto mt-1">
             {results.map(p => (
               <div
                 key={p.id}
