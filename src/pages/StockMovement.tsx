@@ -177,6 +177,7 @@ export default function StockMovement() {
         <div className="space-y-1">
           <label className="text-sm font-medium">Quantité</label>
           <Input
+            className="input"
             type="number"
             min={1}
             value={quantity}
