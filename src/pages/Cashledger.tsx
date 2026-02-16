@@ -290,7 +290,7 @@ export default function CashLedger() {
         <>
           <div className="overflow-auto rounded-lg border">
             <table className="table-container">
-              <thead className="bg-gray-100">
+              <thead className="table-head">
                 <tr>
                   <th
                     className="p-3 text-left font-semibold cursor-pointer"
