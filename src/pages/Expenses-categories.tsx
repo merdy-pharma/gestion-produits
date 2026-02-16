@@ -72,7 +72,7 @@ export default function ExpenseCategories() {
       <div className="page overflow-x-auto shadow rounded-lg border border-gray-200">
         <table className="table-contenair min-w-full">
           <thead className="table-head">
-            <tr>
+            <tr className="table-row">
               <th className="py-3 px-4 text-left">Désignation</th>
               <th className="py-3 px-4 text-center">Actions</th>
             </tr>
