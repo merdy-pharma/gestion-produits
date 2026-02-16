@@ -134,7 +134,7 @@ export default function StockMovementsHistory() {
               {results.map(p => (
                 <div
                   key={p.id}
-                  className="p-2 cursor-pointer hover:bg-gray-100"
+                  className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                   onClick={() => {
                     setProductId(p.id);
                     setQuery(p.name);
