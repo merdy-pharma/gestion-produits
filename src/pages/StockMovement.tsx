@@ -151,8 +151,8 @@ export default function StockMovement() {
             value={type}
             onChange={e => setType(e.target.value as "IN" | "OUT")}
           >
-            <option value="OUT">Sortie</option>
             <option value="IN">Entrée</option>
+            <option value="OUT">Sortie</option>
           </select>
         </div>
 
