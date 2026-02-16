@@ -189,6 +189,7 @@ export default function StockMovement() {
         <div className="space-y-1">
           <label className="text-sm font-medium">Commentaire</label>
           <Input
+            className="input"
             placeholder="Commentaire (optionnel)"
             value={comment}
             onChange={e => setComment(e.target.value)}
