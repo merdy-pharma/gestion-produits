@@ -407,7 +407,7 @@ export default function CashLedger() {
           Page {page} / {totalPages || 1}
         </span>
         <button
-          className="px-3 py-2 bg-gray-200 rounded disabled:opacity-50"
+          className="btn-secondary"
           disabled={page >= totalPages}
           onClick={() => setPage((p) => p + 1)}
         >
