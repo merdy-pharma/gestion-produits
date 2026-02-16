@@ -734,7 +734,7 @@ return (
                   value={formData.category_id}
                   onChange={(e) => setFormData({ ...formData, category_id: e.target.value })}
                   required
-                  className="w-full border px-3 py-2 rounded"
+                  className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                 >
                   <option value="">Sélectionnez</option>
                   {categories.map((cat) => (
@@ -757,7 +757,7 @@ return (
                           purchase_price: val === '' ? '' : Number(val)
                         });
                       }}
-                      className="w-full border px-3 py-2 rounded"
+                    className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                     />
                 </div>
 
@@ -770,7 +770,7 @@ return (
                     onChange={(e) => {const val = e.target.value;
                         setFormData({...formData, selling_price: val === '' ? '' :                                   Number(val) });
                       }}
-                    className="w-full border px-3 py-2 rounded"
+                    className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                   />
                 </div>
               </div>
@@ -785,7 +785,7 @@ return (
                         setFormData({...formData, stock: val === '' ? '' :                                   Number(val) });
                       }}
                   //disabled
-                  className="w-full border px-3 py-2 rounded"
+                  className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                 />
                 <p className="text-xs text-gray-500 mt-1">
                   Pour Modifier le Stock, Aller vers le menu laterral "Mouvements Stock".
