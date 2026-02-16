@@ -225,6 +225,7 @@ export default function StockMovementsHistory() {
 
         <div className="flex gap-2">
           <Button
+            className="btn-secondary"
             variant="outline"
             disabled={page === 1}
             onClick={() => setPage(p => p - 1)}
