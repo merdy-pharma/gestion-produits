@@ -152,24 +152,6 @@
 }
 
 @layer components {
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm transition-colors;
-  }
-
-  .card-title {
-    @apply text-gray-800 dark:text-gray-200 font-semibold;
-  }
-
-  .text-muted {
-    @apply text-gray-500 dark:text-gray-400;
-  }
-
-  .border-default {
-    @apply border-gray-200 dark:border-gray-700;
-  }
-}
-
-@layer components {
 
   /* =========================
      PAGE
