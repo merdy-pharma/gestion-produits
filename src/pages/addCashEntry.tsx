@@ -108,7 +108,7 @@ export default function AddCashEntry() {
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 p-4 border rounded-lg bg-white shadow"
+        className="space-y-4 p-4 border rounded-lg  shadow"
       >
         {errorMsg && (
           <p className="text-red-600 text-sm bg-red-100 p-2 rounded">
