@@ -453,7 +453,7 @@ export default function Expenses() {
 
               {/* Category */}
               <select
-                className="border p-2 rounded"
+                className="input border p-2 rounded"
                 value={form.category_id}
                 onChange={(e) =>
                   setForm({ ...form, category_id: e.target.value })
