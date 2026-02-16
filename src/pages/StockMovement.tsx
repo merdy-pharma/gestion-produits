@@ -92,7 +92,7 @@ export default function StockMovement() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Colonne formulaire */}
-      <div className="space-y-4">
+      <div className="page">
         <h2 className="text-xl font-bold">Mouvement de stock</h2>
         
          {/* Bouton afficher l'historique */}
