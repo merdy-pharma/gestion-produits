@@ -660,7 +660,7 @@ return (
       </div>
 
       {/* FOOTER */}
-      <div className="text-sm text-gray-600 mt-2">
+      <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">  
         Affichage de Produits {startDisplay} à {endDisplay} sur {filteredProducts.length} Produits
       </div>
 
