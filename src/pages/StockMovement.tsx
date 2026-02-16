@@ -158,7 +158,7 @@ export default function StockMovement() {
 
         {/* Motif */}
         <div className="space-y-1">
-          <label className="input">Motif</label>
+          <label className="text-sm font-medium">Motif</label>
           <select
             className="border rounded px-2 py-1 w-full"
             value={reason}
