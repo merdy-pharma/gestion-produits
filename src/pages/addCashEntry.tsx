@@ -120,7 +120,7 @@ export default function AddCashEntry() {
           <label className="block font-medium mb-1">Description</label>
           <input
             type="text"
-            className="w-full border px-3 py-2 rounded focus:outline-none"
+            className="input w-full border px-3 py-2 rounded focus:outline-none"
             placeholder="Ex: Approvisionnement, dépôt…"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
