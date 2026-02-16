@@ -598,7 +598,7 @@ return (
         </thead>
           <tbody>
             {currentProducts.map((product, index) => (
-              <tr key={product.id} className="border-b">
+              <tr key={product.id} className="border-b border-gray-200 dark:border-gray-700">  
                 <td className="px-4 py-2">{(currentPage - 1) * itemsPerPage + index + 1}</td>
                 <td className="px-4 py-2 flex items-center gap-2">
                   {product.image_url ? (
