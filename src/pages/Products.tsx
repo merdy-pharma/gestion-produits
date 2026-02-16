@@ -574,7 +574,7 @@ return (
             setMaxStock('');
             setCurrentPage(1);
           }}
-          className="border rounded-lg px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 active:scale-95"
+         className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
         >
           Réinitialiser
         </button>
