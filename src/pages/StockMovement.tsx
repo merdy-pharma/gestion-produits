@@ -197,7 +197,7 @@ export default function StockMovement() {
         </div>
 
         {/* Bouton valider */}
-        <Button onClick={handleSubmit} disabled={loading} className="btn">
+        <Button onClick={handleSubmit} disabled={loading} className="btn-success">
           Valider
         </Button>
          </div>
