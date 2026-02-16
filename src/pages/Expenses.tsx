@@ -469,7 +469,7 @@ export default function Expenses() {
 
               {/* Description */}
               <input
-                className="border p-2 rounded"
+                className="input border p-2 rounded"
                 placeholder="Description"
                 value={form.description}
                 onChange={(e) =>
@@ -483,7 +483,7 @@ export default function Expenses() {
                 {/* Amount */}
                 <input
                   type="number"
-                  className="border p-2 rounded w-full"
+                  className="input border p-2 rounded w-full"
                   placeholder="Montant"
                   value={form.amount}
                   onChange={(e) => {
