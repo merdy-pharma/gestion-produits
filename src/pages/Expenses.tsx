@@ -433,7 +433,7 @@ export default function Expenses() {
          MODAL — FORM
       ============================================ */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-start justify-center z-50 p-3 overflow-y-auto">
+        <div className="modal-overlay">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative mt-10">
 
             {/* CLOSE */}
