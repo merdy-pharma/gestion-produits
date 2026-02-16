@@ -509,7 +509,9 @@ return (
     </div>
 
       {error && (
-        <div className="bg-red-100 text-red-700 p-3 rounded">{error}</div>
+      
+        <div className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 p-3 rounded">
+          {error}</div>
       )}
 
       {/* FILTERS */}
