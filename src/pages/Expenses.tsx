@@ -287,7 +287,7 @@ export default function Expenses() {
             <label className="text-sm">Du</label>
             <input
               type="date"
-              className="border p-2 rounded"
+              className="input border p-2 rounded"
               value={fromDate}
               onChange={(e) => setFromDate(e.target.value)}
             />
@@ -297,7 +297,7 @@ export default function Expenses() {
             <label className="text-sm">Au</label>
             <input
               type="date"
-              className="border p-2 rounded"
+              className="input border p-2 rounded"
               value={toDate}
               onChange={(e) => setToDate(e.target.value)}
             />
