@@ -859,8 +859,8 @@ return (
       {/* Liste catégories */}
       <div className="mt-6">
         <h3 className="font-semibold mb-2">Liste</h3>
-
-        <div className="max-h-64 overflow-y-auto divide-y">
+        
+        <div className="max-h-64 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700">  
           {categories.map((cat) => (
             <div key={cat.id} className="flex justify-between items-center py-2">
               <span>{cat.name}</span>
