@@ -99,6 +99,7 @@ export default function StockMovement() {
         <Button
           variant="outline"
           onClick={() => setShowHistory(s => !s)}
+          className="btn-success"
         >
           {showHistory ? "Masquer l'historique" : "Voir l'historique"}
         </Button>
