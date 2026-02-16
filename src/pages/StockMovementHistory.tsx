@@ -112,7 +112,7 @@ export default function StockMovementsHistory() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="page">
       {/* FILTRES */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-2 relative">
         
