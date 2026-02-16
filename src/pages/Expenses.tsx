@@ -266,7 +266,7 @@ export default function Expenses() {
     <div className="page p-4 md:p-6">
       {/* ===== TITLE + EXPORT ===== */}
       <div className="flex items-center gap-2">
-        <h2 className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-400">
+        <h2 className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-200">
           Dépenses / Sorties Caisse
         </h2>
 
