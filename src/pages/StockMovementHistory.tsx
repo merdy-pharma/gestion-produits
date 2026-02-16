@@ -115,6 +115,7 @@ export default function StockMovementsHistory() {
     <div className="space-y-4">
       {/* FILTRES */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-2 relative">
+        
         {/* Recherche produit */}
         <div className="relative">
           <Input
