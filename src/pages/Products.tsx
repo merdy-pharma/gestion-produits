@@ -585,7 +585,7 @@ return (
      {/* TABLE */}
       <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
       <table className="min-w-full text-sm">
-        <thead className="bg-gray-100">
+        <thead className="bg-gray-100 dark:bg-gray-700">
           <tr>
             <th className="px-3 py-2">N°</th>
             <th className="px-3 py-2 text-left">Nom</th>
