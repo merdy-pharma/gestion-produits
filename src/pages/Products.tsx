@@ -693,7 +693,7 @@ return (
       {/* FORM MODAL */}
       {isFormOpen && (
       <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center p-4 z-50">
-  <div className="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 relative">
+  <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 w-full max-w-lg rounded-xl shadow-lg p-6 relative transition-colors">  
 
             <button
               onClick={() => setIsFormOpen(false)}
