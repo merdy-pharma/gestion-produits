@@ -531,7 +531,7 @@ export default function Expenses() {
             {/* SAVE */}
             <button
               onClick={handleSaveWithConversion}
-              className="btn-primary "
+              className="btn-success "
             >
               Enregistrer
             </button>
