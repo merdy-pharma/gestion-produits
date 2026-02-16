@@ -112,7 +112,7 @@ export default function ExpenseCategories() {
             <h3 className="text-lg font-bold mb-4 ">{editId ? "Modifier la catégorie" : "Ajouter une catégorie"}</h3>
 
             <input
-              className="border p-2 rounded w-full"
+              className="input"
               placeholder="Nom de la catégorie"
               value={name}
               onChange={(e) => setName(e.target.value)}
