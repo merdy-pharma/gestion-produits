@@ -397,7 +397,7 @@ export default function CashLedger() {
       {/* 🔹 Pagination */}
       <div className="flex justify-between items-center mt-4">
         <button
-          className="px-3 py-2 bg-gray-200 rounded disabled:opacity-50"
+          className="btn-secondary disabled:opacity-50"
           disabled={page <= 1}
           onClick={() => setPage((p) => p - 1)}
         >
