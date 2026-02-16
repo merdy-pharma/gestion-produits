@@ -183,7 +183,7 @@ export default function StockMovementsHistory() {
       </div>
 
       {/* TABLE */}
-      <table className="w-full text-sm border">
+      <table className="table-container">
         <thead className="bg-gray-100">
           <tr>
             <th className="p-2">Date</th>
