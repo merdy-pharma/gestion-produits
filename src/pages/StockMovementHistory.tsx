@@ -10,7 +10,7 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 5;
 
 interface Product {
   id: string;
