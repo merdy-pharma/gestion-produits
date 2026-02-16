@@ -109,7 +109,7 @@ export default function ExpenseCategories() {
               <X size={20} />
             </button>
 
-            <h3 className="text-lg font-bold mb-4 dark:text-gray-700">{editId ? "Modifier la catégorie" : "Ajouter une catégorie"}</h3>
+            <h3 className="text-lg font-bold mb-4 ">{editId ? "Modifier la catégorie" : "Ajouter une catégorie"}</h3>
 
             <input
               className="border p-2 rounded w-full"
