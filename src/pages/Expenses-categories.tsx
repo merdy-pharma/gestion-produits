@@ -85,7 +85,7 @@ export default function ExpenseCategories() {
               <tr className="table-row"><td colSpan={2} className="py-6 text-center">Aucune catégorie</td></tr>
             ) : (
               categories.map((cat) => (
-                <tr key={cat.id} className="border-b hover:bg-gray-50">
+                <tr key={cat.id} className="table-row border-b hover:bg-gray-50">
                   <td className="py-3 px-4">{cat.name}</td>
                   <td className="py-3 px-4 flex items-center justify-center gap-4">
                     <button onClick={() => openEdit(cat)} className="text-blue-600 hover:text-blue-800">
