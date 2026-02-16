@@ -241,7 +241,7 @@ export default function CashLedger() {
               <Search className="w-4 h-4 absolute left-2 top-2.5 text-gray-400" />
               <input
                 type="text"
-                className="pl-8 w-full border rounded-md p-2"
+                className="input pl-8 w-full border rounded-md p-2"
                 placeholder="Rechercher..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
