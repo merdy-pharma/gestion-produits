@@ -544,7 +544,7 @@ export default function Expenses() {
       ============================================ */}
       {showCategoryManager && (
         <div className="modal-overlay">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl relative mt-10">
+          <div className="modal max-w-lg w-full">
 
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
