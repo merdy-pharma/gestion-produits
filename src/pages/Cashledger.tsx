@@ -252,7 +252,7 @@ export default function CashLedger() {
             <label className="text-sm font-medium">Du</label>
             <input
               type="date"
-              className="w-full border rounded-md p-2"
+              className="input"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
             />
@@ -261,7 +261,7 @@ export default function CashLedger() {
             <label className="text-sm font-medium">Au</label>
             <input
               type="date"
-              className="w-full border rounded-md p-2"
+              className="input"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
             />
