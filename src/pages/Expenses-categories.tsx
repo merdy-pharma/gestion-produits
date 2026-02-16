@@ -82,7 +82,7 @@ export default function ExpenseCategories() {
             {loading ? (
               <tr><td colSpan={2} className="py-6 text-center">Chargement...</td></tr>
             ) : categories.length === 0 ? (
-              <tr classname="table-row"><td colSpan={2} className="py-6 text-center">Aucune catégorie</td></tr>
+              <tr className="table-row"><td colSpan={2} className="py-6 text-center">Aucune catégorie</td></tr>
             ) : (
               categories.map((cat) => (
                 <tr key={cat.id} className="border-b hover:bg-gray-50">
