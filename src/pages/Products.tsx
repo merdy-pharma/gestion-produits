@@ -815,7 +815,7 @@ return (
         {/* CATEGORY MODAL */}
 {isCategoryModalOpen && (
   <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-    <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+    <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-lg p-6 w-full max-w-md relative transition-colors">  
 
       <button
         onClick={() => setIsCategoryModalOpen(false)}
