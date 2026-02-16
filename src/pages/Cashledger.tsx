@@ -269,7 +269,7 @@ export default function CashLedger() {
           <div>
             <label className="text-sm font-medium">Type de mouvement</label>
             <select
-              className="w-full border rounded-md p-2"
+              className="input"
               value={movementFilter}
               onChange={(e) => setMovementFilter(e.target.value)}
             >
