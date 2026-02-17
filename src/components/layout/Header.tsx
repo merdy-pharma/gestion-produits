@@ -47,6 +47,19 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         </div>
         
         <div className="flex items-center space-x-4">
+          <button
+            onClick={toggleTheme}
+            className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 ${
+              theme === 'dark' ? 'bg-slate-700' : 'bg-gray-300'
+            }`}
+            aria-label="Basculer le thème"
+          >
+            <span
+              className={`inline-block h-7 w-7 transform rounded-full bg-white shadow-lg transition-transform duration-300 ${
+                theme === 'dark' ? 'translate-x-8' : 'translate-x-0.5'
+              }`}
+            />
+          </button>
           <button className="p-1 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
             <Bell size={20} />
