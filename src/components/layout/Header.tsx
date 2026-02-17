@@ -8,10 +8,11 @@ interface HeaderProps {
   toggleSidebar: () => void;
 }
 
- const { theme, toggleTheme } = useTheme();
+ 
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [showUserMenu, setShowUserMenu] = React.useState(false);
 
 
