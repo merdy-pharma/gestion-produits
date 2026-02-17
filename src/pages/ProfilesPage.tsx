@@ -456,7 +456,7 @@ function ProfileForm({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <div className="page fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>
