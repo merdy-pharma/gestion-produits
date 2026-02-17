@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           <button
            onClick={toggleTheme}
             className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors duration-300 ${
-              theme === 'dark' ? 'bg-slate-700' : 'bg-gray-200'
+              theme === 'dark' ? 'bg-slate-800' : 'bg-gray-200'
             }`}
             aria-label="Basculer le thème"
           >
