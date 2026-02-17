@@ -161,7 +161,7 @@ export default function ProfilesPage() {
           </div>
           <Button
             onClick={openNew}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white"
+            className="btn-secondary flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white"
           >
             <Plus size={18} />
             Nouveau Profil
