@@ -265,7 +265,7 @@ export default function ProfilesPage() {
                   <div className="flex gap-2 flex-wrap">
                     <button
                       onClick={() => openEdit(p)}
-                      className="btn flex-1 flex items-center justify-center gap-1 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+                      className="btn flex-1 flex items-center justify-center gap-1 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium dark:hover:bg-gray-600"
                     >
                       <Edit size={14} />
                       Éditer
