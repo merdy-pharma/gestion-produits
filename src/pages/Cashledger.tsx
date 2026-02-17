@@ -317,7 +317,7 @@ export default function CashLedger() {
                     Sortie <SortIcon field="exit" />
                   </th>
                   <th className="p-3 text-right font-semibold">Solde</th>
-                  
+              
                 </tr>
               </thead>
               <tbody>
