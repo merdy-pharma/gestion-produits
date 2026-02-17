@@ -174,6 +174,7 @@ export default function ProfilesPage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <div className="flex-1">
               <input
+                className="input"
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
