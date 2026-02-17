@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         
         <div className="flex items-center space-x-4">
           <button
-            onClick={toggleTheme}
+           // onClick={toggleTheme}
             className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 ${
               theme === 'dark' ? 'bg-slate-700' : 'bg-gray-300'
             }`}
