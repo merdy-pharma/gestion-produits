@@ -152,10 +152,10 @@ export default function ProfilesPage() {
       <div className="mb-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">
               Gestion des Profils
             </h1>
-            <p className="text-gray-600 mt-1">
+            <p className="text-gray-600 mt-1 dark:text-gray-300">
               Gérez les utilisateurs et leurs rôles
             </p>
           </div>
