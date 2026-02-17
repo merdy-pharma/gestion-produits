@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Search, Bell, User } from 'lucide-react';
 import { useAuth } from "@/hooks/useAuth";
+import { useTheme } from '@/hooks/useTheme';
 import { Link } from 'react-router-dom'; 
 
 interface HeaderProps {
