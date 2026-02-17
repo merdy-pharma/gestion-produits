@@ -7,9 +7,12 @@ interface HeaderProps {
   toggleSidebar: () => void;
 }
 
+ const { theme, toggleTheme } = useTheme();
+
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   const { user, logout } = useAuth();
   const [showUserMenu, setShowUserMenu] = React.useState(false);
+
 
   // --- AJOUT : ref pour gérer le click en dehors ---
   const menuRef = React.useRef<HTMLDivElement>(null);
