@@ -466,7 +466,7 @@ function ProfileForm({
         <CardContent>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">
                 Nom complet *
               </label>
               <input
