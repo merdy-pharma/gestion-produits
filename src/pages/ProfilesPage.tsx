@@ -174,14 +174,13 @@ export default function ProfilesPage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <div className="flex-1">
               <input
-                className="input"
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
                   setPage(1);
                 }}
                 placeholder="Rechercher par nom ou téléphone..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <button
