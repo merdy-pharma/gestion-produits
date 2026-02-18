@@ -183,7 +183,7 @@ export default function ProductBatchesPage() {
         <select
           value={selectedProduct}
           onChange={(e) => setSelectedProduct(e.target.value)}
-          className="border p-2 rounded"
+          className="input border p-2 rounded"
         >
           <option value="">Tous les produits</option>
           {products.map((p) => (
