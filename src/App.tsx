@@ -22,7 +22,7 @@ import Cashledger from './pages/Cashledger';
 import AddCashEntry from './pages/addCashEntry';
 import StockMovement from './pages/StockMovement';
 import StockMovementHistory from './pages/StockMovementHistory';
-import productBatches from './pages/productBatches';
+import ProductBatches from './pages/productBatches';
 
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
