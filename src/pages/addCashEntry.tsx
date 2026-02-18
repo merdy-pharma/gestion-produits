@@ -95,12 +95,15 @@ export default function AddCashEntry() {
   return (
     <div className="page p-6 max-w-md mx-auto relative">
       {/* Bouton fermer */}
-      <button
-        onClick={() => navigate("/cashledger")}
-        className="btn-danger"
-      >
-        X
-      </button>
+      
+      <span className="fixed top-16 right-10 m-4 z-50">
+              <button
+              onClick={() => navigate("/cashledger")}
+              className="btn-danger rounded-full p-2 shadow"
+              >
+              <X size={18} />
+              </button>
+          </span>
 
       <h1 className="text-xl font-bold mb-4">
         {isEditMode ? "Modifier une Entrée" : "Nouvelle Entrée en Caisse"}
