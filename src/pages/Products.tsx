@@ -504,6 +504,17 @@ return (
           <PlusCircle size={18} className="mr-2" />
           Gérer les Catégories
         </button>
+        <button
+          onClick={() => {
+            setIsCategoryModalOpen(true);
+            setEditingCategory(null);
+            setCategoryName("");
+          }}
+          className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 shadow-sm active:scale-95"
+        >
+          <PlusCircle size={18} className="mr-2" />
+          Gérer les Lots
+        </button>
     
       </div>
     </div>
