@@ -169,12 +169,14 @@ export default function ProductBatchesPage() {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Gestion des Lots</h1>
-      <button
-              onClick={() => navigate("/products")}
-              className="btn-danger"
-            >
-              <X size={18} />
-       </button>
+      <span>
+        <button
+                onClick={() => navigate("/products")}
+                className="btn-danger"
+              >
+                <X size={18} />
+         </button>
+      </span>
 
       {/* 🔎 Filtre produit */}
       <div className="mb-4 flex gap-4 items-center">
