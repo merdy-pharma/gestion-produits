@@ -167,7 +167,7 @@ export default function ProductBatchesPage() {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="page p-6 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Gestion des Lots</h1>
       <span>
         <button
