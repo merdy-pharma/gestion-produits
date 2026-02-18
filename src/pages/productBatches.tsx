@@ -26,6 +26,7 @@ export default function ProductBatchesPage() {
   const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [editingBatch, setEditingBatch] = useState<Batch | null>(null);
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     product_id: "",
