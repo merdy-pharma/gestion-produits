@@ -508,7 +508,7 @@ return (
         </button>
         <button
             onClick={() => navigate("/productBatches")}
-          className="btn-primary inline-flex items-center px-4 py-2  text-white rounded-lg hover:bg-purple-700 shadow-sm active:scale-95"
+          className="btn-secondary inline-flex items-center px-4 py-2  text-white rounded-lg hover:bg-purple-700 shadow-sm active:scale-95"
         >
           <PlusCircle size={18} className="mr-2" />
           Gérer les Lots
