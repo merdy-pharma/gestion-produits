@@ -492,7 +492,7 @@ return (
           className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 shadow-sm active:scale-95"
         >
           <PlusCircle size={18} className="mr-2" />
-          Créer un Article
+          Créer un Produit
         </button>
     
         <button
