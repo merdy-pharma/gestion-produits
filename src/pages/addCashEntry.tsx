@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import { useNavigate, useParams } from "react-router-dom";
-import {x} from "lucide-react";
+import {X} from "lucide-react";
 
 
 export default function AddCashEntry() {
