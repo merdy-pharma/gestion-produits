@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const navItems = [
     { name: 'Tableau de Bord', path: '/', icon: <LayoutDashboard size={20} />, roles: ['admin', 'manager', 'employee'] },
     { name: 'Vendre', path: '/sales', icon: <ShoppingCart size={20} />, roles: ['admin', 'manager', 'employee'] },
-    { name: 'Articles', path: '/products', icon: <Package size={20} />, roles: ['admin', 'manager'] },
+    { name: 'Produits', path: '/products', icon: <Package size={20} />, roles: ['admin', 'manager'] },
     { name: 'Clients', path: '/customers', icon: <Users size={20} />, roles: ['admin', 'manager'] },
     { name: 'Rapport Ventes', path: '/orders', icon: <FileBarChart size={20} />, roles: ['admin', 'manager', 'employee'] },
     { name: 'Autres Rapports', path: '/reports', icon: <BarChartBig size={20} />, roles: ['admin', 'manager'] },
