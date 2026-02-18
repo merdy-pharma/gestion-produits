@@ -19,7 +19,7 @@ type Batch = {
   products?: { name: string };
 };
 
-export default function ProductBatches() {
+export default function ProductBatchesPage() {
   const [batches, setBatches] = useState<Batch[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>("");
