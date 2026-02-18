@@ -22,6 +22,7 @@ import Cashledger from './pages/Cashledger';
 import AddCashEntry from './pages/addCashEntry';
 import StockMovement from './pages/StockMovement';
 import StockMovementHistory from './pages/StockMovementHistory';
+import productBatches from './pages/productBatches';
 
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
@@ -62,6 +63,7 @@ function App() {
             <Route path="/addcashentry" element={<AddCashEntry />} />
             <Route path="/addcashentry/:id" element={<AddCashEntry />} />
             <Route path="/profiles" element={<ProfilesPage />} />
+            <Route path="/productbatches" element={<ProductBatches />} />
           </Route>
         </Routes>
 
