@@ -6,6 +6,7 @@ import { supabase } from '../lib/supabase';
 import toast from "react-hot-toast";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { useNavigate } from "react-router-dom";
 
 
 // -------------------------
