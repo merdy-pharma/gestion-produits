@@ -321,13 +321,14 @@ export default function Expenses() {
               <Pencil size={18} />
               Catégories
             </button>
-<span className="fixed top-16 right-10 m-4 z-50">
-        <button
+        <span className="fixed top-16 right-10 m-4 z-50">
+              <button
               onClick={() => navigate("/cashledger")}
               className="btn-danger rounded-full p-2 shadow"
-          >
+              >
               <X size={18} />
-            </button>
+              </button>
+          </span>
           </div>
         )}
       </div>
