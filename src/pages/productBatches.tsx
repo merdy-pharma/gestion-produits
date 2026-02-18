@@ -170,7 +170,7 @@ export default function ProductBatchesPage() {
       <h1 className="text-2xl font-bold mb-6">Gestion des Lots</h1>
       <button
               onClick={() => navigate("/products")}
-              className="flex items-center gap-2 px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+              className="btn-danger"
             >
               <X size={18} />
        </button>
