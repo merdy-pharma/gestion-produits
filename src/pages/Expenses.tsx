@@ -321,11 +321,11 @@ export default function Expenses() {
               <Pencil size={18} />
               Catégories
             </button>
-
-            <button
+<span className="fixed top-16 right-10 m-4 z-50">
+        <button
               onClick={() => navigate("/cashledger")}
-              className="flex items-center gap-2 px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-            >
+              className="btn-danger rounded-full p-2 shadow"
+          >
               <X size={18} />
             </button>
           </div>
