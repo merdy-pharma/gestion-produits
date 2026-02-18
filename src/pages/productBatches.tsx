@@ -194,7 +194,7 @@ export default function ProductBatchesPage() {
         </select>
 
         {selectedProduct && (
-          <div className="bg-blue-100 px-4 py-2 rounded font-semibold">
+          <div className="bg-blue-700 px-4 py-2 rounded font-semibold">
             Stock total : {stockTotals[selectedProduct] || 0}
           </div>
         )}
