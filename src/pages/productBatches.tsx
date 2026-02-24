@@ -234,6 +234,14 @@ export default function ProductBatchesPage() {
   )}
 </div>
 
+      {/* 🔎 Filtre produit 1 */} 
+      <div className="mb-4 flex gap-4 items-center"> 
+        <select value={selectedProduct} onChange={(e) => setSelectedProduct(e.target.value)} className="select border p-2 rounded" > 
+          
+          <option value="">Tous les produits</option> 
+          {products.map((p) => ( <option key={p.id} value={p.id}> {p.name} </option> ))} </select> 
+        {selectedProduct && ( <div className="bg-blue-100 dark:bg-blue-700 px-4 py-2 rounded font-semibold"> Stock total : {stockTotals[selectedProduct] || 0} </div> )} </div>
+      
       {/* FORM */}
       <form
         onSubmit={handleSubmit}
