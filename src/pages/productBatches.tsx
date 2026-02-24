@@ -25,13 +25,13 @@ type Batch = {
 export default function ProductBatchesPage() {
   const [batches, setBatches] = useState<Batch[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
- // const [selectedProduct, setSelectedProduct] = useState<string>("");
+  const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [editingBatch, setEditingBatch] = useState<Batch | null>(null);
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+ // const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [form, setForm] = useState({
     product_id: "",
