@@ -181,28 +181,57 @@ export default function ProductBatchesPage() {
          </button>
       </span>
 
-      {/* 🔎 Filtre produit */}
-      <div className="mb-4 flex gap-4 items-center">
-        
-        <select
-          value={selectedProduct}
-          onChange={(e) => setSelectedProduct(e.target.value)}
-          className="select border p-2 rounded"
-        >
-          <option value="">Tous les produits</option>
-          {products.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.name}
-            </option>
-          ))}
-        </select>
 
-        {selectedProduct && (
-          <div className="bg-blue-100 dark:bg-blue-700 px-4 py-2 rounded font-semibold">
-            Stock total : {stockTotals[selectedProduct] || 0}
+      {/* 🔎 Filtre produit 1 - version dynamique */}
+<div className="mb-4 flex gap-4 items-start relative">
+  
+  <div className="relative w-64">
+    <Input
+      placeholder="Rechercher un produit (min 3 lettres)"
+      value={query}
+      onChange={(e) => {
+        const value = e.target.value;
+        setQuery(value);
+        setSelectedProduct(null);
+        setPage(1);
+
+        if (value.length >= 3) {
+          const filtered = products.filter((p) =>
+            p.name.toLowerCase().includes(value.toLowerCase())
+          );
+          setResults(filtered);
+        } else {
+          setResults([]);
+        }
+      }}
+    />
+
+    {results.length > 0 && (
+      <div className="absolute z-10 w-full border bg-white dark:bg-gray-800 max-h-40 overflow-auto rounded shadow">
+        {results.map((p) => (
+          <div
+            key={p.id}
+            className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            onClick={() => {
+              setSelectedProduct(p.id);
+              setQuery(p.name);
+              setResults([]);
+              setPage(1);
+            }}
+          >
+            {p.name}
           </div>
-        )}
+        ))}
       </div>
+    )}
+  </div>
+
+  {selectedProduct && (
+    <div className="bg-blue-100 dark:bg-blue-700 px-4 py-2 rounded font-semibold">
+      Stock total : {stockTotals[selectedProduct] || 0}
+    </div>
+  )}
+</div>
 
       {/* FORM */}
       <form
