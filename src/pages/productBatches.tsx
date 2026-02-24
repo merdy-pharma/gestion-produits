@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
 import {X } from 'lucide-react';
+import { Input } from "@/components/ui/input";
 
 type Product = {
   id: string;
