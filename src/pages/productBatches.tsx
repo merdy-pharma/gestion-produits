@@ -461,6 +461,7 @@ export default function ProductBatchesPage() {
       </div>
        
     </div>
+  </div>
 
        {/*Stats*/}
 
@@ -477,7 +478,8 @@ export default function ProductBatchesPage() {
           Expire bientôt : {batches.filter(b => getExpirationStatus(b.expiration_date) === "warning").length}
         </div>
       </div>  
-  </div>
+        
+  
 </div>
   );
 }
