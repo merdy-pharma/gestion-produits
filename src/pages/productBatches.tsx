@@ -317,7 +317,7 @@ export default function ProductBatchesPage() {
         <input
           type="number"
           name="quantity"
-          placeholder="Quantité"
+          placeholder="Quantité Lot"
           value={form.quantity}
           onChange={handleChange}
           className="border p-2 rounded w-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 rounded transition-colors"
@@ -335,7 +335,7 @@ export default function ProductBatchesPage() {
           placeholder="Prix d'achat"
           value={form.purchase_price}
           onChange={handleChange}
-          className="border p-2 rounded"
+          className="border p-2 rounded w-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 rounded transition-colors"
         />
         </div>
         <div className="col-span-2 flex gap-2">
