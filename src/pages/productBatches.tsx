@@ -194,21 +194,21 @@ export default function ProductBatchesPage() {
       </span>
 
 
-      {/* 🔎 Filtre produit 1 - version dynamique */}
-<div className="mb-4 flex gap-4 items-start relative">
-  
-  <div className="relative w-64 dark:bg-gray-900">
-    <Input
-      placeholder="Rechercher un produit (min 3 lettres)"
-      value={query}
-      onChange={(e) => {
-        const value = e.target.value;
-        setQuery(value);
-        setSelectedProduct(null);
-        setPage(1);
-
-        if (value.length >= 3) {
-          const filtered = products.filter((p) =>
+ {/* 🔎 Filtre produit 1 - version dynamique */}
+    <div className="mb-4 flex gap-4 items-start relative">
+      
+      <div className="relative w-64 dark:bg-gray-900 rounded">
+        <Input
+          placeholder="Rechercher un produit (min 3 lettres)"
+          value={query}
+          onChange={(e) => {
+            const value = e.target.value;
+            setQuery(value);
+            setSelectedProduct(null);
+            setPage(1);
+    
+            if (value.length >= 3) {
+              const filtered = products.filter((p) =>
             p.name.toLowerCase().includes(value.toLowerCase())
           );
           setResults(filtered);
