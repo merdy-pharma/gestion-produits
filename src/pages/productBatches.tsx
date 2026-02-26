@@ -260,7 +260,7 @@ export default function ProductBatchesPage() {
       {/* FORM */}
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-2 gap-4 bg-white p-4 rounded shadow mb-6"
+        className="grid grid-cols-2 gap-4 bg-white dark:bg-blue p-4 rounded shadow mb-6"
       >
         
         <div className="flex flex-col">
