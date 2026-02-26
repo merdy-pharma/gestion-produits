@@ -353,7 +353,7 @@ export default function ProductBatchesPage() {
               <th className="p-2 border text-left">Produit</th>
               <th className="p-2 border text-left">Lot</th>
               <th className="p-2 border text-left">Expiration</th>
-              <th className="p-2 border ">Quantité</th>
+              <th className="p-2 border">Quantité</th>
               <th className="p-2 border">Prix achat</th>
               <th className="p-2 border">Statut</th>
               <th className="p-2 border text-left">Reçu le</th>
@@ -375,7 +375,7 @@ export default function ProductBatchesPage() {
                   <td className="p-2 border">
                     {batch.expiration_date}
                   </td>
-                  <td className="p-2 border">
+                  <td className="p-2 border text-center">
                     {batch.quantity}
                   </td>
                   <td className="p-2 border">
