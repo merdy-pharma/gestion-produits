@@ -345,6 +345,22 @@ export default function ProductBatchesPage() {
         </div>
       </form>
 
+      {/*Stats*/}
+
+      <div className="flex gap-6 mb-4">
+        <div className="bg-white shadow p-4 rounded">
+          Total lots : {batches.length}
+        </div>
+      
+        <div className="bg-red-100 p-4 rounded">
+          Expirés : {batches.filter(b => getExpirationStatus(b.expiration_date) === "expired").length}
+        </div>
+      
+        <div className="bg-yellow-100 p-4 rounded">
+          Expire bientôt : {batches.filter(b => getExpirationStatus(b.expiration_date) === "warning").length}
+        </div>
+      </div>
+      
       {/* TABLE*/}
       <div className="shadow rounded overflow-x-auto bg-white dark:bg-gray-700 rounded-lg shadow-sm p-4 transition-colors">
         <table className="w-full border-collapse">
