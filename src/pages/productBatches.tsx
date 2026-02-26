@@ -333,7 +333,7 @@ export default function ProductBatchesPage() {
             </tr>
           </thead>
           <tbody>
-            {batches.map((batch) => {
+            {paginatedBatches.map((batch) => {
               const status = getExpirationStatus(batch.expiration_date);
 
               return (
