@@ -220,7 +220,7 @@ export default function ProductBatchesPage() {
     />
 
     {results.length > 0 && (
-      <div className="absolute z-10 w-full border bg-white dark:bg-gray-800 max-h-40 overflow-auto rounded shadow">
+      <div className="absolute z-10 w-full border bg-white dark:bg-gray-900 max-h-40 overflow-auto rounded shadow">
         {results.map((p) => (
           <div
             key={p.id}
