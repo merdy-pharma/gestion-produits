@@ -216,7 +216,7 @@ export default function ProductBatchesPage() {
           setResults([]);
         }
       }}
-      classname="w-full border border-gray-300 dark:border-gray-100 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
+      //classname="w-full border border-gray-300 dark:border-gray-100 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
     />
 
     {results.length > 0 && (
