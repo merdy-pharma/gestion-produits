@@ -283,17 +283,19 @@ export default function ProductBatchesPage() {
           </select>
         </div>
 
-        <label className="text-sm font-medium mb-1">
-          Numéro de lot
-        </label>
-        <input
-          type="text"
-          name="batch_number"
-          placeholder="Numéro lot"
-          value={form.batch_number}
-          onChange={handleChange}
-          className="border p-2 rounded"
-        />
+        <div className="flex flex-col">
+            <label className="text-sm font-medium mb-1">
+              Numéro de lot
+            </label>
+            <input
+              type="text"
+              name="batch_number"
+              placeholder="Numéro lot"
+              value={form.batch_number}
+              onChange={handleChange}
+              className="border p-2 rounded"
+            />
+           </div>
 
         <input
           type="date"
