@@ -348,7 +348,7 @@ export default function ProductBatchesPage() {
       {/* TABLE*/}
       <div className="shadow rounded overflow-x-auto bg-white dark:bg-gray-700 rounded-lg shadow-sm p-4 transition-colors">
         <table className="w-full border-collapse">
-          <thead className="bg-gray-100 dark:bg-gray-800">
+          <thead className="bg-gray-100 dark:bg-gray-900">
             <tr>
               <th className="p-2 border">Produit</th>
               <th className="p-2 border">Lot</th>
