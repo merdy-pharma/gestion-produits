@@ -204,7 +204,7 @@ export default function ProductBatchesPage() {
           onChange={(e) => {
             const value = e.target.value;
             setQuery(value);
-            setSelectedProduct(null);
+            setSelectedProduct("");
             setPage(1);
     
             if (value.length >= 3) {
@@ -363,6 +363,13 @@ export default function ProductBatchesPage() {
             </tr>
           </thead>
           <tbody>
+            {paginatedBatches.length === 0 && (
+              <tr>
+                <td colSpan={7} className="text-center p-4 text-gray-500">
+                    Aucun lot trouvé
+                 </td>
+              </tr>
+              )}
             {paginatedBatches.map((batch) => {
               const status = getExpirationStatus(batch.expiration_date);
 
