@@ -350,7 +350,7 @@ export default function ProductBatchesPage() {
         <table className="w-full border-collapse">
           <thead className="bg-gray-100 dark:bg-gray-900">
             <tr>
-              <th className="p-2 border">Produit</th>
+              <th className="p-1 border">Produit</th>
               <th className="p-2 border">Lot</th>
               <th className="p-2 border">Expiration</th>
               <th className="p-2 border">Quantité</th>
