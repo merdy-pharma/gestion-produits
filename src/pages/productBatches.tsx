@@ -459,8 +459,10 @@ export default function ProductBatchesPage() {
             Suivant
           </button>
       </div>
+       
+    </div>
 
-        {/*Stats*/}
+       {/*Stats*/}
 
       <div className="flex gap-6 mb-4">
         <div className="bg-white shadow p-4 rounded">
@@ -474,8 +476,7 @@ export default function ProductBatchesPage() {
         <div className="bg-yellow-100 p-4 rounded">
           Expire bientôt : {batches.filter(b => getExpirationStatus(b.expiration_date) === "warning").length}
         </div>
-      </div>
-    </div>
+      </div>  
   </div>
 </div>
   );
