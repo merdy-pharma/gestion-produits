@@ -247,7 +247,7 @@ export default function ProductBatchesPage() {
 
       {/* 🔎 Filtre produit*/} 
       <div className="mb-4 flex gap-4 items-center"> 
-        <select value={selectedProduct} onChange={(e) => setSelectedProduct(e.target.value)} className="select border p-2 rounded" > 
+        <select value={selectedProduct} onChange={(e) => setSelectedProduct(e.target.value)} className="input select border p-2 rounded" > 
           
           <option value="">Tous les produits</option> 
           
