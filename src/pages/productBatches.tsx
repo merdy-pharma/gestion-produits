@@ -297,17 +297,22 @@ export default function ProductBatchesPage() {
             />
            </div>
         <div className="flex flex-col">
+          <label className="text-sm font-medium mb-1">
+            Date d'expiration <span className="text-red-500">*</span>
+          </label>
           
-        <input
-          type="date"
-          name="expiration_date"
-          value={form.expiration_date}
-          onChange={handleChange}
-          className="border p-2 rounded"
-        />
-       </div>
+            <input
+              type="date"
+              name="expiration_date"
+              value={form.expiration_date}
+              onChange={handleChange}
+              className="border p-2 rounded"/>
+         </div>
 
       <div className="flex flex-col">
+        <label className="text-sm font-medium mb-1">
+          Quantité reçue
+        </label>
         <input
           type="number"
           name="quantity"
@@ -316,9 +321,10 @@ export default function ProductBatchesPage() {
           onChange={handleChange}
           className="border p-2 rounded"
         />
-
         </div>
+        
         <div className="flex flex-col">
+          
         <input
           type="number"
           step="0.01"
