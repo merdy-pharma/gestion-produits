@@ -296,7 +296,8 @@ export default function ProductBatchesPage() {
               className="border p-2 rounded"
             />
            </div>
-
+        <div className="flex flex-col">
+          
         <input
           type="date"
           name="expiration_date"
@@ -304,7 +305,9 @@ export default function ProductBatchesPage() {
           onChange={handleChange}
           className="border p-2 rounded"
         />
+       </div>
 
+      <div className="flex flex-col">
         <input
           type="number"
           name="quantity"
@@ -314,6 +317,8 @@ export default function ProductBatchesPage() {
           className="border p-2 rounded"
         />
 
+        </div>
+        <div className="flex flex-col">
         <input
           type="number"
           step="0.01"
@@ -323,7 +328,7 @@ export default function ProductBatchesPage() {
           onChange={handleChange}
           className="border p-2 rounded"
         />
-
+        </div>
         <div className="col-span-2 flex gap-2">
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             {editingBatch ? "Mettre à jour" : "Créer"}
