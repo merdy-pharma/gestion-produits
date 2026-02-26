@@ -294,7 +294,7 @@ export default function ProductBatchesPage() {
               placeholder="Numéro lot"
               value={form.batch_number}
               onChange={handleChange}
-              className="border p-2 rounded"
+              className="border p-2 rounded w-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
             />
            </div>
         <div className="flex flex-col">
