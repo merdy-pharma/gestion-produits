@@ -273,7 +273,7 @@ export default function ProductBatchesPage() {
             value={form.product_id}
             onChange={handleChange}
             required
-            className= "w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
+            className= "w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 rounded transition-colors"
           >
             <option value="">-- Sélectionner un produit --</option>
             {products.map((p) => (
@@ -286,12 +286,12 @@ export default function ProductBatchesPage() {
 
         <div className="flex flex-col">
             <label className="text-sm font-medium mb-1">
-              Numéro de lot
+              Numéro de Lot
             </label>
             <input
               type="text"
               name="batch_number"
-              placeholder="Numéro lot"
+              placeholder="Numéro Lot"
               value={form.batch_number}
               onChange={handleChange}
               className="border p-2 rounded w-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 rounded transition-colors"
