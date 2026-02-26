@@ -311,7 +311,7 @@ export default function ProductBatchesPage() {
 
       <div className="flex flex-col">
         <label className="text-sm font-medium mb-1">
-          Quantité reçue
+          Quantité Lot
         </label>
         <input
           type="number"
