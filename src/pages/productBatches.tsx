@@ -307,7 +307,7 @@ export default function ProductBatchesPage() {
               name="expiration_date"
               value={form.expiration_date}
               onChange={handleChange}
-              className="border p-2 rounded"/>
+              className="border p-2 rounded w-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 rounded transition-colors"/>
          </div>
 
       <div className="flex flex-col">
