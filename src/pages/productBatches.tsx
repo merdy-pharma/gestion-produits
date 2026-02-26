@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
-import {X } from 'lucide-react';
+import {X, Edit } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 
 type Product = {
@@ -406,7 +406,7 @@ export default function ProductBatchesPage() {
                       onClick={() => handleEdit(batch)}
                       className="bg-yellow-500 text-white px-2 py-1 rounded"
                     >
-                      Modifier
+                      <Edit size={16} />
                     </button>
                     <button
                       onClick={() => handleDelete(batch.id)}
