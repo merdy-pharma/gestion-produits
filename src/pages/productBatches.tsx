@@ -282,7 +282,10 @@ export default function ProductBatchesPage() {
             ))}
           </select>
         </div>
-        
+
+        <label className="text-sm font-medium mb-1">
+          Numéro de lot
+        </label>
         <input
           type="text"
           name="batch_number"
