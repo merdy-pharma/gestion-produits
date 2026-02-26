@@ -412,7 +412,7 @@ export default function ProductBatchesPage() {
                       onClick={() => handleDelete(batch.id)}
                       className="bg-red-600 text-white px-2 py-1 rounded"
                     >
-                      Supprimer
+                       <Trash size={16} />
                     </button>
                   </td>
                 </tr>
