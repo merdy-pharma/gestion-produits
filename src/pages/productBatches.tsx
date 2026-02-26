@@ -262,20 +262,27 @@ export default function ProductBatchesPage() {
         onSubmit={handleSubmit}
         className="grid grid-cols-2 gap-4 bg-white p-4 rounded shadow mb-6"
       >
-        <select
-          name="product_id"
-          value={form.product_id}
-          onChange={handleChange}
-          className="border p-2 rounded"
-        >
-          <option value="">Sélectionner produit</option>
-          {products.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.name}
-            </option>
-          ))}
-        </select>
-
+        
+        <div className="flex flex-col">
+          <label className="text-sm font-medium mb-1">
+            Produit <span className="text-red-500">*</span>
+          </label>
+          <select
+            name="product_id"
+            value={form.product_id}
+            onChange={handleChange}
+            required
+            className="border p-2 rounded"
+          >
+            <option value="">-- Sélectionner un produit --</option>
+            {products.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        
         <input
           type="text"
           name="batch_number"
