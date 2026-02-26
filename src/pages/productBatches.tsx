@@ -264,7 +264,7 @@ export default function ProductBatchesPage() {
       >
         
         <div className="flex flex-col">
-          <label className="input text-sm font-medium mb-1">
+          <label className="text-sm font-medium mb-1">
             Produit <span className="text-red-500">*</span>
           </label>
           <select
@@ -272,7 +272,7 @@ export default function ProductBatchesPage() {
             value={form.product_id}
             onChange={handleChange}
             required
-            className="border p-2 rounded"
+            className="input border p-2 rounded"
           >
             <option value="">-- Sélectionner un produit --</option>
             {products.map((p) => (
