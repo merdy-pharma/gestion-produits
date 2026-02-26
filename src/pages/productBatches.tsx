@@ -363,7 +363,7 @@ export default function ProductBatchesPage() {
               const status = getExpirationStatus(batch.expiration_date);
 
               return (
-                <tr key={batch.id} className="border-b border-gray-200 dark:border-gray-700 dark:bg-gray-700">
+                <tr key={batch.id} className="border-b border-gray-200 dark:border-gray-700 dark:bg-gray-600">
                   <td className="p-2 border">
                     {batch.products?.name}
                   </td>
