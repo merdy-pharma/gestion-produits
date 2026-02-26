@@ -197,7 +197,7 @@ export default function ProductBatchesPage() {
       {/* 🔎 Filtre produit 1 - version dynamique */}
 <div className="mb-4 flex gap-4 items-start relative">
   
-  <div className="relative w-64 dark:bg-gray-800 px-3 py-2 rounded transition-colors">
+  <div className="relative w-64">
     <Input
       placeholder="Rechercher un produit (min 3 lettres)"
       value={query}
