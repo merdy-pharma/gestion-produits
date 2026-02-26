@@ -416,7 +416,7 @@ export default function ProductBatchesPage() {
           </tbody>
         </table>
 
-      <div className="flex justify-between items-center p-4 bg-gray-500">
+      <div className="flex justify-between items-center p-4 bg-gray-700">
         <span className="text-sm text-gray-600">
           Page {page} sur {totalPages}
         </span>
