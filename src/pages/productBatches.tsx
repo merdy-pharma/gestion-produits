@@ -370,7 +370,7 @@ export default function ProductBatchesPage() {
                       status === "expired"
                         ? "bg-red-100 dark:bg-red-500"
                         : status === "warning"
-                        ? "bg-yellow-100"
+                        ? "bg-yellow-200"
                         : "border-b border-gray-200 dark:border-gray-700 dark:bg-gray-600"
                     }
                   >
