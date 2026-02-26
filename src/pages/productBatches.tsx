@@ -451,7 +451,7 @@ export default function ProductBatchesPage() {
           </button>
       
           <button
-            disabled={page === totalPages}
+            disabled={page === totalPages | loading}
             
             onClick={() => setPage(page + 1)}
             className="px-3 py-1 border rounded bg-gray-200 dark:bg-gray-700 disabled:opacity-50"
