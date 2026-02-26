@@ -77,6 +77,7 @@ export default function ProductBatchesPage() {
     const { data } = await query;
 
     if (data) setBatches(data);
+    setPage(1);
 
     setLoading(false);
   };
