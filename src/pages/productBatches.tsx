@@ -379,7 +379,12 @@ export default function ProductBatchesPage() {
                     {batch.quantity}
                   </td>
                   <td className="p-2 border text-right">
-                    {batch.purchase_price || "-"}
+                    {batch.purchase_price
+                    ? new Intl.NumberFormat("fr-FR", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(batch.purchase_price)
+                    : "-"}
                   </td>
                   <td className="p-2 border">
                     {status === "expired" && (
