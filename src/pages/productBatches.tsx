@@ -465,15 +465,15 @@ export default function ProductBatchesPage() {
        {/*Stats*/}
 
       <div className="flex gap-6 mb-4">
-        <div className="bg-blue-100 shadow p-4 rounded dark:bg-blue-500">
+        <div className="bg-blue-100 shadow p-4 rounded dark:bg-blue-600">
           Total lots : {batches.length}
         </div>
       
-        <div className="bg-red-100 p-4 rounded dark:bg-red-500">
+        <div className="bg-red-100 p-4 rounded dark:bg-red-600">
           Expirés : {batches.filter(b => getExpirationStatus(b.expiration_date) === "expired").length}
         </div>
       
-        <div className="bg-yellow-100 p-4 rounded dark:bg-yellow-500">
+        <div className="bg-yellow-100 p-4 rounded dark:bg-yellow-600">
           Expire bientôt : {batches.filter(b => getExpirationStatus(b.expiration_date) === "warning").length}
         </div>
       </div>  
