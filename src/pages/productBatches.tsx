@@ -324,7 +324,9 @@ export default function ProductBatchesPage() {
         </div>
         
         <div className="flex flex-col">
-          
+          <label className="text-sm font-medium mb-1">
+          Prix d'achat unitaire
+        </label>
         <input
           type="number"
           step="0.01"
