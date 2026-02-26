@@ -378,7 +378,7 @@ export default function ProductBatchesPage() {
                   <td className="p-2 border text-center">
                     {batch.quantity}
                   </td>
-                  <td className="p-2 border">
+                  <td className="p-2 border text-left">
                     {batch.purchase_price || "-"}
                   </td>
                   <td className="p-2 border">
