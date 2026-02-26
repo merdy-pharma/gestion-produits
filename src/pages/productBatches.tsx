@@ -389,6 +389,30 @@ export default function ProductBatchesPage() {
             })}
           </tbody>
         </table>
+
+        <div className="flex justify-between items-center p-4">
+  <span className="text-sm text-gray-600">
+    Page {page} sur {totalPages}
+  </span>
+
+  <div className="flex gap-2">
+    <button
+      disabled={page === 1}
+      onClick={() => setPage(page - 1)}
+      className="px-3 py-1 border rounded disabled:opacity-50"
+    >
+      Précédent
+    </button>
+
+    <button
+      disabled={page === totalPages}
+      onClick={() => setPage(page + 1)}
+      className="px-3 py-1 border rounded disabled:opacity-50"
+    >
+      Suivant
+    </button>
+  </div>
+</div>
       </div>
     </div>
   );
