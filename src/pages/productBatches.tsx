@@ -272,7 +272,7 @@ export default function ProductBatchesPage() {
             value={form.product_id}
             onChange={handleChange}
             required
-            className="input border p-2 rounded"
+            className="border p-2 rounded"
           >
             <option value="">-- Sélectionner un produit --</option>
             {products.map((p) => (
