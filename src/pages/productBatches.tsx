@@ -264,7 +264,7 @@ export default function ProductBatchesPage() {
       >
         
         <div className="flex flex-col">
-          <label className="text-sm font-medium mb-1">
+          <label className="input text-sm font-medium mb-1">
             Produit <span className="text-red-500">*</span>
           </label>
           <select
