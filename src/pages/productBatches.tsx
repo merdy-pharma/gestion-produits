@@ -252,7 +252,7 @@ export default function ProductBatchesPage() {
           <option value="">Tous les produits</option> 
           
           {products.map((p) => ( <option key={p.id} value={p.id}> {p.name} </option> ))} </select> 
-        {selectedProduct && ( <div className="bg-blue-100 dark:bg-blue-700 px-4 py-2 rounded font-semibold"> Stock total : {stockTotals[selectedProduct] || 0}
+        {selectedProduct && ( <div className="bg-blue-100 dark:bg-gray-700 px-4 py-2 rounded font-semibold"> Stock total : {stockTotals[selectedProduct] || 0}
         </div> 
                             )} 
       </div>
