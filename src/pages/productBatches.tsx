@@ -368,7 +368,7 @@ export default function ProductBatchesPage() {
                 <tr key={batch.id} 
                   className={
                       status === "expired"
-                        ? "bg-red-100 dark:bg-red-500"
+                        ? "bg-red-100 dark:bg-red-600"
                         : status === "warning"
                         ? "bg-yellow-200 dark:bg-yellow-600"
                         : "border-b border-gray-200 dark:border-gray-700 dark:bg-gray-600"
