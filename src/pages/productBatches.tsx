@@ -272,7 +272,7 @@ export default function ProductBatchesPage() {
             value={form.product_id}
             onChange={handleChange}
             required
-            className= "w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 px-3 py-2 rounded transition-colors"
+            className= "w-full border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-700 px-3 py-2 rounded transition-colors"
           >
             <option value="">-- Sélectionner un produit --</option>
             {products.map((p) => (
