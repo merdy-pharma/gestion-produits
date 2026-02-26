@@ -356,6 +356,7 @@ export default function ProductBatchesPage() {
               <th className="p-2 border">Quantité</th>
               <th className="p-2 border">Prix achat</th>
               <th className="p-2 border">Statut</th>
+              <th className="p-2 border">Reçu le</th>
               <th className="p-2 border">Actions</th>
             </tr>
           </thead>
