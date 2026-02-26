@@ -345,7 +345,7 @@ export default function ProductBatchesPage() {
       </form>
 
       {/* TABLE "bg-white shadow rounded overflow-auto"*/}
-      <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
+      <div className="overflow-x-auto bg-white dark:bg-gray-700 rounded-lg shadow-sm p-4 transition-colors">
         <table className="w-full border-collapse">
           <thead className="bg-gray-100 dark:bg-gray-800">
             <tr>
