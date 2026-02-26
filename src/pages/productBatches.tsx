@@ -465,7 +465,7 @@ export default function ProductBatchesPage() {
        {/*Stats*/}
 
       <div className="flex gap-6 mb-4">
-        <div className="bg-blue-50 shadow p-4 rounded">
+        <div className="bg-blue-100 shadow p-4 rounded">
           Total lots : {batches.length}
         </div>
       
