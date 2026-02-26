@@ -398,6 +398,9 @@ export default function ProductBatchesPage() {
                       </span>
                     )}
                   </td>
+                  <td className="p-2 border">
+                    {new Date(batch.received_at).toLocaleDateString()}
+                  </td>
                   <td className="p-2 border flex gap-2">
                     <button
                       onClick={() => handleEdit(batch)}
