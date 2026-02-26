@@ -32,6 +32,16 @@ export default function ProductBatchesPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
  // const [selectedProduct, setSelectedProduct] = useState(null);
+  const [page, setPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
+  const paginatedBatches = useMemo(() => {
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return batches.slice(start, end);
+  }, 
+  [batches, page, itemsPerPage]);
+  const totalPages = Math.ceil(batches.length / itemsPerPage);
 
   const [form, setForm] = useState({
     product_id: "",
