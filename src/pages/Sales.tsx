@@ -281,6 +281,7 @@ const Sales: React.FC = () => {
         <div className="flex items-center mb-4">
           <ShoppingCart className="text-primary-500 dark:text-primary-400 mr-2" size={26} />
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Articles sélectionnés</h2>
+          <div className="ml-auto flex items-center gap-2">
            <button
               onClick={() => setCart([])}
               className="p-2 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
@@ -288,7 +289,8 @@ const Sales: React.FC = () => {
              
              <Trash2 size={18} />
           </button>
-        </div>
+        </div>  
+      </div>
 
         {/* Cart Table */}
         <div className="flex-1 overflow-y-auto mb-4 max-h-[380px]">
