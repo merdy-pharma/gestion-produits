@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, Trash1 } from 'lucide-react';
+import { ShoppingCart, Trash2 } from 'lucide-react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { supabase } from '../lib/supabase';
 import toast from 'react-hot-toast';
@@ -285,7 +285,7 @@ const Sales: React.FC = () => {
               onClick={() => setCart([])}
               className="text-sm text-red-600 hover:underline">
               Vider le panier
-             <Trash1 size={18} />
+             <Trash2 size={18} />
           </button>
         </div>
 
