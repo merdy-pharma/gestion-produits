@@ -281,9 +281,7 @@ const Sales: React.FC = () => {
         <div className="flex items-center mb-4">
           <ShoppingCart className="text-primary-500 dark:text-primary-400 mr-2" size={26} />
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Articles sélectionnés</h2>
-          <p className="text-sm text-gray-500">
-            {cart.reduce((sum, i) => sum + i.quantity, 0)} article(s)
-          </p>
+          
           <div className="ml-auto flex items-center gap-2">
            <button
               onClick={() => setCart([])}
@@ -293,6 +291,9 @@ const Sales: React.FC = () => {
              <Trash2 size={18} />
           </button>
         </div>  
+          <p className="text-sm text-gray-500">
+            {cart.reduce((sum, i) => sum + i.quantity, 0)} article(s)
+          </p>
       </div>
 
         {/* Cart Table */}
