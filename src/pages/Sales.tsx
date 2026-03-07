@@ -491,28 +491,10 @@ const Sales: React.FC = () => {
           <div className="flex items-center gap-2 mt-1">
             <span className="text-sm text-gray-500">Prix:</span>
 
-            <input
-              type="text"
-              value={formatNumber(item.price || 0)}
-              onChange={(e) => {
-                let raw = e.target.value;
-            
-                // Retirer tout sauf chiffres et virgules/points
-                raw = raw.replace(/[^\d.,]/g, "");
-            
-                // Convertir virgule → point (au cas où)
-                const numeric = Number(raw.replace(",", "."));
-            
-                if (!isNaN(numeric)) {
-                  setCart((prev) =>
-                    prev.map((i) => (i.id === item.id ? { ...i, price: numeric } : i))
-                  );
-                }
-              }}
-              className="w-24 h-8 text-center border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
-            />
+            <div className="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-sm font-semibold">
+        {formatNumber(item.price)} Fc
+            </div>
 
-            <span>Fc</span>
           </div>
         </div>
 
