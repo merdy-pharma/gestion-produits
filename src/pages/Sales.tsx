@@ -292,7 +292,7 @@ const Sales: React.FC = () => {
           </button>
         </div>  
           <p className="text-sm text-gray-500">
-            {cart.reduce((sum, i) => sum + i.quantity, 0)} article(s)
+            {cart.reduce((sum, i) => sum + i.quantity, 0)} Produit(s)
           </p>
       </div>
 
