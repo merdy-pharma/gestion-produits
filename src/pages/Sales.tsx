@@ -282,10 +282,10 @@ const Sales: React.FC = () => {
           <ShoppingCart className="text-primary-500 dark:text-primary-400 mr-2" size={26} />
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Articles sélectionnés</h2>
            <button
-          onClick={() => setCart([])}
-          className="text-sm text-red-600 hover:underline">
-          Vider le panier
-        </button>
+              onClick={() => setCart([])}
+              className="text-sm text-red-600 hover:underline">
+              Vider le panier
+          </button>
         </div>
 
         {/* Cart Table */}
