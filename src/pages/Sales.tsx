@@ -335,7 +335,10 @@ const Sales: React.FC = () => {
       {/* Receipt Modal */}
       <ReceiptModal
         isOpen={showReceiptModal}
-        onClose={() => setShowReceiptModal(false) | document.querySelector("input[type='text']")?.focus();}
+      onClose={() => {
+        setShowReceiptModal(false);
+        document.querySelector("input[type='text']")?.focus();
+      }}
         onPrint={handlePrint}
       >
         <div ref={receiptRef}>
