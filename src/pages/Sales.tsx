@@ -283,7 +283,8 @@ const Sales: React.FC = () => {
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Articles sélectionnés</h2>
            <button
               onClick={() => setCart([])}
-              className="text-sm text-red-600 hover:underline">
+              className="p-2 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
+            title="Vider le panier">
               Vider le panier
              <Trash2 size={18} />
           </button>
