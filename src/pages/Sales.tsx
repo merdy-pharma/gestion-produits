@@ -548,56 +548,7 @@ const Sales: React.FC = () => {
 </div>
 
 
-  {/* LISTE PANIER */}
-  <div className="flex-1 overflow-y-auto mb-4 max-h-[380px] pr-1">
-    {cart.map((item) => (
-      <div key={item.id} className="flex items-center justify-between p-2 border-b">
-
-        {/* Infos + Prix */}
-        <div className="flex-1">
-          <h6 className="font-medium break-words">{item.name}</h6>
-
-          <div className="flex items-center gap-2 mt-1">
-            <span className="text-sm text-gray-500">Prix:</span>
-
-            <div className="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-sm font-semibold">
-        {formatNumber(item.price)} Fc
-            </div>
-
-          </div>
-        </div>
-
-        {/* Quantité + Delete */}
-        <div className="flex items-center space-x-2 ml-3">
-          <button onClick={() => updateQuantity(item.id, -1)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-            <Minus size={16} />
-          </button>
-
-          <input
-            type="number"
-            min="1"
-            value={item.quantity}
-            onChange={(e) => {
-              const newQ = parseInt(e.target.value, 10);
-              if (!isNaN(newQ) && newQ > 0) updateQuantity(item.id, newQ - item.quantity);
-            }}
-            className="w-12 h-8 text-center border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
-          />
-
-          <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-            <Plus size={16} />
-          </button>
-
-          <button
-            onClick={() => removeFromCart(item.id)}
-            className="p-1 text-error-500 rounded hover:bg-error-50"
-          >
-            <Trash2 size={16} />
-          </button>
-        </div>
-      </div>
-    ))}
-  </div>
+  
 
   {/* TOTALS */}
   <div className="border-t pt-4 space-y-2">
