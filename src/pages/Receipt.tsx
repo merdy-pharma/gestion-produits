@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 interface ReceiptProps {
-  cart: { name: string; quantity: number; price: number }[];
+  cart: { name: string; quantity: number; price: number; batch_number?: string; }[];
   total: number;
   customerName: string | null;
   paymentMethod: string;
