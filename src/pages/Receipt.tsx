@@ -197,46 +197,29 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             </div>
 
             {/* Items */}
-            {cart.map((item, index) => {
-              const price = Number(item.price);
-              const lineTotal = price * item.quantity;
-              const itemName = item.name.toUpperCase().substring(0, 25);
-              return (
-                <div
-                  key={index}
-                  className="pos-item-row"
-                  style={{
-                    marginBottom: '2px',
-                    pageBreakInside: 'avoid',
-                    breakInside: 'avoid',
-                  }}
-                >
-                  <div className="pos-item-col" style={{ width: '10%', fontSize: '16px', textAlign: 'center' }}>
-                    {item.quantity}
-                  </div>
-                  <div
-                    className="pos-item-col"
-                    style={{
-                      width: '50%',
-                      fontSize: '16px',
-                      wordWrap: 'break-word',
-                      wordBreak: 'break-word',
-                      overflowWrap: 'break-word',
-                      whiteSpace: 'normal',
-                      lineHeight: '1',
-                    }}
-                  >
-                    {itemName}
-                  </div>
-                  <div className="pos-item-col" style={{ width: '18%', fontSize: '16px', textAlign: 'right' }}>
-                    {price.toFixed(0)}
-                  </div>
-                  <div className="pos-item-col" style={{ width: '22%', fontSize: '16px', textAlign: 'right' }}>
-                    {lineTotal.toFixed(0)}
-                  </div>
-                </div>
-              );
-            })}
+            {items.map((item, index) => (
+  <div key={index} style={{ marginBottom: 4 }}>
+    <div style={{ fontWeight: 600 }}>
+      {item.name}
+    </div>
+
+    {item.batch_number && (
+      <div style={{ fontSize: 10 }}>
+        Lot: {item.batch_number}
+      </div>
+    )}
+
+    <div style={{
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 12
+    }}>
+      <span>{item.quantity} x {item.unit_price}</span>
+      <span>{item.quantity * item.unit_price}</span>
+    </div>
+  </div>
+))}
+            
           </div>
 
           <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
