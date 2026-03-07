@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Trash2 } from 'lucide-react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { supabase } from '../lib/supabase';
 import toast from 'react-hot-toast';
