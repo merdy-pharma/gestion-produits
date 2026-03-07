@@ -528,7 +528,7 @@ const Sales: React.FC = () => {
 
             {/* TOTAL LIGNE */}
             <td className="p-2 text-right font-bold text-primary-600">
-              {formatNumber(item.price * item.quantity)} Fc
+              {formatNumber(item.price * item.quantity)}Fc
             </td>
 
             {/* DELETE */}
