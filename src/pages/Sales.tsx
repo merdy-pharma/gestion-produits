@@ -471,7 +471,7 @@ const Sales: React.FC = () => {
 
 
       {/* Section Panier */}
-<div className="md:w-1/3 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
+<div className="md:w-[40%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
 
   {/* HEADER */}
   <div className="flex items-center mb-4">
