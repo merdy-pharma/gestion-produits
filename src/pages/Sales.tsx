@@ -479,6 +479,75 @@ const Sales: React.FC = () => {
     <h2 className="text-xl font-semibold">Articles sélectionnés</h2>
   </div>
 
+  {/* LISTE PANIER PRO */}
+<div className="flex-1 overflow-y-auto mb-4 max-h-[380px]">
+  {cart.length === 0 ? (
+    <div className="text-center text-gray-400 py-10">
+      Aucun article sélectionné
+    </div>
+  ) : (
+    <table className="w-full text-sm">
+      <thead className="sticky top-0 bg-gray-100 dark:bg-gray-700">
+        <tr>
+          <th className="text-left p-2">Article</th>
+          <th className="text-center p-2">Qté</th>
+          <th className="text-right p-2">Prix</th>
+          <th className="text-right p-2">Total</th>
+          <th className="p-2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {cart.map((item) => (
+          <tr key={item.id} className="border-b hover:bg-gray-50 dark:hover:bg-gray-700">
+            
+            {/* NOM */}
+            <td className="p-2 font-medium">{item.name}</td>
+
+            {/* QUANTITE */}
+            <td className="p-2">
+              <div className="flex items-center justify-center gap-1">
+                <button onClick={() => updateQuantity(item.id, -1)} className="p-1 rounded hover:bg-gray-200">
+                  <Minus size={14} />
+                </button>
+
+                <span className="w-8 text-center font-semibold">
+                  {item.quantity}
+                </span>
+
+                <button onClick={() => updateQuantity(item.id, 1)} className="p-1 rounded hover:bg-gray-200">
+                  <Plus size={14} />
+                </button>
+              </div>
+            </td>
+
+            {/* PRIX UNITAIRE */}
+            <td className="p-2 text-right font-semibold">
+              {formatNumber(item.price)} Fc
+            </td>
+
+            {/* TOTAL LIGNE */}
+            <td className="p-2 text-right font-bold text-primary-600">
+              {formatNumber(item.price * item.quantity)} Fc
+            </td>
+
+            {/* DELETE */}
+            <td className="p-2 text-right">
+              <button
+                onClick={() => removeFromCart(item.id)}
+                className="p-1 text-red-500 hover:bg-red-50 rounded"
+              >
+                <Trash2 size={16} />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</div>
+
+
   {/* LISTE PANIER */}
   <div className="flex-1 overflow-y-auto mb-4 max-h-[380px] pr-1">
     {cart.map((item) => (
