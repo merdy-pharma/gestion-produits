@@ -523,7 +523,7 @@ const Sales: React.FC = () => {
 
             {/* PRIX UNITAIRE */}
             <td className="p-2 text-right font-semibold">
-              {formatNumber(item.price)}F
+              {formatNumber(item.price)}Fc
             </td>
 
             {/* TOTAL LIGNE */}
