@@ -373,7 +373,7 @@ const Sales: React.FC = () => {
   return (
    <div className="flex flex-col md:flex-row gap-6 p-4 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen transition-colors">
       {/* Products Section */}
-      <div className="md:w-[60%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
+      <div className="md:w-[63%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
         {typeof exchangeRate === 'number' && exchangeRate > 0 && (
           <div className="mb-3 p-2 bg-blue-100 border border-blue-300 rounded text-blue-800 text-sm font-medium flex items-center justify-between">
             <span>
@@ -471,7 +471,7 @@ const Sales: React.FC = () => {
 
 
       {/* Section Panier */}
-<div className="md:w-[40%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
+<div className="md:w-[37%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 transition-colors">
 
   {/* HEADER */}
   <div className="flex items-center mb-4">
