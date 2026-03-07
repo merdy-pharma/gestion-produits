@@ -285,6 +285,7 @@ const Sales: React.FC = () => {
               onClick={() => setCart([])}
               className="text-sm text-red-600 hover:underline">
               Vider le panier
+             <Trash2 size={18} />
           </button>
         </div>
 
