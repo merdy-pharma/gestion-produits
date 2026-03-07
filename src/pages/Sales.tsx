@@ -221,6 +221,8 @@ const Sales: React.FC = () => {
 
       setSaleCompleted(true);
       setShowReceiptModal(true);
+      document.querySelector("input[type='text']")?.focus();
+
 
       toast.success('Vente enregistrée avec succès !', { id: 'sale-progress' });
     } catch (err) {
