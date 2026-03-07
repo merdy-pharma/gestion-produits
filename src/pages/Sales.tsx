@@ -285,7 +285,7 @@ const Sales: React.FC = () => {
               onClick={() => setCart([])}
               className="p-2 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
             title="Vider le panier">
-              Vider le panier
+             
              <Trash2 size={18} />
           </button>
         </div>
