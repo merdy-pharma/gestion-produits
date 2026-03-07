@@ -197,7 +197,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             </div>
 
             {/* Items */}
-    {item.map((item, index) => (
+    {items.map((item, index) => (
   <div key={index} style={{ marginBottom: 4 }}>
     <div style={{ fontWeight: 600 }}>
       {item.name}
