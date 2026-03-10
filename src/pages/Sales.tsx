@@ -199,7 +199,7 @@ const Sales: React.FC = () => {
       );
 
       if (error || !saleId) {
-        throw error || new Error('Problème de la validation de la vente.');
+        throw error || new Error('Problème de la validation de la vente. Erreur !');
       }
 
       // Prepare receipt data
