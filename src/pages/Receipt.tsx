@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 interface ReceiptProps {
-  cart: { name: string; quantity: number; price: number; batch_number?: string; }[];
+  cart: { name: string; quantity: number; price: number; batch_number?: string }[];
   total: number;
   customerName: string | null;
   paymentMethod: string;
@@ -11,32 +11,43 @@ interface ReceiptProps {
   exchangeRate?: number;
 }
 
-const TAX_RATE = 0.00;
+const TAX_RATE = 0.0;
 
 const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
   ({ cart, total, customerName, paymentMethod, date, invoiceNumber, userName, exchangeRate }, ref) => {
     const totalHT = total / (1 + TAX_RATE);
     const taxAmount = total - totalHT;
 
-    const formattedDate = new Date(date).toLocaleString("fr-FR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
+    const formattedDate = new Date(date).toLocaleString('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
       hour12: false,
     });
+
+    const formatCurrency = (value: number) => {
+      return value.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    };
+
+    const paymentMethodLabel = {
+      cash: '💵 ESPÈCES',
+      card: '💳 CARTE BANCAIRE',
+      mobile: '📱 MOBILE MONEY',
+    }[paymentMethod as keyof typeof paymentMethodLabel] || paymentMethod.toUpperCase();
 
     return (
       <>
         <style>{`
           @media print {
             @page {
-              size: 380px;
+              size: 80mm auto;
               margin: 0;
               padding: 0;
             }
+
             * {
               margin: 0;
               padding: 0;
@@ -47,57 +58,42 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
               margin: 0;
               padding: 0;
               height: auto;
+              width: 100%;
             }
 
             .pos-receipt {
-              width: 380px !important;
-              max-width: none !important;
+              width: 80mm !important;
+              max-width: 80mm !important;
               margin: 0 !important;
-              padding: 2px 4px 4px 4px !important;
-              font-size: 14px !important;
-              font-family: Arial, sans-serif !important;
-              line-height: 1.2 !important;
+              padding: 3mm !important;
+              font-size: 11pt !important;
+              font-family: 'Courier New', monospace !important;
+              line-height: 1.3 !important;
               color: black !important;
               background: white !important;
-              page-break-after: auto !important;
               box-sizing: border-box !important;
+              page-break-after: avoid !important;
             }
 
             .pos-receipt * {
               page-break-inside: avoid !important;
             }
 
-            .pos-header {
-              page-break-inside: avoid !important;
-            }
-
-            .pos-items {
+            .pos-header,
+            .pos-items,
+            .pos-footer {
               page-break-inside: avoid !important;
             }
 
             .pos-item {
               page-break-inside: avoid !important;
-              display: table-row !important;
-              width: 100% !important;
-              margin: 0 !important;
-              padding: 0 !important;
             }
 
-            .pos-item-col {
-              display: table-cell !important;
-              padding: 1px 0 !important;
-              page-break-inside: avoid !important;
-              vertical-align: top !important;
-            }
-
-            .pos-item-row {
-              display: table !important;
-              width: 100% !important;
-              table-layout: fixed !important;
-              border-collapse: collapse !important;
-            }
-
-            .pos-footer {
+            .pos-divider {
+              border: none;
+              border-top: 1px dashed #000;
+              margin: 2mm 0;
+              padding: 0;
               page-break-inside: avoid !important;
             }
 
@@ -108,18 +104,10 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
 
           @media screen {
             .pos-receipt {
-              max-width: 58mm;
-              margin: 0 auto;
-            }
-
-            .pos-item-row {
-              display: flex !important;
               width: 100%;
-            }
-
-            .pos-item-col {
-              display: flex !important;
-              align-items: center;
+              max-width: 80mm;
+              margin: 0 auto;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
           }
         `}</style>
@@ -128,141 +116,239 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           ref={ref}
           className="pos-receipt"
           style={{
-            width: '384px',
-            padding: '2px 4px 4px 4px',
-            backgroundColor: 'white',
-            color: 'black',
+            backgroundColor: '#fff',
+            color: '#000',
             fontSize: '11px',
-            fontFamily: 'Arial, Helvetica, sans-serif',
-            lineHeight: '1.2',
-            border: '1px solid #ddd',
+            fontFamily: "'Courier New', monospace",
+            lineHeight: '1.3',
+            border: '1px solid #e0e0e0',
+            pageBreakAfter: 'avoid',
           }}
         >
-          {/* Header */}
-          <div className="pos-header" style={{ textAlign: 'center', marginBottom: '4px' }}>
-            <div style={{ fontWeight: 'bold', fontSize: '20px', margin: '0 0 2px 0' }}>
+          {/* Header Section */}
+          <div className="pos-header" style={{ textAlign: 'center', marginBottom: '3mm' }}>
+            {/* Company Name */}
+            <div
+              style={{
+                fontWeight: 'bold',
+                fontSize: '16px',
+                letterSpacing: '1px',
+                marginBottom: '2px',
+                textTransform: 'uppercase',
+              }}
+            >
               MERDY PHARMA
             </div>
-            <div style={{ fontSize: '12px', margin: '1px 0' }}>
-              RCCM 20-A-00047
-            </div>
-            <div style={{ fontSize: '12px', margin: '1px 0' }}>
-              ID.NAT 01-93-N40495R
-            </div>
-            <div style={{ fontSize: '12px', margin: '1px 0' }}>
-              AV. BOLENGE C. MASINA
-            </div>
-            <div style={{ fontSize: '12px', margin: '1px 0' }}>
-              Date/Heure : {formattedDate}
-            </div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold', margin: '1px 0' }}>
-              N° Fac : {invoiceNumber}
-            </div>
-          </div>
 
-          <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
-           <div style={{ height: '4px' }} />
+            {/* Company Info */}
+            <div style={{ fontSize: '10px', lineHeight: '1.2', color: '#333', marginBottom: '2px' }}>
+              <div>RCCM 20-A-00047</div>
+              <div>ID.NAT 01-93-N40495R</div>
+              <div>Av. Bolenge, C. Masina</div>
+            </div>
 
-          {/* Détails vente */}
-          <div style={{ fontSize: '14px', marginBottom: '8px' }}>
-            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '16px' }}>
-              <strong>Client: {(customerName || 'Anon').substring(0, 20)} </strong>
-            </div>
-            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              <strong>Mode:</strong> {paymentMethod}
-            </div>
-            {exchangeRate && (
-              <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                <strong>Taux:</strong> {exchangeRate.toLocaleString('fr-FR')} Fc
+            {/* Separator */}
+            <hr className="pos-divider" />
+
+            {/* Invoice Details */}
+            <div style={{ fontSize: '10px', marginTop: '2px', marginBottom: '2px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '12px', margin: '1px 0' }}>
+                Facture: {invoiceNumber}
               </div>
-            )}
-            <div style={{ margin: '1px 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              <strong>Caissier:</strong> {userName}
+              <div style={{ margin: '1px 0' }}>
+                {formattedDate}
+              </div>
+            </div>
+
+            {/* Separator */}
+            <hr className="pos-divider" />
+
+            {/* Transaction Details */}
+            <div style={{ fontSize: '10px', textAlign: 'left', marginTop: '2px' }}>
+              <div style={{ marginBottom: '1px' }}>
+                <span style={{ display: 'inline-block', width: '30%', fontWeight: 'bold' }}>Client:</span>
+                <span style={{ wordBreak: 'break-word' }}>
+                  {(customerName || 'Client Anonyme').substring(0, 25).toUpperCase()}
+                </span>
+              </div>
+              <div style={{ marginBottom: '1px' }}>
+                <span style={{ display: 'inline-block', width: '30%', fontWeight: 'bold' }}>Paiement:</span>
+                <span>{paymentMethodLabel}</span>
+              </div>
+              <div style={{ marginBottom: '1px' }}>
+                <span style={{ display: 'inline-block', width: '30%', fontWeight: 'bold' }}>Caissier:</span>
+                <span>{userName.substring(0, 15)}</span>
+              </div>
+              {exchangeRate && (
+                <div>
+                  <span style={{ display: 'inline-block', width: '30%', fontWeight: 'bold' }}>Taux:</span>
+                  <span>{formatCurrency(exchangeRate)} CDF/USD</span>
+                </div>
+              )}
             </div>
           </div>
 
-         {/* Ligne 
-         <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
-         */}
-           
-
-          {/* Items */}
-          <div className="pos-items" style={{ marginBottom: '4px' }}>
-            {/* Header */}
-            <div className="pos-item-row" style={{ borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '2px' }}>
-              <div className="pos-item-col" style={{ width: '10%', fontSize: '11px', fontWeight: 'bold' }}>Qté</div>
-              <div className="pos-item-col" style={{ width: '50%', fontSize: '11px', fontWeight: 'bold' }}>Désignation</div>
-              <div className="pos-item-col" style={{ width: '18%', fontSize: '11px', fontWeight: 'bold', textAlign: 'right' }}>P.U</div>
-              <div className="pos-item-col" style={{ width: '22%', fontSize: '11px', fontWeight: 'bold', textAlign: 'right' }}>Total</div>
+          {/* Items Section */}
+          <div className="pos-items" style={{ marginTop: '3mm', marginBottom: '3mm' }}>
+            {/* Column Headers */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '2fr 1fr 1fr 1.2fr',
+                gap: '2px',
+                borderBottom: '1px dashed #000',
+                paddingBottom: '2px',
+                marginBottom: '2px',
+                fontSize: '9px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+              }}
+            >
+              <div>Désignation</div>
+              <div style={{ textAlign: 'center' }}>Qté</div>
+              <div style={{ textAlign: 'right' }}>P.U</div>
+              <div style={{ textAlign: 'right' }}>Total</div>
             </div>
 
             {/* Items */}
-      {cart.map((item, index) => {
+            {cart.map((item, index) => {
               const price = Number(item.price);
               const lineTotal = price * item.quantity;
-              const itemName = item.name.toUpperCase().substring(0, 25);
+              const itemName = item.name.toUpperCase().substring(0, 30);
+
               return (
-                <div
-                  key={index}
-                  className="pos-item-row"
-                  style={{
-                    marginBottom: '2px',
-                    pageBreakInside: 'avoid',
-                    breakInside: 'avoid',
-                  }}
-                >
-                  <div className="pos-item-col" style={{ width: '10%', fontSize: '16px', textAlign: 'center' }}>
-                    {item.quantity}
-                  </div>
+                <div key={index} className="pos-item" style={{ marginBottom: '2px', pageBreakInside: 'avoid' }}>
                   <div
-                    className="pos-item-col"
                     style={{
-                      width: '50%',
-                      fontSize: '16px',
-                      wordWrap: 'break-word',
-                      wordBreak: 'break-word',
-                      overflowWrap: 'break-word',
-                      whiteSpace: 'normal',
-                      lineHeight: '1',
+                      display: 'grid',
+                      gridTemplateColumns: '2fr 1fr 1fr 1.2fr',
+                      gap: '2px',
+                      fontSize: '10px',
+                      lineHeight: '1.2',
                     }}
                   >
-                    {itemName}
-                  </div>
-                  <div className="pos-item-col" style={{ width: '18%', fontSize: '16px', textAlign: 'right' }}>
-                    {price.toFixed(0)}
-                  </div>
-                  <div className="pos-item-col" style={{ width: '22%', fontSize: '16px', textAlign: 'right' }}>
-                    {lineTotal.toFixed(0)}
+                    <div style={{ wordBreak: 'break-word', wordWrap: 'break-word' }}>
+                      {itemName}
+                    </div>
+                    <div style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                      {item.quantity}
+                    </div>
+                    <div style={{ textAlign: 'right', fontSize: '9px' }}>
+                      {formatCurrency(price)}
+                    </div>
+                    <div style={{ textAlign: 'right', fontWeight: 'bold' }}>
+                      {formatCurrency(lineTotal)}
+                    </div>
                   </div>
                 </div>
               );
             })}
-
-
-            
           </div>
 
-          <hr style={{ border: 'none', borderTop: '1px solid #000', margin: '2px 0', padding: 0 }} />
+          {/* Separator */}
+          <hr className="pos-divider" style={{ marginTop: '2mm', marginBottom: '2mm' }} />
 
-          {/* Totals */}
-          <div className="pos-footer" style={{ fontSize: '16px', marginBottom: '4px' }}>
-            <div style={{ margin: '1px 0', textAlign: 'right' }}>
-              Total HT: {totalHT.toFixed(0)} Fc
+          {/* Totals Section */}
+          <div className="pos-footer" style={{ fontSize: '11px', marginBottom: '3mm' }}>
+            {/* Subtotal */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginBottom: '1px',
+                paddingBottom: '1px',
+              }}
+            >
+              <span>Sous-Total HT:</span>
+              <span style={{ fontWeight: 'bold' }}>{formatCurrency(totalHT)} Fc</span>
             </div>
-            <div style={{ margin: '1px 0', textAlign: 'right' }}>
-              TVA (0%): {taxAmount.toFixed(2)} Fc
-            </div>
-            <div style={{ fontWeight: 'bold', fontSize: '18px', margin: '2px 0', textAlign: 'right' }}>
-              Total TTC: {total.toLocaleString('fr-FR')} Fc
+
+            {/* Tax */}
+            {taxAmount > 0 && (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '1px',
+                  paddingBottom: '1px',
+                  fontSize: '10px',
+                  color: '#666',
+                }}
+              >
+                <span>TVA (0%):</span>
+                <span>{formatCurrency(taxAmount)} Fc</span>
+              </div>
+            )}
+
+            {/* Total */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginTop: '2px',
+                paddingTop: '2px',
+                borderTop: '1px solid #000',
+                fontWeight: 'bold',
+                fontSize: '13px',
+              }}
+            >
+              <span>TOTAL TTC:</span>
+              <span>{formatCurrency(total)} Fc</span>
             </div>
           </div>
 
-          
-          <div style={{ height: '4px' }} />
-          
-          {/* Footer */}
-          <div style={{ textAlign: 'center', fontSize: '12px', margin: '2px 0' }}>
+          {/* Separator */}
+          <hr className="pos-divider" />
+
+          {/* Footer Message */}
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '10px',
+              marginTop: '2mm',
+              marginBottom: '1mm',
+              fontWeight: '500',
+              letterSpacing: '0.5px',
+            }}
+          >
+            ━━━━━━━━━━━━━━━━━━━━
+          </div>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '11px',
+              marginBottom: '1mm',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
             Merci pour votre achat !
+          </div>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '9px',
+              color: '#666',
+              marginBottom: '2mm',
+            }}
+          >
+            Revenez bientôt
+          </div>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '10px',
+              marginBottom: '2mm',
+              fontWeight: '500',
+              letterSpacing: '0.5px',
+            }}
+          >
+            ━━━━━━━━━━━━━━━━━━━━
+          </div>
+
+          {/* Cut Line */}
+          <div style={{ textAlign: 'center', fontSize: '9px', color: '#999', marginBottom: '3mm' }}>
+            ✂ - - - - - - - - - - - - - - - - - -
           </div>
         </div>
       </>
