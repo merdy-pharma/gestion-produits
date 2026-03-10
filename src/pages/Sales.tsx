@@ -227,7 +227,7 @@ const Sales: React.FC = () => {
     } catch (err) {
       console.error('handleCompleteSale error:', err);
       toast.error(
-        err instanceof Error ? err.message : 'Echec : Une erreur est survenue lors de la validation.',
+        err instanceof Error ? err.message : 'Attention !!! Une erreur est survenue lors de la validation.',
         { id: 'sale-progress' }
       );
     } finally {
