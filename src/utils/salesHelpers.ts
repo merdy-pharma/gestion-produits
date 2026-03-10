@@ -40,9 +40,10 @@ export async function fetchLatestExchangeRate(): Promise<number | null> {
 export async function fetchProductsList(): Promise<Product[]> {
   try {
     const { data, error } = await supabase
-      .from('products')
-      .select('id, name, selling_price, stock, barcode, category_id, purchase_price, image_url')
-      .order('name');
+    .from("products_sellable_stock")
+    .select("*")
+    .gt("sellable_stock", 0)
+    .order("name");
 
     if (error) throw error;
     return data || [];
