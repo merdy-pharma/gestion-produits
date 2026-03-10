@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           >
             <span
               className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-lg transition-transform duration-300 ${
-                theme === 'dark' ? 'translate-x-7' : 'translate-x-0.5'
+                theme === 'dark' ? 'translate-x-6' : 'translate-x-0.5'
               }`}
             />
           </button>
