@@ -387,16 +387,12 @@ export default function ProductBatchesPage() {
           </button>
 
           <button
-          onClick={() => {
-            setSearchTerm('');
-            setMinStock('');
-            setMaxStock('');
-            setCurrentPage(1);
-          }}
-         className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm bg-gray-300 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-        >
-          Réinitialiser
-        </button>
+            type="button"
+            onClick={resetForm}
+             className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm bg-gray-300 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              >
+              Réinitialiser
+            </button>
         </div>
       </form>
 
