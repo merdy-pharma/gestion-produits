@@ -362,7 +362,7 @@ const Products: React.FC = () => {
       const workbook = xlsx.utils.book_new();
       xlsx.utils.book_append_sheet(workbook, worksheet, 'Articles');
 
-      xlsx.writeFile(workbook, 'RBG Liste articles.xlsx');
+      xlsx.writeFile(workbook, 'Liste articles.xlsx');
     });
   };
   // -------------------------
