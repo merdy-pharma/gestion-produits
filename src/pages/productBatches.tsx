@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
-import {X, Edit, Trash } from 'lucide-react';
+import { X, CreditCard as Edit, Trash } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
 
