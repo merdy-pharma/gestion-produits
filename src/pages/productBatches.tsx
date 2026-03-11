@@ -380,9 +380,21 @@ export default function ProductBatchesPage() {
         />
         </div>
         <div className="col-span-2 flex gap-2">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-200 dark:hover:bg-blue-600 transition-colors">
             {editingBatch ? "Mettre à jour" : "Créer"}
           </button>
+
+          <button
+          onClick={() => {
+            setSearchTerm('');
+            setMinStock('');
+            setMaxStock('');
+            setCurrentPage(1);
+          }}
+         className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+        >
+          Réinitialiser
+        </button>
         </div>
       </form>
 
