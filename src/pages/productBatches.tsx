@@ -200,7 +200,7 @@ export default function ProductBatchesPage() {
       await fetchBatches();
       resetForm();
     } catch (error) {
-      toast.error("Une erreur est survenue");
+      toast.error("Attention !!! Une erreur est survenue");
       console.error(error);
     } finally {
       setLoading(false);
