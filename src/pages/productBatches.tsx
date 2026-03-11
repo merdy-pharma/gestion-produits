@@ -52,6 +52,21 @@ export default function ProductBatchesPage() {
     purchase_price: 0,
   });
 
+
+  const initialForm = {
+  product_id: "",
+  batch_number: "",
+  expiration_date: "",
+  quantity: "",
+  purchase_price: ""
+  };
+
+  const [form, setForm] = useState(initialForm);
+  
+  const resetForm = () => {
+    setForm(initialForm);
+    setEditingBatch(null);
+  };
   // 🔹 Charger produits
   const fetchProducts = async () => {
     const { data } = await supabase
