@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
 import {X, Edit, Trash } from 'lucide-react';
 import { Input } from "@/components/ui/input";
+import toast from "react-hot-toast";
 
 type Product = {
   id: string;
@@ -132,36 +133,76 @@ export default function ProductBatchesPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!form.product_id) return alert("Produit obligatoire");
-    if (!form.expiration_date) return alert("Date obligatoire");
-    if (Number(form.quantity) < 0) return alert("Quantité invalide");
+    if (!form.product_id) {
+      toast.error("Produit obligatoire");
+      return;
+    }
+
+    if (!form.expiration_date) {
+      toast.error("Date d'expiration obligatoire");
+      return;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const expirationDate = new Date(form.expiration_date);
+    expirationDate.setHours(0, 0, 0, 0);
+
+    if (expirationDate <= today) {
+      toast.error("La date d'expiration doit être postérieure à aujourd'hui");
+      return;
+    }
+
+    const quantity = Number(form.quantity);
+    if (quantity <= 0) {
+      toast.error("La quantité du lot doit être supérieure à 0");
+      return;
+    }
+
+    const price = Number(form.purchase_price);
+    if (form.purchase_price && price <= 0) {
+      toast.error("Le prix unitaire doit être supérieur à 0");
+      return;
+    }
 
     setLoading(true);
 
-    if (editingBatch) {
-      await supabase
-        .from("product_batches")
-        .update({
+    try {
+      if (editingBatch) {
+        const { error } = await supabase
+          .from("product_batches")
+          .update({
+            product_id: form.product_id,
+            batch_number: form.batch_number || null,
+            expiration_date: form.expiration_date,
+            quantity: quantity,
+            purchase_price: price > 0 ? price : null,
+          })
+          .eq("id", editingBatch.id);
+
+        if (error) throw error;
+        toast.success("Lot modifié avec succès");
+      } else {
+        const { error } = await supabase.from("product_batches").insert({
           product_id: form.product_id,
           batch_number: form.batch_number || null,
           expiration_date: form.expiration_date,
-          quantity: Number(form.quantity),
-          purchase_price: Number(form.purchase_price) || null,
-        })
-        .eq("id", editingBatch.id);
-    } else {
-      await supabase.from("product_batches").insert({
-        product_id: form.product_id,
-        batch_number: form.batch_number || null,
-        expiration_date: form.expiration_date,
-        quantity: Number(form.quantity),
-        purchase_price: Number(form.purchase_price) || null,
-      });
-    }
+          quantity: quantity,
+          purchase_price: price > 0 ? price : null,
+        });
 
-    await fetchBatches();
-    resetForm();
-    setLoading(false);
+        if (error) throw error;
+        toast.success("Lot créé avec succès");
+      }
+
+      await fetchBatches();
+      resetForm();
+    } catch (error) {
+      toast.error("Une erreur est survenue");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleDelete = async (id: string) => {
