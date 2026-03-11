@@ -373,7 +373,7 @@ export default function ProductBatchesPage() {
         </label>
         <input
           type="number"
-          step="0.01"
+          step="0.1"
           name="purchase_price"
           placeholder="Prix d'achat"
           value={form.purchase_price}
