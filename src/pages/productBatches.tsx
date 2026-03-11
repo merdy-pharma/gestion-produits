@@ -380,7 +380,7 @@ export default function ProductBatchesPage() {
         />
         </div>
         <div className="col-span-2 flex gap-2">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-300 dark:hover:bg-blue-600 transition-colors">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors">
             {editingBatch ? "Mettre à jour" : "Créer"}
           </button>
 
