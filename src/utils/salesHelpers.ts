@@ -138,7 +138,7 @@ export function removeFromCart(cart: CartItem[], itemId: string): CartItem[] {
 // Calcule le stock affiché (disponible - en panier)
 export function getDisplayedStock(product: Product, cart: CartItem[]): number {
   const cartItem = cart.find((item) => item.id === product.id);
-  return product.stock - (cartItem?.quantity || 0);
+  return (product.sellable_stock || 0) - (cartItem?.quantity || 0);
 }
 
 // Calcule le sous-total

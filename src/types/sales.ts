@@ -1,4 +1,4 @@
-export interface products_sellable_stock {
+export interface Product {
   id: string;
   name: string;
   selling_price: number;
