@@ -58,7 +58,7 @@ const Login: React.FC = () => {
   }
 };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-500 to-secondary-600 flex justify-center items-center p-4">
+    <div className="min-h-screen bg-green-200 from-primary-500 to-secondary-600 flex justify-center items-center p-4">
       <div className="w-full max-w-md animate-fade-in">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="px-6 py-8 sm:p-10">
