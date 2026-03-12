@@ -15,7 +15,7 @@ Version 6 et 7 :
 Version 8 - 10
 * Activation choix des thèmes : clair / sombre
 
-Version 11 - 15
+Version 11 - 16
 * Amélioration Gestion des lots (product_batches)
 * Refactorisation de sales.tsx
 * Modification de la RPC create_sale_transaction_ph
