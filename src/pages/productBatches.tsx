@@ -190,7 +190,7 @@ export default function ProductBatchesPage() {
           batch_number: form.batch_number || null,
           expiration_date: form.expiration_date,
           quantity: quantity,
-          purchase_price: price > 0 ? price : null,
+          purchase_price: price > 0.01 ? price : null,
         });
 
         if (error) throw error;
