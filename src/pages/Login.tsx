@@ -64,7 +64,7 @@ const Login: React.FC = () => {
           <div className="px-6 py-8 sm:p-10">
             <div className="flex justify-center mb-6">
               <div className="bg-green-200 p-3 rounded-full">
-                <Cross size={32} className="text-primary-500" />
+                <Cross size={32} className="text-green-500" />
               </div>
             </div>
 
