@@ -13,4 +13,10 @@ Version 6 et 7 :
 * Correction facture pour impression adaptée sur Z91
 
 Version 8 - 10
-* Activation choix des thèmes : clair / sombre 
+* Activation choix des thèmes : clair / sombre
+
+Version 11 - 15
+* Amélioration Gestion des lots (product_batches)
+* Refactorisation de sales.tsx
+* Modification de la RPC create_sale_transaction_ph
+* Modification affichage des produits à la vente (seulement les produits en stock s'affichent)
