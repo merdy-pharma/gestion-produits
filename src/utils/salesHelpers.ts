@@ -11,6 +11,9 @@ export function generateInvoiceNumber(id: string | number | null, prefix = 'Fac'
 
 // Formate un nombre en français
 export function formatNumber(value: number): string {
+  if (!Number.isFinite(value)) {
+    return '-';
+  }
   return value.toLocaleString('fr-FR');
 }
 
