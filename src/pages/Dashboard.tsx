@@ -285,7 +285,7 @@ import { useAuth } from "@/hooks/useAuth";
                   {lowStockProducts.map((products_sellable_stock) => (
                     <li key={products_sellable_stock.id} className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-1">
                       <span className="flex items-center gap-1 text-gray-800 dark:text-gray-200">
-                        {product.stock === 0 && (
+                        {products_sellable_stock.sellable_stock === 0 && (
                           <span className="text-red-600 font-bold">⚠️</span>
                         )}
                         {product.name}
