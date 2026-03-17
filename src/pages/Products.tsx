@@ -774,7 +774,7 @@ return (
                   <label>Prix de vente</label>
                   <input
                     type="number"
-                    Placeholder="Prix en dollars US"
+                    placeholder="Prix en dollars US"
                     value={formData.selling_price}
                     onChange={(e) => {const val = e.target.value;
                         setFormData({...formData, selling_price: val === '' ? '' :                                   Number(val) });
