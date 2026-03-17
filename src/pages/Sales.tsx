@@ -288,7 +288,9 @@ const Sales: React.FC = () => {
           
           <div className="ml-auto flex items-center gap-2">
            <button
-              onClick={() => setCart([])}
+             onClick={() => {
+                  if (window.confirm("Vider le panier ?")) {
+                    setCart([]);}}}
               className="p-2 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
             title="Vider le panier">
              
