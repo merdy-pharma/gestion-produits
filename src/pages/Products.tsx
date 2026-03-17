@@ -755,7 +755,7 @@ return (
               <div className="flex gap-4">
                 {/*
                 <div className="flex-1">
-                  <label>Prix d’achat</label>
+                  <label>Prix d’achat $</label>
                   <input
                       type="number"
                       placeholder = "Prix en dollars US"
