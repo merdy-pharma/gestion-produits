@@ -753,6 +753,7 @@ return (
               </div>
 
               <div className="flex gap-4">
+                {/*
                 <div className="flex-1">
                   <label>Prix d’achat</label>
                   <input
@@ -769,7 +770,7 @@ return (
                     className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                     />
                 </div>
-
+                */}
                 <div className="flex-1">
                   <label>Prix de vente</label>
                   <input
