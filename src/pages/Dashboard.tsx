@@ -290,7 +290,7 @@ import { useAuth } from "@/hooks/useAuth";
                         )}
                         {products_sellable_stock.name}
                       </span>
-                      <span className={`font-semibold ${product.stock === 0 ? 'text-red-600' : ''}`}>
+                      <span className={`font-semibold ${products_sellable_stock.stock === 0 ? 'text-red-600' : ''}`}>
                         {products_sellable_stock.sellable_stock}
                       </span>
                     </li>
