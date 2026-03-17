@@ -98,7 +98,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                     ${isOutOfStock ? 'opacity-50 cursor-not-allowed' : ''}
                     
                     ${inCart
-                      ? 'bg-primary-200 dark:bg-yellow-400/30'
+                      ? 'bg-primary-100 dark:bg-yellow-400/30'
                       : 'hover:bg-gray-50 dark:hover:bg-gray-700'}
                   `}
                 >
