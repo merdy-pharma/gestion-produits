@@ -788,7 +788,7 @@ return (
                 <label>Stock</label>
                 <input
                   type="number"
-                  Placeholder="Quantité stock de l'article"
+                  placeholder="Quantité stock de l'article"
                   value={formData.stock}
                   onChange={(e) => {const val = e.target.value;
                         setFormData({...formData, stock: val === '' ? '' :                                   Number(val) });
