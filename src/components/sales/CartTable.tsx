@@ -92,12 +92,7 @@ const CartTable: React.FC<CartTableProps> = ({
       </table>
     </div>
   );
-     console.log({
-  name: item.name,
-  price: item.price,
-  quantity: item.quantity,
-  total: item.price * item.quantity,
-});
+    
 };
 
 export default CartTable;
