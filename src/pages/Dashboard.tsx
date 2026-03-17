@@ -288,10 +288,10 @@ import { useAuth } from "@/hooks/useAuth";
                         {products_sellable_stock.sellable_stock === 0 && (
                           <span className="text-red-600 font-bold">⚠️</span>
                         )}
-                        {product.name}
+                        {products_sellable_stock.name}
                       </span>
                       <span className={`font-semibold ${product.stock === 0 ? 'text-red-600' : ''}`}>
-                        {product.stock}
+                        {products_sellable_stock.sellable_stock}
                       </span>
                     </li>
                   ))}
