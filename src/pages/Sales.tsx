@@ -110,7 +110,7 @@ const Sales: React.FC = () => {
   };
 
   const handleIncreaseQuantity = (itemId: string) => {
-    const product = products.find((p) => String (p.id) === itemId);
+    const product = products.find((p) => String(p.id) === itemId);
     if (product) {
       setCart(increaseCartItemQuantity(cart, itemId, product.sellable_stock));
     }
