@@ -32,7 +32,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   onRefreshRate,
   isLoading = false,
 }) => {
-  const displayedStock = (product: Product) => getDisplayedStock(product, cart);
+  const displayedStock = (product: Product) =>
+    getDisplayedStock(product, cart);
 
   return (
     <div className="md:w-[63%] bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
@@ -66,14 +67,13 @@ const ProductGrid: React.FC<ProductGridProps> = ({
       </div>
 
       {/* TABLE */}
-      <div className="overflow-y-auto max-h-[450px] border border-gray-200 dark:border-gray-700 rounded-lg">
-        <table className="w-full text-sm">
+      <div className="overflow-auto max-h-[450px] border border-gray-200 dark:border-gray-700 rounded-lg">
+        <table className="w-full text-sm min-w-[500px]">
           <thead className="sticky top-0 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
             <tr>
               <th className="text-left p-3">Article</th>
               <th className="text-right p-3">Prix</th>
               <th className="text-center p-3">Stock</th>
-              <th className="text-center p-3">Action</th>
             </tr>
           </thead>
 
@@ -91,7 +91,16 @@ const ProductGrid: React.FC<ProductGridProps> = ({
               return (
                 <tr
                   key={product.id}
-                  className="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                  onClick={() => !isOutOfStock && onAddToCart(product)}
+                  className={`
+                    border-t border-gray-200 dark:border-gray-700
+                    transition cursor-pointer
+                    ${isOutOfStock ? 'opacity-50 cursor-not-allowed' : ''}
+                    
+                    ${inCart
+                      ? 'bg-primary-50 dark:bg-primary-900/30'
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-700'}
+                  `}
                 >
                   {/* NAME */}
                   <td className="p-3 font-medium text-gray-900 dark:text-white">
@@ -99,7 +108,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                   </td>
 
                   {/* PRICE */}
-                  <td className="p-3 text-right font-semibold text-primary-600 dark:text-primary-400">
+                  <td className="p-3 text-right font-semibold text-primary-600 dark:text-primary-400 whitespace-nowrap">
                     {formatNumber(price)} Fc
                   </td>
 
@@ -117,24 +126,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                     >
                       {isOutOfStock ? '0' : stock}
                     </span>
-                  </td>
-
-                  {/* ACTION */}
-                  <td className="p-3 text-center">
-                    <button
-                      onClick={() => onAddToCart(product)}
-                      disabled={isOutOfStock}
-                      className={`px-3 py-1 rounded text-sm font-medium transition
-                        ${
-                          isOutOfStock
-                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                            : 'bg-primary-500 text-white hover:bg-primary-600'
-                        }
-                        ${inCart ? 'ring-2 ring-primary-400' : ''}
-                      `}
-                    >
-                      Ajouter
-                    </button>
                   </td>
                 </tr>
               );
