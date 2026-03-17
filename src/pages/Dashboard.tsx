@@ -282,7 +282,7 @@ import { useAuth } from "@/hooks/useAuth";
                 <p className="text-sm text-gray-500 dark:text-gray-400">Aucun produit en rupture de stock.</p>
               ) : (
                 <ul className="space-y-2">
-                  {lowStockProducts.map((product) => (
+                  {lowStockProducts.map((products_sellable_stock) => (
                     <li key={product.id} className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-1">
                       <span className="flex items-center gap-1 text-gray-800 dark:text-gray-200">
                         {product.stock === 0 && (
