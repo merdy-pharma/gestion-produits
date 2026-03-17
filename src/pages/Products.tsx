@@ -793,7 +793,7 @@ return (
                   onChange={(e) => {const val = e.target.value;
                         setFormData({...formData, stock: val === '' ? '' :                                   Number(val) });
                       }}
-                  //disabled
+                  disabled
                   className="w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 rounded transition-colors"
                 />
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
