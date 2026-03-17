@@ -757,7 +757,7 @@ return (
                   <label>Prix d’achat</label>
                   <input
                       type="number"
-                      Placeholder="Prix en dollars US"
+                      placeholder = "Prix en dollars US"
                       value={formData.purchase_price}
                       onChange={(e) => {
                         const val = e.target.value;
