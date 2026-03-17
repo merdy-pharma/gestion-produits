@@ -180,7 +180,9 @@ const Sales: React.FC = () => {
           .maybeSingle();
 
         if (data?.rate) rate = Number(data.rate);
-      } catch {}
+      } catch (err) {
+          console.warn("Exchange rate fetch failed", err);
+        }
 
       if (!rate || rate <= 0) {
         throw new Error('Taux de change invalide.');
