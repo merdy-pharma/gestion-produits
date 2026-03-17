@@ -117,7 +117,7 @@ export function increaseCartItemQuantity(
 ): CartItem[] {
   return cart.map((item) =>
     item.id === itemId
-      ? { ...item, quantity: Math.min(maxStock, item.quantity + 1) }
+      ? { ...item, quantity: Math.min(Number(maxStock), Number(item.quantity) + 1) }
       : item
   );
 }
