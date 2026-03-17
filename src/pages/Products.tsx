@@ -772,7 +772,7 @@ return (
                 </div>
                 */}
                 <div className="flex-1">
-                  <label>Prix de vente</label>
+                  <label>Prix vente $</label>
                   <input
                     type="number"
                     placeholder="Prix en dollars US"
