@@ -102,6 +102,10 @@ const Sales: React.FC = () => {
   const handleAddToCart = (product: Product) => {
     setSaleCompleted(false);
     setShowReceiptModal(false);
+    if (!exchangeRate) {
+      toast.error("Taux de change indisponible");
+      return;
+        }
     setCart(addProductToCart(cart, product, exchangeRate));
   };
 
