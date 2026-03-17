@@ -783,7 +783,7 @@ return (
                   />
                 </div>
               </div>
-
+              {/*
               <div>
                 <label>Stock</label>
                 <input
@@ -800,6 +800,7 @@ return (
                   Pour Modifier le Stock, Aller vers le menu laterral "Mouvements Stock".
                 </p>
               </div>
+              */}
 
               <div>
                 <label>Image (optionnel)</label>
