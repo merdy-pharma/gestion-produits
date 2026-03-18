@@ -72,7 +72,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
           <thead className="sticky top-0 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
             <tr>
               <th className="text-left p-3">Article</th>
-              <th className="text-left p-3">Prix</th>
+              <th className="text-left p-3">Prix vente</th>
               <th className="text-center p-3">Stock</th>
             </tr>
           </thead>
