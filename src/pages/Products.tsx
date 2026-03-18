@@ -620,7 +620,7 @@ return (
                   {product.name}
                 </td>
                 <td className="px-4 py-2">{product.category?.name}</td>
-                <td className="px-4 py-2 text-right">{formatPrice(product.purchase_price)}</td>
+              {/*  <td className="px-4 py-2 text-right">{formatPrice(product.purchase_price)}</td>*/}
                 <td className="px-4 py-2 text-right">{formatPrice(product.selling_price)}</td>
                 <td className="px-4 py-2 text-right">
                   {product.stock < 10 && <AlertTriangle size={16} className="text-red-500 inline mr-1" />}
