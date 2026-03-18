@@ -108,7 +108,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                   </td>
 
                   {/* PRICE */}
-                  <td className="p-3 text-right font-semibold text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                  <td className="p-3 text-left font-semibold text-primary-600 dark:text-primary-400 whitespace-nowrap">
                     {formatNumber(price)} Fc
                   </td>
 
