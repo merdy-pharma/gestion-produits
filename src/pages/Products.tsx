@@ -57,7 +57,7 @@ const Products: React.FC = () => {
   const initialFormState = {
     name: '',
     barcode: '',
-    purchase_price: 0,
+   // purchase_price: 0,
     selling_price: 0,
     stock: 0,
     image_url: '',
