@@ -73,7 +73,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
             <tr>
               <th className="text-left p-3">Article</th>
               <th className="text-left p-3">Prix vente</th>
-              <th className="text-center p-3">Stock</th>
+              <th className="text-center p-3">En Stock</th>
             </tr>
           </thead>
 
