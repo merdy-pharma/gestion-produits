@@ -333,8 +333,8 @@ const Products: React.FC = () => {
     const matchesCategory =
       selectedCategory === 'all' || product.category_id === selectedCategory;
 
-    const matchesStockMin = minStock === '' || product.stock >= minStock;
-    const matchesStockMax = maxStock === '' || product.stock <= maxStock;
+    const matchesStockMin = minStock === '' || product.sellable_stock >=           minStock;
+    const matchesStockMax = maxStock === '' || product.sellable_stock <=           maxStock;
 
     return matchesSearch && matchesCategory && matchesStockMin && matchesStockMax;
   });
