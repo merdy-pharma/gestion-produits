@@ -626,10 +626,37 @@ return (
                 <td className="px-4 py-2">{product.category?.name}</td>
               {/*  <td className="px-4 py-2 text-right">{formatPrice(product.purchase_price)}</td>*/}
                 <td className="px-4 py-2 text-right">{formatPrice(product.selling_price)}</td>
+                
                 <td className="px-4 py-2 text-right">
-                  {product.stock < 10 && <AlertTriangle size={16} className="text-red-500 inline mr-1" />}
-                  {product.stock}
-                </td>
+                <div className="flex flex-col items-end">
+              
+                  {/* Stock vendable */}
+                  <span className={`font-semibold ${
+                    product.sellable_stock === 0
+                      ? "text-red-500"
+                      : product.sellable_stock < 10
+                      ? "text-orange-500"
+                      : "text-green-600"
+                  }`}>
+                    {product.sellable_stock}
+                  </span>
+              
+                  {/* Stock total */}
+                  <span className="text-xs text-gray-400">
+                    Total: {product.total_stock}
+                  </span>
+              
+                  {/* Stock expiré */}
+                  {product.expired_stock > 0 && (
+                    <span className="text-xs text-red-400">
+                      Expiré: {product.expired_stock}
+                    </span>
+                  )}
+              
+                </div>
+              </td>
+
+                
                 <td className="px-4 py-2 text-right">
                   <button
                     className="text-blue-500 hover:underline mr-2"
