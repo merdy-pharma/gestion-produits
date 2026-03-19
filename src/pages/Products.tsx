@@ -92,9 +92,12 @@ const Products: React.FC = () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
-        .from('products')
-        .select('*, category:categories (id, name)')
-        .order('name');
+      .from('products_with_stock')
+      .select(`
+        *,
+        category:categories (id, name)
+      `)
+      .order('name');
       if (error) throw error;
       setProducts(data || []);
     } catch (err) {
