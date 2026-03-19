@@ -651,13 +651,9 @@ return (
                     Total: {product.total_stock}
                   </span>
               
-                  
-                 
-              
                 </div>
               </td>
 
-                
                 <td className="px-4 py-2 text-right">
                   <button
                     className="text-blue-500 hover:underline mr-2"
