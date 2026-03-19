@@ -21,9 +21,10 @@ interface Product {
   id: string;
   name: string;
   barcode: string;
- // purchase_price: number;
   selling_price: number;
-  stock: number;
+  total_stock: number;
+  sellable_stock: number;
+  expired_stock: number;
   image_url?: string;
   category_id: string;
   category?: Category;
