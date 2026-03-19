@@ -629,7 +629,6 @@ return (
                 
                 <td className="px-4 py-2 text-right">
                 <div className="flex flex-col items-end">
-              
                   {/* Stock vendable */}
                   <span className={`font-semibold ${
                     product.sellable_stock === 0
@@ -665,9 +664,7 @@ return (
                       setFormData({
                         name: product.name,
                         barcode: product.barcode,
-                        purchase_price: product.purchase_price,
                         selling_price: product.selling_price,
-                        stock: product.stock,
                         image_url: product.image_url || '',
                         category_id: product.category_id,
                       });
