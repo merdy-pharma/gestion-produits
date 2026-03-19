@@ -605,7 +605,7 @@ return (
             <th className="px-3 py-2 text-left">Catégorie</th>
             {/*  <th className="px-3 py-2 text-right">Achat</th>*/}
             <th className="px-3 py-2 text-right">Prix Vente</th>
-            <th className="px-3 py-2 text-right">Stock à jour</th>
+            <th className="px-3 py-2 text-right">Infos Stock</th>
             <th className="px-3 py-2 text-right">Actions</th>
           </tr>
         </thead>
