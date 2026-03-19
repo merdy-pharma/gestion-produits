@@ -637,7 +637,7 @@ return (
                       ? "text-orange-500"
                       : "text-green-600"
                   }`}>
-                    {product.sellable_stock}
+                   Valide : {product.sellable_stock}
                   </span>
                   
                   {/* Stock expiré */}
