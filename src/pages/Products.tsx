@@ -639,17 +639,19 @@ return (
                   }`}>
                     {product.sellable_stock}
                   </span>
-              
-                  {/* Stock total */}
-                  <span className="text-xs text-gray-400">
-                    Total: {product.total_stock}
-                  </span>
-              
+                  
                   {/* Stock expiré */}
                   {product.expired_stock > 0 && (
                     <span className="text-xs text-red-400">
                       Expiré: {product.expired_stock}
                     </span>
+                
+                  {/* Stock total */}
+                  <span className="text-xs text-gray-400">
+                    Total: {product.total_stock}
+                  </span>
+              
+                  
                   )}
               
                 </div>
@@ -727,7 +729,7 @@ return (
         </div>
       )}
 
-      {/* FORM MODAL */}
+      {/* FORM MODAL PRODUITS */}
       {isFormOpen && (
       <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center p-4 z-50">
   <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 w-full max-w-lg rounded-xl shadow-lg p-6 relative transition-colors">  
