@@ -645,14 +645,14 @@ return (
                     <span className="text-xs text-red-400">
                       Expiré: {product.expired_stock}
                     </span>
-                
+                 )}
                   {/* Stock total */}
                   <span className="text-xs text-gray-400">
                     Total: {product.total_stock}
                   </span>
               
                   
-                  )}
+                 
               
                 </div>
               </td>
