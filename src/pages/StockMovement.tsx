@@ -10,7 +10,7 @@ interface Product {
   stock: number;
 }
 
-const REASONS = ["ENDOMMAGE", "PERIME", "PERTE", "RETOUR", "AJUSTEMENT"];
+const REASONS = ["APPRO","ENDOMMAGE", "PERIME", "PERTE", "RETOUR", "AJUSTEMENT"];
 
 export default function StockMovement() {
   const [query, setQuery] = useState("");
