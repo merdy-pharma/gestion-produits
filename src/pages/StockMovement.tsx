@@ -91,7 +91,7 @@ export default function StockMovement() {
           .insert({
             product_id: selected.id,
             batch_number: batchNumber,
-            expiry_date: expiryDate,
+            expiration_date: expiryDate,
             quantity
           })
           .select()
