@@ -324,28 +324,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           >
             Merci pour votre achat !
           </div>
-          <div
-            style={{
-              textAlign: 'center',
-              fontSize: '9px',
-              color: '#666',
-              marginBottom: '2mm',
-            }}
-          >
-            Revenez bientôt
-          </div>
-          <div
-            style={{
-              textAlign: 'center',
-              fontSize: '10px',
-              marginBottom: '2mm',
-              fontWeight: '500',
-              letterSpacing: '0.5px',
-            }}
-          >
-            ━━━━━━━━━━━━━━━━━━━━
-          </div>
-
+         
           {/* Cut Line */}
           <div style={{ textAlign: 'center', fontSize: '9px', color: '#999', marginBottom: '3mm' }}>
             ✂ - - - - - - - - - - - - - - - - - -
