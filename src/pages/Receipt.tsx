@@ -223,7 +223,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                       display: 'grid',
                       gridTemplateColumns: '2fr 1fr 1fr 1.2fr',
                       gap: '2px',
-                      fontSize: '10px',
+                      fontSize: '11px',
                       lineHeight: '1.2',
                     }}
                   >
