@@ -186,6 +186,28 @@ export default function StockMovement() {
           </select>
         </div>
 
+        {type === "IN" && (
+            <>
+              <div>
+                <label className="text-sm">Numéro de lot</label>
+                <Input
+                  value={batchNumber}
+                  onChange={(e) => setBatchNumber(e.target.value)}
+                  placeholder="Ex: LOT-2026-001"
+                />
+              </div>
+          
+              <div>
+                <label className="text-sm">Date d’expiration</label>
+                <Input
+                  type="date"
+                  value={expiryDate}
+                  onChange={(e) => setExpiryDate(e.target.value)}
+                />
+              </div>
+            </>
+          )}
+
         {/* Motif */}
         <div>
           <label className="text-sm">Motif</label>
