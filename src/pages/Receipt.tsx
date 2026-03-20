@@ -33,9 +33,9 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
     };
 
     const paymentMethodLabel = {
-      cash: '💵 ESPÈCES',
-      card: '💳 CARTE BANCAIRE',
-      mobile: '📱 MOBILE MONEY',
+      cash: 'ESPÈCES',
+      card: 'CARTE BANCAIRE',
+      mobile: 'MOBILE MONEY',
     }[paymentMethod as keyof typeof paymentMethodLabel] || paymentMethod.toUpperCase();
 
     return (
