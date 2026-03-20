@@ -151,7 +151,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <hr className="pos-divider" />
 
             {/* Invoice Details */}
-            <div style={{ fontSize: '11px', marginTop: '2px', marginBottom: '2px' }}>
+            <div style={{ fontSize: '12px', marginTop: '2px', marginBottom: '2px' }}>
               <div style={{ fontWeight: 'bold', fontSize: '12px', margin: '1px 0' }}>
                 Facture: {invoiceNumber}
               </div>
