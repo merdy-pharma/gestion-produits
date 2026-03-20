@@ -249,7 +249,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
           <hr className="pos-divider" style={{ marginTop: '2mm', marginBottom: '2mm' }} />
 
           {/* Totals Section */}
-          <div className="pos-footer" style={{ fontSize: '11px', marginBottom: '3mm' }}>
+          <div className="pos-footer" style={{ fontSize: '12px', marginBottom: '3mm' }}>
             {/* Subtotal */}
             <div
               style={{
