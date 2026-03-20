@@ -43,7 +43,7 @@ export async function fetchLatestExchangeRate(): Promise<number | null> {
 export async function fetchProductsList(): Promise<Product[]> {
   try {
     const { data, error } = await supabase
-    .from("products_sellable_stock")
+    .from("products_with_stock")
     .select("*")
     .gt("sellable_stock", 0)
     .order("name");
