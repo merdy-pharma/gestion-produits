@@ -131,7 +131,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <div
               style={{
                 fontWeight: 'bold',
-                fontSize: '16px',
+                fontSize: '20px',
                 letterSpacing: '1px',
                 marginBottom: '2px',
                 textTransform: 'uppercase',
