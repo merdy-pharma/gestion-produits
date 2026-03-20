@@ -233,7 +233,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                     <div style={{ textAlign: 'center', fontWeight: 'bold' }}>
                       {item.quantity}
                     </div>
-                    <div style={{ textAlign: 'right', fontSize: '9px' }}>
+                    <div style={{ textAlign: 'right', fontSize: '10px' }}>
                       {formatCurrency(price)}
                     </div>
                     <div style={{ textAlign: 'right', fontWeight: 'bold' }}>
