@@ -164,7 +164,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             <hr className="pos-divider" />
 
             {/* Transaction Details */}
-            <div style={{ fontSize: '10px', textAlign: 'left', marginTop: '2px' }}>
+            <div style={{ fontSize: '11px', textAlign: 'left', marginTop: '2px' }}>
               <div style={{ marginBottom: '1px' }}>
                 <span style={{ display: 'inline-block', width: '30%', fontWeight: 'bold' }}>Client:</span>
                 <span style={{ wordBreak: 'break-word' }}>
