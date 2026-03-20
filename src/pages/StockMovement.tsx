@@ -26,6 +26,8 @@ export default function StockMovement() {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
+  const [batchNumber, setBatchNumber] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
 
   // 🔍 Recherche PRODUIT (avec vrai stock)
   useEffect(() => {
