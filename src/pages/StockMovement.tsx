@@ -47,7 +47,7 @@ export default function StockMovementHistory() {
       .select(`
         *,
         product:products(name),
-        batch:product_batches(batch_number, expiry_date),
+        batch:product_batches(batch_number, expiration_date),
         sale:sales(id)
       `)
       .order("created_at", { ascending: false });
