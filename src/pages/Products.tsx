@@ -839,7 +839,7 @@ return (
               </div>
               <button
               onClick={() => navigate(`/productBatches?product=${product.id}`)}
-              className="w-full bg-primary-500 text-white py-2 text-purple-600 rounded "
+              className="w-full bg-secondary-500 text-white py-2 text-purple-600 rounded "
             >
               Gérer les lots
             </button>
