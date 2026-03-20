@@ -141,7 +141,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
             </div>
 
             {/* Company Info */}
-            <div style={{ fontSize: '11px', lineHeight: '1.2', color: '#333', marginBottom: '2px' }}>
+            <div style={{ fontSize: '12px', lineHeight: '1.2', color: '#333', marginBottom: '2px' }}>
               <div>RCCM 20-A-00047</div>
               <div>ID.NAT 01-93-N40495R</div>
               <div>Av. Bolenge, C. Masina</div>
