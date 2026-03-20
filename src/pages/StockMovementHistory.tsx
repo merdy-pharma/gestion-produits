@@ -1,246 +1,220 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { format } from "date-fns";
+import { FileDown } from "lucide-react";
+import toast from "react-hot-toast";
 
-const PAGE_SIZE = 5;
-
-interface Product {
+interface Movement {
   id: string;
-  name: string;
+  type: "IN" | "OUT";
+  reason: string;
+  quantity: number;
+  created_at: string;
+  comment?: string;
+
+  product: {
+    name: string;
+  };
+
+  batch?: {
+    batch_number: string;
+    expiry_date: string;
+  };
+
+  sale?: {
+    id: string;
+  };
 }
 
-export default function StockMovementsHistory() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Product[]>([]);
-  const [data, setData] = useState<any[]>([]);
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
+export default function StockMovementHistory() {
+  const [movements, setMovements] = useState<Movement[]>([]);
   const [loading, setLoading] = useState(false);
 
   // filtres
-  const [productId, setProductId] = useState<string | null>(null);
-  const [type, setType] = useState<string | null>(null);
-  const [reason, setReason] = useState<string | null>(null);
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  const [search, setSearch] = useState("");
+  const [type, setType] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
 
-  /* ==============================
-     Recherche produit (autocomplete)
-  =============================== */
-  useEffect(() => {
-    if (query.length < 3) {
-      setResults([]);
-      return;
-    }
-
-    const timeout = setTimeout(async () => {
-      const { data } = await supabase
-        .from("products")
-        .select("id, name")
-        .ilike("name", `%${query}%`)
-        .limit(10);
-
-      if (data) setResults(data);
-    }, 300);
-
-    return () => clearTimeout(timeout);
-  }, [query]);
-
-  /* ==============================
-     Fetch historique
-  =============================== */
-  const fetchData = async () => {
+  // ---------------- FETCH ----------------
+  const fetchMovements = async () => {
     setLoading(true);
 
-    const from = (page - 1) * PAGE_SIZE;
-    const to = from + PAGE_SIZE - 1;
-
-    let queryBuilder = supabase
+    let query = supabase
       .from("stock_movements")
-      .select(
-        `
-        id,
-        type,
-        reason,
-        quantity,
-        created_at,
-        products ( name )
-        `,
-        { count: "exact" }
-      )
+      .select(`
+        *,
+        product:products(name),
+        batch:product_batches(batch_number, expiration_date),
+        sale:sales(id)
+      `)
       .order("created_at", { ascending: false });
 
-    if (productId) queryBuilder = queryBuilder.eq("product_id", productId);
-    if (type) queryBuilder = queryBuilder.eq("type", type);
-    if (reason) queryBuilder = queryBuilder.eq("reason", reason);
-    if (fromDate) queryBuilder = queryBuilder.gte("created_at", fromDate);
-    if (toDate) queryBuilder = queryBuilder.lte("created_at", toDate + " 23:59:59");
+    if (type) query = query.eq("type", type);
+    if (dateFrom) query = query.gte("created_at", dateFrom);
+    if (dateTo) query = query.lte("created_at", dateTo);
 
-    const { data, count, error } = await queryBuilder.range(from, to);
+    const { data, error } = await query;
 
-    if (!error && data) {
-      setData(data);
-      setTotal(count ?? 0);
+    if (error) {
+      console.error(error);
+      toast.error("Erreur chargement historique");
+    } else {
+      setMovements(data || []);
     }
 
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchData();
-  }, [page, productId, type, reason, fromDate, toDate]);
+    fetchMovements();
+  }, [type, dateFrom, dateTo]);
 
-  const totalPages = Math.ceil(total / PAGE_SIZE);
+  // ---------------- EXPORT EXCEL ----------------
+  const exportExcel = async () => {
+    const xlsx = await import("xlsx");
 
-  const resetFilters = () => {
-    setQuery("");
-    setResults([]);
-    setProductId(null);
-    setType(null);
-    setReason(null);
-    setFromDate("");
-    setToDate("");
-    setPage(1);
+    const data = movements.map((m) => ({
+      Produit: m.product?.name,
+      Type: m.type,
+      Motif: m.reason,
+      Quantité: m.quantity,
+      Lot: m.batch?.batch_number || "-",
+      Expiration: m.batch?.expiry_date || "-",
+      Date: format(new Date(m.created_at), "dd/MM/yyyy HH:mm"),
+    }));
+
+    const ws = xlsx.utils.json_to_sheet(data);
+    const wb = xlsx.utils.book_new();
+    xlsx.utils.book_append_sheet(wb, ws, "Historique");
+
+    xlsx.writeFile(wb, "historique_stock.xlsx");
+  };
+
+  // ---------------- FILTER LOCAL ----------------
+  const filtered = movements.filter((m) =>
+    m.product?.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // ---------------- BADGE COLOR ----------------
+  const getBadge = (reason: string) => {
+    if (reason === "VENTE") return "bg-blue-500";
+    if (reason === "PERTE") return "bg-red-500";
+    if (reason === "PERIME") return "bg-orange-500";
+    if (reason === "APPRO") return "bg-green-600";
+    return "bg-gray-500";
   };
 
   return (
     <div className="space-y-4">
-      {/* FILTRES */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-2 relative">
-        
-        {/* Recherche produit */}
-        <div className="relative">
-          <Input
-            className="input"
-            placeholder="Rechercher un produit (min 3 lettres)"
-            value={query}
-            onChange={e => {
-              setQuery(e.target.value);
-              setProductId(null);
-              setPage(1);
-            }}
-          />
 
-          {results.length > 0 && (
-            <div className="card absolute z-10 w-full max-h-40 overflow-auto mt-1">
-              {results.map(p => (
-                <div
-                  key={p.id}
-                  className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  onClick={() => {
-                    setProductId(p.id);
-                    setQuery(p.name);
-                    setResults([]);
-                    setPage(1);
-                  }}
-                >
-                  {p.name}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+      {/* HEADER */}
+      <div className="flex justify-between items-center">
+        <h2 className="text-lg font-bold">Historique des mouvements</h2>
 
-        <Select value={type ?? ""} onValueChange={v => { setType(v); setPage(1); }}>
-          <SelectTrigger>
-            <SelectValue placeholder="Type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="IN">Entrée</SelectItem>
-            <SelectItem value="OUT">Sortie</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select value={reason ?? ""} onValueChange={v => { setReason(v); setPage(1); }}>
-          <SelectTrigger>
-            <SelectValue placeholder="Motif" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ENDOMMAGE">Endommagé</SelectItem>
-            <SelectItem value="PERIME">Périmé</SelectItem>
-            <SelectItem value="PERTE">Perte</SelectItem>
-            <SelectItem value="RETOUR">Retour</SelectItem>
-            <SelectItem value="AJUSTEMENT">Ajustement</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Input type="date" value={fromDate} onChange={e => { setFromDate(e.target.value); setPage(1); }} />
-        <Input type="date" value={toDate} onChange={e => { setToDate(e.target.value); setPage(1); }} />
-      </div>
-
-      <div className="flex justify-end">
-        <Button variant="outline" onClick={resetFilters}
-          className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-          Réinitialiser
+        <Button onClick={exportExcel} className="flex gap-2">
+          <FileDown size={16} />
+          Export Excel
         </Button>
       </div>
 
-      {/* TABLE */}
-      <table className="table-content">
-        <thead className="table-head">
-          <tr>
-            <th className="p-2">Date</th>
-            <th className="p-2">Produit</th>
-            <th className="p-2">Type</th>
-            <th className="p-2">Motif</th>
-            <th className="p-2 text-right">Qté</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(m => (
-            <tr key={m.id} className="border-t">
-              <td className="p-2">
-                {new Date(m.created_at).toLocaleDateString()}
-              </td>
-              <td className="p-2">{m.products?.name}</td>
-              <td className="p-2">{m.type}</td>
-              <td className="p-2">{m.reason}</td>
-              <td className="p-2 text-right">{m.quantity}</td>
-            </tr>
-          ))}
+      {/* FILTRES */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
 
-          {!loading && data.length === 0 && (
-            <tr>
-              <td colSpan={5} className="p-4 text-center text-gray-500">
-                Aucun résultat
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+        <Input
+          placeholder="Recherche produit"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-      {/* PAGINATION */}
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-gray-600">
-          Page {page} / {totalPages || 1}
-        </span>
+        <select
+          className="input"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+        >
+          <option value="">Tous types</option>
+          <option value="IN">Entrée</option>
+          <option value="OUT">Sortie</option>
+        </select>
 
-        <div className="flex gap-2">
-          <Button
-            className="btn-secondary"
-            variant="outline"
-            disabled={page === 1}
-            onClick={() => setPage(p => p - 1)}
+        <Input
+          type="date"
+          value={dateFrom}
+          onChange={(e) => setDateFrom(e.target.value)}
+        />
+
+        <Input
+          type="date"
+          value={dateTo}
+          onChange={(e) => setDateTo(e.target.value)}
+        />
+      </div>
+
+      {/* LISTE */}
+      <div className="space-y-2 max-h-[70vh] overflow-auto">
+
+        {filtered.map((m) => (
+          <div
+            key={m.id}
+            className="p-3 rounded-lg border bg-white dark:bg-gray-800 shadow-sm"
           >
-            Précédent
-          </Button>
-          <Button
-            className="btn-secondary"
-            variant="outline"
-            disabled={page >= totalPages}
-            onClick={() => setPage(p => p + 1)}
-          >
-            Suivant
-          </Button>
-        </div>
+            <div className="flex justify-between">
+
+              <div>
+                <div className="font-semibold">
+                  {m.product?.name}
+                </div>
+
+                <div className="text-sm text-gray-500">
+                  {format(new Date(m.created_at), "dd MMM yyyy - HH:mm")}
+                </div>
+
+                {/* LOT */}
+                {m.batch && (
+                  <div className="text-xs text-gray-400">
+                    Lot: {m.batch.batch_number} | Exp: {m.batch.expiry_date}
+                  </div>
+                )}
+              </div>
+
+              <div className="text-right">
+
+                <div className={`text-white px-2 py-1 rounded text-xs ${getBadge(m.reason)}`}>
+                  {m.reason}
+                </div>
+
+                <div className={`font-bold mt-1 ${
+                  m.type === "OUT" ? "text-red-500" : "text-green-600"
+                }`}>
+                  {m.type === "OUT" ? "-" : "+"}{m.quantity}
+                </div>
+              </div>
+
+            </div>
+
+            {/* COMMENT */}
+            {m.comment && (
+              <div className="text-xs mt-2 text-gray-500">
+                {m.comment}
+              </div>
+            )}
+
+            {/* LIEN VENTE */}
+            {m.reason === "VENTE" && m.reference_id && (
+              <div className="text-xs text-blue-500 mt-1 cursor-pointer">
+                Voir la vente #{m.reference_id}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {filtered.length === 0 && (
+          <div className="text-center text-gray-500 p-4">
+            Aucun mouvement trouvé
+          </div>
+        )}
       </div>
     </div>
   );
