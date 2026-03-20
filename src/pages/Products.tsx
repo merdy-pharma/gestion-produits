@@ -837,7 +837,13 @@ return (
                   <img src={formData.image_url} alt="Preview" className="mt-2 w-24 h-24 object-cover rounded" />
                 )}
               </div>
-
+              <button
+              onClick={() => navigate(`/productBatches?product=${product.id}`)}
+              className="text-xs text-purple-600 hover:underline"
+            >
+              Voir les lots
+            </button>
+              
               <button
                 type="submit"
                 className="w-full bg-primary-500 text-white py-2 rounded"
