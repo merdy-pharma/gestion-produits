@@ -199,7 +199,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
                 borderBottom: '1px dashed #000',
                 paddingBottom: '2px',
                 marginBottom: '2px',
-                fontSize: '9px',
+                fontSize: '10px',
                 fontWeight: 'bold',
                 textTransform: 'uppercase',
               }}
