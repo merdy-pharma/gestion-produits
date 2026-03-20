@@ -841,7 +841,7 @@ return (
               onClick={() => navigate(`/productBatches?product=${product.id}`)}
               className="text-xs text-purple-600 hover:underline"
             >
-              Voir les lots
+              Gérer les lots
             </button>
               
               <button
