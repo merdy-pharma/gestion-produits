@@ -311,7 +311,7 @@ const Receipt = forwardRef<HTMLDivElement, ReceiptProps>(
               letterSpacing: '0.5px',
             }}
           >
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           </div>
           <div
             style={{
