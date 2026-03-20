@@ -174,7 +174,7 @@ export default function StockMovementHistory() {
                 {/* LOT */}
                 {m.batch && (
                   <div className="text-xs text-gray-400">
-                    Lot: {m.batch.batch_number} | Exp: {m.batch.expiry_date}
+                    Lot: {m.batch.batch_number} | Exp: {m.batch.expiration_date}
                   </div>
                 )}
               </div>
