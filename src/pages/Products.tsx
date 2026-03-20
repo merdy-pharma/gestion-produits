@@ -839,7 +839,7 @@ return (
               </div>
               <button
               onClick={() => navigate(`/productBatches?product=${product.id}`)}
-              className="text-xs text-purple-600 hover:underline"
+              className="w-full bg-primary-500 text-xs text-purple-600 hover:underline"
             >
               Gérer les lots
             </button>
