@@ -153,7 +153,7 @@ import { useAuth } from "@/hooks/useAuth";
 
     // 🛑 Produits en rupture ou faible stock (stock <= 5)
     const { data: lowStock, error: lowStockError } = await supabase
-      .from('products_sellable_stock')
+      .from('products_with_stock')
       .select('id, name, sellable_stock')
       .lte('sellable_stock', 5)
       .order('sellable_stock', { ascending: true });
