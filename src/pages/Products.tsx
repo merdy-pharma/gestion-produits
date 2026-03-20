@@ -794,13 +794,6 @@ return (
                 )}
               </div>
               <button
-              onClick={() => navigate(`/productBatches?product=${product.id}`)}
-              className="w-full bg-gray-500 text-white py-2 text-white rounded "
-            >
-              Gérer les lots
-            </button>
-              
-              <button
                 type="submit"
                 className="w-full bg-primary-500 text-white py-2 rounded"
               >
