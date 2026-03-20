@@ -111,116 +111,58 @@ const Products: React.FC = () => {
   // -------------------------
   // FORM SUBMIT
   // -------------------------
+
   const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const dataToSend = {
-        name: formData.name,
-        barcode: formData.barcode,
-      //  purchase_price: Number(formData.purchase_price),
-        selling_price: Number(formData.selling_price),
-        stock: Number(formData.stock),
-        image_url: formData.image_url || null,
-        category_id: formData.category_id,
-      };
-      
-      let response;
-      if (editingProduct) {
-        const oldStock = editingProduct.stock;
-        const newStock = Number(formData.stock);
-        const diff = newStock - oldStock;
+  e.preventDefault();
 
-        // D'abord effectuer la mise à jour produit
-        const { data: updateData, error: updateError } = await supabase
-            .from('products')
-            .update(dataToSend)
-            .eq('id', editingProduct.id)
-            .select()
-            .single();
-    
-        if (updateError) throw updateError;
+  try {
+    const payload = {
+      name: formData.name.trim(),
+      barcode: formData.barcode,
+      selling_price: Number(formData.selling_price),
+      image_url: formData.image_url || null,
+      category_id: formData.category_id,
+    };
 
-          // 2. Insérer historique SEULEMENT si stock changé
-          if (diff !== 0) {
-            const movement = {
-              product_id: editingProduct.id,
-              type: diff > 0 ? "IN" : "OUT",
-              reason: "AJUST. PRODUIT",
-              quantity: Math.abs(diff),
-              comment: "Modification manuelle depuis fiche produit",
-             // created_at: new Date().toISOString(),
-            };
-          
-            const { error: movementError } = await supabase
-              .from("stock_movements")
-              .insert(movement);
-          
-            if (movementError) {
-              console.error("Erreur stock_movements :", movementError);
-              toast.error("Stock modifié mais mouvement non enregistré !");
-            }
-          }
+    if (editingProduct) {
+      const { error } = await supabase
+        .from('products')
+        .update(payload)
+        .eq('id', editingProduct.id);
 
-        response = { data: updateData, error: updateError };
-        toast.success("Article mis à jour avec succès !");
+      if (error) throw error;
 
-      } else {
-              // Vérification nom existant
-              const { data: existing, error: checkError } = await supabase
-                .from("products")
-                .select("id")
-                .eq("name", formData.name.trim());
-            
-              if (checkError) throw checkError;
-            
-              if (existing && existing.length > 0) {
-                toast.error("Un produit portant ce nom existe déjà");
-                setTimeout(() => nameInputRef.current?.focus(), 300);
-                return;
-              }
-            
-              // Création produit
-              const { data: newProduct, error } = await supabase
-                .from("products")
-                .insert(dataToSend)
-                .select()
-                .single();
-            
-              if (error) throw error;
-             
-              toast.success("Produit ajouté avec succès !");
-            
-              // Mouvement de stock initial
-              if (newProduct.stock > 0) {
-                const { error: movementError } = await supabase
-                  .from("stock_movements")
-                  .insert({
-                    product_id: newProduct.id,
-                    type: "IN",
-                    reason: "RE-INITIAL.",
-                    quantity: newProduct.stock,
-                    comment: "Stock initial lors de la création du produit",
-                  });
-            
-                if (movementError) {
-                  toast.error("Produit créé mais mouvement de stock non enregistré");
-                }
-              }
-            }
+      toast.success("Produit mis à jour");
+    } else {
+      const { data: existing } = await supabase
+        .from("products")
+        .select("id")
+        .eq("name", payload.name);
 
-     // if ((response as any).error) throw (response as any).error;
+      if (existing?.length) {
+        toast.error("Produit déjà existant");
+        return;
+      }
 
-            setIsFormOpen(false);
-            setEditingProduct(null);
-            setFormData(initialFormState);
-            fetchProducts();
-      
-          } catch (err) {
-            console.error('Error submitting:', err);
-            setError(err instanceof Error ? err.message : 'Une erreur est survenue !');
-            toast.error("Erreur lors de l’enregistrement de cet article !");
-          }
-        };
+      const { error } = await supabase
+        .from('products')
+        .insert(payload);
+
+      if (error) throw error;
+
+      toast.success("Produit créé");
+    }
+
+    setIsFormOpen(false);
+    setEditingProduct(null);
+    setFormData(initialFormState);
+    fetchProducts();
+
+  } catch (err) {
+    console.error(err);
+    toast.error("Erreur enregistrement produit");
+  }
+};
 
   // -------------------------
   // DELETE
