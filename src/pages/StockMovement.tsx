@@ -57,7 +57,59 @@ export default function StockMovement() {
       toast.error("Champs obligatoires manquants");
       return;
     }
-
+    if (type === "IN") {
+      if (!batchNumber || !expiryDate) {
+        toast.error("Lot et expiration obligatoires");
+        return;
+      }
+    
+      // 1. Vérifier si lot existe
+      const { data: existingBatch } = await supabase
+        .from("product_batches")
+        .select("*")
+        .eq("product_id", selected.id)
+        .eq("batch_number", batchNumber)
+        .single();
+    
+      let batchId;
+    
+      if (existingBatch) {
+        // UPDATE lot
+        await supabase
+          .from("product_batches")
+          .update({
+            quantity: existingBatch.quantity + quantity
+          })
+          .eq("id", existingBatch.id);
+    
+        batchId = existingBatch.id;
+    
+      } else {
+        // CREATE lot
+        const { data: newBatch } = await supabase
+          .from("product_batches")
+          .insert({
+            product_id: selected.id,
+            batch_number: batchNumber,
+            expiry_date: expiryDate,
+            quantity
+          })
+          .select()
+          .single();
+    
+        batchId = newBatch.id;
+      }
+    
+      // mouvement
+      await supabase.from("stock_movements").insert({
+        product_id: selected.id,
+        batch_id: batchId,
+        type: "IN",
+        reason,
+        quantity,
+        comment
+      });
+    }
     if (type === "OUT" && quantity > selected.sellable_stock) {
       toast.error("Stock insuffisant (non expiré)");
       return;
