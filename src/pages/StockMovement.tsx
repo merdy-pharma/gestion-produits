@@ -1,262 +1,221 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AlertTriangle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { format } from "date-fns";
+import { FileDown } from "lucide-react";
 import toast from "react-hot-toast";
-import StockMovementHistory from "@/pages/StockMovementHistory";
 
-interface Product {
+interface Movement {
   id: string;
-  name: string;
-  sellable_stock: number;
-  expired_stock: number;
-  total_stock: number;
+  type: "IN" | "OUT";
+  reason: string;
+  quantity: number;
+  created_at: string;
+  comment?: string;
+
+  product: {
+    name: string;
+  };
+
+  batch?: {
+    batch_number: string;
+    expiry_date: string;
+  };
+
+  sale?: {
+    id: string;
+  };
 }
 
-const REASONS = ["APPRO", "ENDOMMAGE", "PERIME", "PERTE", "RETOUR", "AJUSTEMENT"];
-
-export default function StockMovement() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Product[]>([]);
-  const [selected, setSelected] = useState<Product | null>(null);
-  const [type, setType] = useState<"IN" | "OUT">("OUT");
-  const [reason, setReason] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [comment, setComment] = useState("");
+export default function StockMovementHistory() {
+  const [movements, setMovements] = useState<Movement[]>([]);
   const [loading, setLoading] = useState(false);
-  const [showHistory, setShowHistory] = useState(false);
-  const [batchNumber, setBatchNumber] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
 
-  // 🔍 Recherche PRODUIT (avec vrai stock)
-  useEffect(() => {
-    if (query.length < 2) {
-      setResults([]);
-      return;
-    }
+  // filtres
+  const [search, setSearch] = useState("");
+  const [type, setType] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
 
-    const timeout = setTimeout(async () => {
-      const { data } = await supabase
-        .from("products_with_stock")
-        .select("*")
-        .ilike("name", `%${query}%`)
-        .limit(10);
-
-      if (data) setResults(data);
-    }, 300);
-
-    return () => clearTimeout(timeout);
-  }, [query]);
-
-  // 🚀 SUBMIT
-  const handleSubmit = async () => {
-    if (!selected || quantity <= 0 || !reason) {
-      toast.error("Champs obligatoires manquants");
-      return;
-    }
-
-    if (type === "OUT" && quantity > selected.sellable_stock) {
-      toast.error("Stock insuffisant (non expiré)");
-      return;
-    }
-
+  // ---------------- FETCH ----------------
+  const fetchMovements = async () => {
     setLoading(true);
 
-    try {
-      // ✅ INSERT UNIQUEMENT mouvement
-      const { error } = await supabase.from("stock_movements").insert({
-        product_id: selected.id,
-        type,
-        reason,
-        quantity,
-        comment,
-      });
+    let query = supabase
+      .from("stock_movements")
+      .select(`
+        *,
+        product:products(name),
+        batch:product_batches(batch_number, expiry_date),
+        sale:sales(id)
+      `)
+      .order("created_at", { ascending: false });
 
-      if (error) throw error;
+    if (type) query = query.eq("type", type);
+    if (dateFrom) query = query.gte("created_at", dateFrom);
+    if (dateTo) query = query.lte("created_at", dateTo);
 
-      toast.success("Mouvement enregistré");
+    const { data, error } = await query;
 
-      // Reset
-      setSelected(null);
-      setQuery("");
-      setResults([]);
-      setQuantity(1);
-      setReason("");
-      setComment("");
-
-    } catch (err) {
-      console.error(err);
-      toast.error("Erreur lors du mouvement");
-    } finally {
-      setLoading(false);
+    if (error) {
+      console.error(error);
+      toast.error("Erreur chargement historique");
+    } else {
+      setMovements(data || []);
     }
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchMovements();
+  }, [type, dateFrom, dateTo]);
+
+  // ---------------- EXPORT EXCEL ----------------
+  const exportExcel = async () => {
+    const xlsx = await import("xlsx");
+
+    const data = movements.map((m) => ({
+      Produit: m.product?.name,
+      Type: m.type,
+      Motif: m.reason,
+      Quantité: m.quantity,
+      Lot: m.batch?.batch_number || "-",
+      Expiration: m.batch?.expiry_date || "-",
+      Date: format(new Date(m.created_at), "dd/MM/yyyy HH:mm"),
+    }));
+
+    const ws = xlsx.utils.json_to_sheet(data);
+    const wb = xlsx.utils.book_new();
+    xlsx.utils.book_append_sheet(wb, ws, "Historique");
+
+    xlsx.writeFile(wb, "historique_stock.xlsx");
+  };
+
+  // ---------------- FILTER LOCAL ----------------
+  const filtered = movements.filter((m) =>
+    m.product?.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // ---------------- BADGE COLOR ----------------
+  const getBadge = (reason: string) => {
+    if (reason === "VENTE") return "bg-blue-500";
+    if (reason === "PERTE") return "bg-red-500";
+    if (reason === "PERIME") return "bg-orange-500";
+    if (reason === "APPRO") return "bg-green-600";
+    return "bg-gray-500";
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="space-y-4">
 
-      {/* ================= FORMULAIRE ================= */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-5 space-y-4">
+      {/* HEADER */}
+      <div className="flex justify-between items-center">
+        <h2 className="text-lg font-bold">Historique des mouvements</h2>
 
-        <div className="flex justify-between items-center">
-          <h2 className="text-lg font-bold">Mouvement de stock</h2>
-
-          <Button
-            variant="outline"
-            onClick={() => setShowHistory(s => !s)}
-          >
-            {showHistory ? "Masquer historique" : "Voir historique"}
-          </Button>
-        </div>
-
-        {/* 🔍 Recherche */}
-        <div className="relative">
-          <label className="text-sm font-medium">Produit</label>
-          <Input
-            placeholder="Rechercher (min 2 lettres)"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setSelected(null);
-            }}
-          />
-
-          {/* Résultats */}
-          {results.length > 0 && (
-            <div className="absolute z-10 bg-white dark:bg-gray-700 border w-full mt-1 rounded shadow max-h-48 overflow-auto">
-              {results.map((p) => (
-                <div
-                  key={p.id}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer"
-                  onClick={() => {
-                    setSelected(p);
-                    setQuery(p.name);
-                    setResults([]);
-                  }}
-                >
-                  <div className="flex justify-between">
-                    <span>{p.name}</span>
-                    <span className="text-sm text-gray-500">
-                      {p.sellable_stock} dispo
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* 📦 Infos stock */}
-        {selected && (
-          <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded text-sm">
-            <div className="flex justify-between">
-              <span>Stock valide</span>
-              <span className="text-green-600 font-bold">
-                {selected.sellable_stock}
-              </span>
-            </div>
-
-            {selected.expired_stock > 0 && (
-              <div className="flex justify-between text-red-500">
-                <span className="flex items-center gap-1">
-                  <AlertTriangle size={14} /> Expiré
-                </span>
-                <span>{selected.expired_stock}</span>
-              </div>
-            )}
-
-            <div className="flex justify-between text-gray-400 text-xs">
-              <span>Total</span>
-              <span>{selected.total_stock}</span>
-            </div>
-          </div>
-        )}
-
-        {/* Type */}
-        <div>
-          <label className="text-sm">Type</label>
-          <select
-            className="input w-full"
-            value={type}
-            onChange={(e) => setType(e.target.value as "IN" | "OUT")}
-          >
-            <option value="IN">Entrée</option>
-            <option value="OUT">Sortie</option>
-          </select>
-        </div>
-
-        {type === "IN" && (
-            <>
-              <div>
-                <label className="text-sm">Numéro de lot</label>
-                <Input
-                  value={batchNumber}
-                  onChange={(e) => setBatchNumber(e.target.value)}
-                  placeholder="Ex: LOT-2026-001"
-                />
-              </div>
-          
-              <div>
-                <label className="text-sm">Date d’expiration</label>
-                <Input
-                  type="date"
-                  value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
-                />
-              </div>
-            </>
-          )}
-
-        {/* Motif */}
-        <div>
-          <label className="text-sm">Motif</label>
-          <select
-            className="input w-full"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-          >
-            <option value="">Choisir</option>
-            {REASONS.map((r) => (
-              <option key={r}>{r}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Quantité */}
-        <div>
-          <label className="text-sm">Quantité</label>
-          <Input
-            type="number"
-            min={1}
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-          />
-        </div>
-
-        {/* Commentaire */}
-        <Input
-          placeholder="Commentaire (optionnel)"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-
-        {/* Bouton */}
-        <Button
-          onClick={handleSubmit}
-          disabled={loading}
-          className="w-full"
-        >
-          {loading ? "Traitement..." : "Valider"}
+        <Button onClick={exportExcel} className="flex gap-2">
+          <FileDown size={16} />
+          Export Excel
         </Button>
       </div>
 
-      {/* ================= HISTORIQUE ================= */}
-      {showHistory && (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-4 max-h-[80vh] overflow-auto">
-          <StockMovementHistory />
-        </div>
-      )}
+      {/* FILTRES */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+        <Input
+          placeholder="Recherche produit"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <select
+          className="input"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+        >
+          <option value="">Tous types</option>
+          <option value="IN">Entrée</option>
+          <option value="OUT">Sortie</option>
+        </select>
+
+        <Input
+          type="date"
+          value={dateFrom}
+          onChange={(e) => setDateFrom(e.target.value)}
+        />
+
+        <Input
+          type="date"
+          value={dateTo}
+          onChange={(e) => setDateTo(e.target.value)}
+        />
+      </div>
+
+      {/* LISTE */}
+      <div className="space-y-2 max-h-[70vh] overflow-auto">
+
+        {filtered.map((m) => (
+          <div
+            key={m.id}
+            className="p-3 rounded-lg border bg-white dark:bg-gray-800 shadow-sm"
+          >
+            <div className="flex justify-between">
+
+              <div>
+                <div className="font-semibold">
+                  {m.product?.name}
+                </div>
+
+                <div className="text-sm text-gray-500">
+                  {format(new Date(m.created_at), "dd MMM yyyy - HH:mm")}
+                </div>
+
+                {/* LOT */}
+                {m.batch && (
+                  <div className="text-xs text-gray-400">
+                    Lot: {m.batch.batch_number} | Exp: {m.batch.expiry_date}
+                  </div>
+                )}
+              </div>
+
+              <div className="text-right">
+
+                <div className={`text-white px-2 py-1 rounded text-xs ${getBadge(m.reason)}`}>
+                  {m.reason}
+                </div>
+
+                <div className={`font-bold mt-1 ${
+                  m.type === "OUT" ? "text-red-500" : "text-green-600"
+                }`}>
+                  {m.type === "OUT" ? "-" : "+"}{m.quantity}
+                </div>
+              </div>
+
+            </div>
+
+            {/* COMMENT */}
+            {m.comment && (
+              <div className="text-xs mt-2 text-gray-500">
+                {m.comment}
+              </div>
+            )}
+
+            {/* LIEN VENTE */}
+            {m.reason === "VENTE" && m.reference_id && (
+              <div className="text-xs text-blue-500 mt-1 cursor-pointer">
+                Voir la vente #{m.reference_id}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {filtered.length === 0 && (
+          <div className="text-center text-gray-500 p-4">
+            Aucun mouvement trouvé
+          </div>
+        )}
+      </div>
     </div>
   );
 }
