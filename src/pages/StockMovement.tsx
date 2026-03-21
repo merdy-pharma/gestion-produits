@@ -136,10 +136,44 @@ export default function StockMovement() {
         comment
       });
     }
-    if (type === "OUT" && quantity > selected.sellable_stock) {
-      toast.error("Stock insuffisant (non expiré)");
-      return;
-    }
+    if (type === "OUT") {
+        if (!selectedBatchId) {
+          toast.error("Sélectionner un lot");
+          return;
+        }
+      
+        const batch = batches.find(b => b.id === selectedBatchId);
+      
+        if (!batch) {
+          toast.error("Lot introuvable");
+          return;
+        }
+      
+        if (quantity > batch.quantity) {
+          toast.error("Stock insuffisant dans ce lot");
+          return;
+        }
+      
+        // 1. Décrémenter le lot
+        await supabase
+          .from("product_batches")
+          .update({
+            quantity: batch.quantity - quantity
+          })
+          .eq("id", selectedBatchId);
+      
+        // 2. Mouvement stock
+        const { error } = await supabase.from("stock_movements").insert({
+          product_id: selected.id,
+          batch_id: selectedBatchId,
+          type: "OUT",
+          reason,
+          quantity,
+          comment
+        });
+      
+        if (error) throw error;
+      }
 
     setLoading(true);
 
