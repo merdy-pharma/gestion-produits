@@ -175,22 +175,6 @@ export default function StockMovement() {
         if (error) throw error;
       }
 
-    setLoading(true);
-
-    try {
-      // ✅ INSERT UNIQUEMENT mouvement
-      const { error } = await supabase.from("stock_movements").insert({
-        product_id: selected.id,
-        type,
-        reason,
-        quantity,
-        comment,
-      });
-
-      if (error) throw error;
-
-      toast.success("Mouvement enregistré");
-
       // Reset
       setSelected(null);
       setQuery("");
