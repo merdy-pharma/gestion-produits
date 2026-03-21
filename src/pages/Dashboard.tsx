@@ -175,14 +175,14 @@ import { useAuth } from "@/hooks/useAuth";
     const { data: products, error: productError } = await supabase
       .from('product_batches')
       .select('id, purchase_price')
-      .in('product_id', productIds);
+      .in('id', productIds);
 
     if (productError || !products) return 0;
 
     const productMap = Object.fromEntries(products.map(p => [p.product_id, p]));
 
     return saleItems.reduce((sum, item) => {
-      const product = productMap[item.product_id];
+      const product = productMap[item.batch_id];
       if (!product) return sum;
 
       const profitPerItem = item.unit_price - product.purchase_price;
