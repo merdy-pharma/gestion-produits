@@ -53,6 +53,30 @@ export default function StockMovement() {
     return () => clearTimeout(timeout);
   }, [query]);
 
+  useEffect(() => {
+  if (!selected || type !== "OUT") return;
+
+  const loadBatches = async () => {
+    const { data } = await supabase
+      .from("product_batches")
+      .select("*")
+      .eq("product_id", selected.id)
+      .gt("quantity", 0)
+      .order("expiration_date", { ascending: true }); // FEFO
+
+    if (data) {
+      setBatches(data);
+
+      // Auto sélection du plus ancien (PRO UX)
+      if (data.length > 0) {
+        setSelectedBatchId(data[0].id);
+      }
+    }
+  };
+
+  loadBatches();
+}, [selected, type]);
+
   // 🚀 SUBMIT
   const handleSubmit = async () => {
     if (!selected || quantity <= 0 || !reason) {
