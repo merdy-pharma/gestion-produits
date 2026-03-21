@@ -82,7 +82,7 @@ export default function StockMovementHistory() {
       Motif: m.reason,
       Quantité: m.quantity,
       Lot: m.batch?.batch_number || "-",
-      Expiration: m.batch?.expiry_date || "-",
+      Expiration: m.batch?.expiration_date || "-",
       Date: format(new Date(m.created_at), "dd/MM/yyyy HH:mm"),
     }));
 
