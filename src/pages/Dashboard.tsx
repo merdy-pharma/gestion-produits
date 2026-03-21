@@ -175,7 +175,7 @@ import { useAuth } from "@/hooks/useAuth";
     const { data: products, error: productError } = await supabase
       .from('product_batches')
       .select('product_id, purchase_price')
-      .in('id', productIds);
+      .in('product_id', productIds);
 
     if (productError || !products) return 0;
 
