@@ -188,6 +188,8 @@ export default function StockMovement() {
       setBatchNumber("");
       setExpiryDate("");
       setSelectedBatchId("");
+      setBatches("");
+      
   
     } catch (err) {
       console.error(err);
