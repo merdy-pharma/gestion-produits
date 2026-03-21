@@ -175,6 +175,8 @@ export default function StockMovement() {
         if (error) throw error;
       }
 
+     toast.success("Mouvement enregistré");
+
       // Reset
       setSelected(null);
       setQuery("");
@@ -182,6 +184,9 @@ export default function StockMovement() {
       setQuantity(1);
       setReason("");
       setComment("");
+      setBatchNumber("");
+      setExpiryDate("");
+      setSelectedBatchId("");
 
     } catch (err) {
       console.error(err);
