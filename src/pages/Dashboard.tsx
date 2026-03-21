@@ -166,7 +166,7 @@ import { useAuth } from "@/hooks/useAuth";
   const calculateProfitForSales = async (saleIds: number[]) => {
     const { data: saleItems, error: itemError } = await supabase
       .from('sale_items')
-      .select('quantity, product_id, unit_price')
+      .select('quantity, unit_price, batch_id')
       .in('sale_id', saleIds);
 
     if (itemError || !saleItems || saleItems.length === 0) return 0;
@@ -174,7 +174,7 @@ import { useAuth } from "@/hooks/useAuth";
     const productIds = [...new Set(saleItems.map(item => item.product_id))];
     const { data: products, error: productError } = await supabase
       .from('product_batches')
-      .select('product_id, purchase_price')
+      .select('id, purchase_price')
       .in('product_id', productIds);
 
     if (productError || !products) return 0;
