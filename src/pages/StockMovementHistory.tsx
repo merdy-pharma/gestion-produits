@@ -204,7 +204,7 @@ export default function StockMovementHistory() {
             {/* LIEN VENTE */}
             {m.reason === "VENTE" && m.reference_id && (
               <div className="text-xs text-blue-500 mt-1 cursor-pointer">
-                Voir la vente #{m.reference_id}
+                Réf. vente #{m.reference_id}
               </div>
             )}
           </div>
