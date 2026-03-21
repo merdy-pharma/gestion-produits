@@ -322,6 +322,33 @@ export default function StockMovement() {
             </>
           )}
 
+        {type === "OUT" && batches.length > 0 && (
+          <div>
+            <label className="text-sm">Lot (FEFO)</label>
+        
+            <select
+              className="input w-full"
+              value={selectedBatchId}
+              onChange={(e) => setSelectedBatchId(e.target.value)}
+            >
+              {batches.map((b) => {
+                const isNearExpiry =
+                  new Date(b.expiration_date) <
+                  new Date(Date.now() + 30 * 86400000); // 30 jours
+        
+                return (
+                  <option key={b.id} value={b.id}>
+                    {b.batch_number}
+                    {isNearExpiry ? " ⚠️ Exp proche" : ""}
+                    {" | Exp: " + b.expiration_date}
+                    {" | Stock: " + b.quantity}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
+
         {/* Motif */}
         <div>
           <label className="text-sm">Motif</label>
