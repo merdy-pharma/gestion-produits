@@ -179,7 +179,7 @@ import { useAuth } from "@/hooks/useAuth";
 
     if (productError || !products) return 0;
 
-    const productMap = Object.fromEntries(products.map(p => [p.id, p]));
+    const productMap = Object.fromEntries(products.map(p => [p.product_id, p]));
 
     return saleItems.reduce((sum, item) => {
       const product = productMap[item.product_id];
