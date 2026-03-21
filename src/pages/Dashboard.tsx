@@ -171,7 +171,7 @@ import { useAuth } from "@/hooks/useAuth";
 
     if (itemError || !saleItems || saleItems.length === 0) return 0;
 
-    const productIds = [...new Set(saleItems.map(item => item.product_id))];
+    const productIds = [...new Set(saleItems.map(item => item.batch_id))];
     const { data: products, error: productError } = await supabase
       .from('product_batches')
       .select('id, purchase_price')
