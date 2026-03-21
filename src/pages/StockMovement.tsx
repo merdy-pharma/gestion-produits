@@ -195,13 +195,6 @@ export default function StockMovement() {
       setLoading(false);
     }
   };
-    catch (err) {
-      console.error(err);
-      toast.error("Erreur lors du mouvement");
-     finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
