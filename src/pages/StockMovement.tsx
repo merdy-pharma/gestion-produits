@@ -83,86 +83,86 @@ export default function StockMovement() {
       toast.error("Champs obligatoires manquants");
       return;
     }
-    if (type === "IN") {
-      if (!batchNumber || !expiryDate) {
-        toast.error("Lot et expiration obligatoires");
-        return;
-      }
-    
-      // 1. Vérifier si lot existe
-      const { data: existingBatch } = await supabase
-        .from("product_batches")
-        .select("*")
-        .eq("product_id", selected.id)
-        .eq("batch_number", batchNumber)
-        .single();
-    
-      let batchId;
-    
-      if (existingBatch) {
-        // UPDATE lot
-        await supabase
+  
+    setLoading(true);
+  
+    try {
+      // ================= IN =================
+      if (type === "IN") {
+        if (!batchNumber || !expiryDate) {
+          toast.error("Lot et expiration obligatoires");
+          return;
+        }
+  
+        const { data: existingBatch } = await supabase
           .from("product_batches")
-          .update({
-            quantity: existingBatch.quantity + quantity
-          })
-          .eq("id", existingBatch.id);
-    
-        batchId = existingBatch.id;
-    
-      } else {
-        // CREATE lot
-        const { data: newBatch } = await supabase
-          .from("product_batches")
-          .insert({
-            product_id: selected.id,
-            batch_number: batchNumber,
-            expiration_date: expiryDate,
-            quantity
-          })
-          .select()
+          .select("*")
+          .eq("product_id", selected.id)
+          .eq("batch_number", batchNumber)
           .single();
-    
-        batchId = newBatch.id;
+  
+        let batchId;
+  
+        if (existingBatch) {
+          await supabase
+            .from("product_batches")
+            .update({
+              quantity: existingBatch.quantity + quantity
+            })
+            .eq("id", existingBatch.id);
+  
+          batchId = existingBatch.id;
+        } else {
+          const { data: newBatch } = await supabase
+            .from("product_batches")
+            .insert({
+              product_id: selected.id,
+              batch_number: batchNumber,
+              expiration_date: expiryDate,
+              quantity
+            })
+            .select()
+            .single();
+  
+          batchId = newBatch.id;
+        }
+  
+        await supabase.from("stock_movements").insert({
+          product_id: selected.id,
+          batch_id: batchId,
+          type: "IN",
+          reason,
+          quantity,
+          comment
+        });
       }
-    
-      // mouvement
-      await supabase.from("stock_movements").insert({
-        product_id: selected.id,
-        batch_id: batchId,
-        type: "IN",
-        reason,
-        quantity,
-        comment
-      });
-    }
-    if (type === "OUT") {
+  
+      // ================= OUT =================
+      if (type === "OUT") {
         if (!selectedBatchId) {
           toast.error("Sélectionner un lot");
           return;
         }
-      
+  
         const batch = batches.find(b => b.id === selectedBatchId);
-      
+  
         if (!batch) {
           toast.error("Lot introuvable");
           return;
         }
-      
+  
         if (quantity > batch.quantity) {
           toast.error("Stock insuffisant dans ce lot");
           return;
         }
-      
-        // 1. Décrémenter le lot
+  
         await supabase
           .from("product_batches")
           .update({
             quantity: batch.quantity - quantity
           })
           .eq("id", selectedBatchId);
-      
-        // 2. Mouvement stock
+  
         const { error } = await supabase.from("stock_movements").insert({
           product_id: selected.id,
           batch_id: selectedBatchId,
@@ -171,13 +171,13 @@ export default function StockMovement() {
           quantity,
           comment
         });
-      
+  
         if (error) throw error;
       }
-
-     toast.success("Mouvement enregistré");
-
-      // Reset
+  
+      toast.success("Mouvement enregistré");
+  
+      // RESET
       setSelected(null);
       setQuery("");
       setResults([]);
@@ -187,7 +187,14 @@ export default function StockMovement() {
       setBatchNumber("");
       setExpiryDate("");
       setSelectedBatchId("");
-      }
+  
+    } catch (err) {
+      console.error(err);
+      toast.error("Erreur lors du mouvement");
+    } finally {
+      setLoading(false);
+    }
+  };
     catch (err) {
       console.error(err);
       toast.error("Erreur lors du mouvement");
