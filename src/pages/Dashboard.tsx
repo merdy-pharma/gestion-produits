@@ -173,8 +173,8 @@ import { useAuth } from "@/hooks/useAuth";
 
     const productIds = [...new Set(saleItems.map(item => item.product_id))];
     const { data: products, error: productError } = await supabase
-      .from('products')
-      .select('id, purchase_price')
+      .from('product_batches')
+      .select('product_id, purchase_price')
       .in('id', productIds);
 
     if (productError || !products) return 0;
