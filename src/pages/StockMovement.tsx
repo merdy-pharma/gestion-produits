@@ -174,6 +174,11 @@ export default function StockMovement() {
   
         if (error) throw error;
       }
+
+      if (type === "OUT" && reason === "APPRO" && batch.expiration_date < today) {
+            toast.error("Un produit expiré ne peut être APPRO. Veuillez choisir une autre raison !");
+            return;
+          }
   
       toast.success("Mouvement enregistré");
   
