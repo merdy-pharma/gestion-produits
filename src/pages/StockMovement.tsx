@@ -187,11 +187,11 @@ export default function StockMovement() {
       setBatchNumber("");
       setExpiryDate("");
       setSelectedBatchId("");
-
-    } catch (err) {
+      } 
+    catch (err) {
       console.error(err);
       toast.error("Erreur lors du mouvement");
-    } finally {
+     finally {
       setLoading(false);
     }
   };
